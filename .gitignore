@@ -1,0 +1,4 @@
+*.zip
+vorschau/
+.vercel
+.DS_Store
