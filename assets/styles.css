@@ -13,8 +13,8 @@
 
 :root{
   /* Studio-Palette: Beige wie der Raum, Grün nur als Pflanzen-Akzent */
-  --cream:#F6F1EA; --sand:#EDE5D9; --linen:#E3D8C8;
-  --forest:#3F413A; --sage:#5A6649; /* forest = Anthrazit für Bedienelemente, sage = einziges Grün (Akzentwörter, Hover) */ --gold:#CDB99A; --gold-ink:#6F6455;
+  --cream:#F7F4EF; --sand:#EFEAE2; --linen:#E3D8C8; --pine:#16332B; --moss:#2C5245;
+  --forest:#3F413A; --sage:#5A6649; /* forest = Anthrazit für Bedienelemente, sage = einziges Grün (Akzentwörter, Hover) */ --gold:#C8AA6E; --gold-ink:#6F6455;
   --ink:#33352F; --stone:#625F56; --line:rgba(51,53,47,.12);
   --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
 }
@@ -141,10 +141,21 @@ nav .ulink.is-active{color:var(--forest)}
 .g-item.tall img{aspect-ratio:3/4}
 .g-item{overflow:hidden}
 .g-item:hover img{transform:scale(1.04);filter:saturate(1)}
+/* Slideshow: aktives Bild im Fokus, die anderen leicht zurückgenommen */
+.g-item img{opacity:.55;transition:transform 1.4s var(--ease),filter .8s,opacity .9s var(--ease)}
+.g-item.is-active img,.g-item:hover img{opacity:1}
+.g-item figcaption{transition:color .6s}
+.g-item.is-active figcaption{color:var(--ink)}
 .g-item figcaption{display:flex;gap:.9rem;margin-top:1rem;font-size:.78rem;color:var(--stone)}
 .g-item figcaption span{font:italic 500 .95rem/1.2 "Cormorant",serif;color:var(--gold-ink)}
 .gal-btn{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;color:var(--forest);transition:background-color .4s var(--ease),color .4s,border-color .4s}
 .gal-btn:hover{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+/* Play/Pause der Slideshow */
+.gal-play{position:relative;display:grid;place-items:center}
+.gal-play .ico-pause{width:10px;height:11px;border-left:2px solid currentColor;border-right:2px solid currentColor}
+.gal-play .ico-play{display:none;width:0;height:0;margin-left:3px;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.gal-play.is-paused .ico-pause{display:none}
+.gal-play.is-paused .ico-play{display:block}
 .gal-bar{height:1px;background:var(--line);position:relative;overflow:hidden}
 .gal-bar span{position:absolute;inset:0;background:var(--forest);transform-origin:0 50%;transform:scaleX(.14);transition:transform .4s var(--ease)}
 

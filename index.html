@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg">
-<meta name="theme-color" content="#F6F1EA">
+<meta name="theme-color" content="#F7F4EF">
 <link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -22,12 +22,14 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        cream:  '#F6F1EA',
-        sand:   '#EDE5D9',
+        cream:  '#F7F4EF',
+        sand:   '#EFEAE2',
         linen:  '#E3D8C8',
         forest: '#3F413A', // Anthrazit für Bedienelemente
         sage:   '#5A6649', // einziges Grün: Akzentwörter
-        gold:   '#CDB99A',
+        gold:   '#C8AA6E',
+        pine:   '#16332B', // Tannengrün (Flächen wie auf Mels Flyer)
+        moss:   '#2C5245',
         ink:    '#33352F',
         stone:  '#625F56',
       },
@@ -42,6 +44,11 @@ tailwind.config = {
 }
 </script>
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/upgrade.css">
+<!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -89,6 +96,8 @@ tailwind.config = {
 <body class="bg-cream text-ink font-sans antialiased">
 <a href="#main" class="skip">Zum Inhalt springen</a>
 <div class="grain" aria-hidden="true"></div>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="cursor" aria-hidden="true"><span class="cursor-ring"><em class="cursor-label"></em></span><span class="cursor-dot"></span></div>
 
 <!-- ============ NAVIGATION ============ -->
 <header id="top-bar" class="topbar fixed inset-x-0 top-0 z-50">
@@ -126,7 +135,7 @@ tailwind.config = {
 <main id="main">
 
 <!-- ============ HERO ============ -->
-<section class="relative overflow-hidden pt-[76px]">
+<section class="hero relative pt-[76px]" data-blob="0.16 0.02 0.62">
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-10 md:px-10 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16">
     <div class="lg:col-span-6 lg:pt-10 flex flex-col">
       <p class="eyebrow rv">Permanent Make-up &amp; Kosmetik · Landshuter Neustadt</p>
@@ -144,11 +153,11 @@ tailwind.config = {
     </div>
 
     <div class="relative lg:col-span-6">
-      <figure class="hero-img reveal-img relative ml-auto aspect-[4/5] w-full max-w-[560px]">
+      <figure class="hero-img reveal-img relative ml-auto aspect-[4/5] w-full max-w-[560px]" data-speed="0.9">
         <img src="images/mel-portrait.jpg" width="1100" height="1100" alt="Meltem Demirci im Mel Beauty Studio in Landshut" class="h-full w-full object-cover" fetchpriority="high">
       </figure>
-      <div class="hero-frame" aria-hidden="true"></div>
-      <figure class="hero-detail reveal-img absolute -bottom-6 left-0 hidden w-[42%] max-w-[240px] md:block" style="--d:.35s">
+      <div class="hero-frame" aria-hidden="true" data-speed="0.8"></div>
+      <figure class="hero-detail reveal-img absolute -bottom-24 left-0 hidden w-[42%] max-w-[240px] md:block" style="--d:.35s" data-speed="1.25">
         <img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" class="aspect-square w-full object-cover" loading="lazy">
         <figcaption class="mt-3 text-[.68rem] uppercase tracking-label text-stone">Vermessen nach dem Goldenen Schnitt</figcaption>
       </figure>
@@ -158,15 +167,73 @@ tailwind.config = {
 </section>
 
 <!-- Laufband mit Behandlungen aus der Instagram-Bio -->
-<div class="marquee border-y border-ink/10 bg-sand" aria-hidden="true">
+<div class="marquee border-y border-ink/10" aria-hidden="true">
   <div class="marquee-track font-serif text-[1.6rem] italic text-ink/80">
     <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
     <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
   </div>
 </div>
 
+
+<!-- ============ SIGNATURE-SHOWCASE (Sticky, Überblendung beim Scrollen) ============ -->
+<section id="signature" class="showcase" data-blob="-0.36 -0.28 0.34" aria-labelledby="sc-h">
+  <div class="sc-pin">
+    <div class="sc-head mx-auto max-w-[1440px] px-5 md:px-10">
+      <p class="eyebrow rv">Signature-Behandlungen</p>
+      <h2 id="sc-h" class="split mt-5 font-serif text-[2.3rem] leading-[1.05] text-ink md:text-[3.2rem]">Vier Behandlungen, <em>ein</em> Anspruch.</h2>
+    </div>
+    <div class="sc-stage mx-auto max-w-[1440px] px-5 md:px-10">
+      <article class="sc-slide is-active" data-i="0">
+        <figure class="sc-img"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"></figure>
+        <div class="sc-text">
+          <span class="sc-num">01</span>
+          <h3>PhiBrows Microblading</h3>
+          <p>Natürlicher 3D-Augenbraueneffekt durch eine präzise Zeichentechnik: Fehlende oder ausgefallene Härchen werden ergänzt, blasse Brauen optisch verdichtet.</p>
+          <p class="sc-meta">Hält 2–3 Jahre · 490 € inkl. Nachbehandlung nach 21 Tagen</p>
+          <a href="#behandlungen" class="ulink sc-link" data-open-tab="brows">Im Menü ansehen →</a>
+        </div>
+      </article>
+      <article class="sc-slide" data-i="1">
+        <figure class="sc-img"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Permanent Make-up Lippen, Ergebnis" loading="lazy"></figure>
+        <div class="sc-text">
+          <span class="sc-num">02</span>
+          <h3>Permanent Make-up Lippen</h3>
+          <p>Blasse Lippenfarben werden intensiviert, asymmetrische oder formlose Lippen erhalten eine harmonische, natürliche Kontur. Mit organischen Pigmenten.</p>
+          <p class="sc-meta">Hält ca. 2 Jahre · 450 € inkl. Nachbehandlung nach 21 Tagen</p>
+          <a href="#behandlungen" class="ulink sc-link" data-open-tab="brows">Im Menü ansehen →</a>
+        </div>
+      </article>
+      <article class="sc-slide" data-i="2">
+        <figure class="sc-img"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"></figure>
+        <div class="sc-text">
+          <span class="sc-num">03</span>
+          <h3>PhiRemoval</h3>
+          <p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert.</p>
+          <p class="sc-meta">Gesicht 149 € · Körper individuell</p>
+          <a href="#behandlungen" class="ulink sc-link" data-open-tab="removal">Im Menü ansehen →</a>
+        </div>
+      </article>
+      <article class="sc-slide" data-i="3">
+        <figure class="sc-img"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"></figure>
+        <div class="sc-text">
+          <span class="sc-num">04</span>
+          <h3>DS V-Line Kollagen</h3>
+          <p>Natürliche Kollagenfäden straffen die Haut sanft und reduzieren Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p>
+          <p class="sc-meta">245 €</p>
+          <a href="#behandlungen" class="ulink sc-link" data-open-tab="skin">Im Menü ansehen →</a>
+        </div>
+      </article>
+    </div>
+    <div class="sc-progress mx-auto max-w-[1440px] px-5 md:px-10" aria-hidden="true">
+      <span class="sc-count"><b>01</b> / 04</span>
+      <span class="sc-bar"><i></i></span>
+      <span class="sc-hint">Scrollen</span>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BEHANDLUNGS-MENÜ ============ -->
-<section id="behandlungen" class="scroll-mt-24 py-24 md:py-36">
+<section id="behandlungen" class="scroll-mt-24 py-24 md:py-36" data-blob="0.4 0.32 0.28">
   <div class="mx-auto max-w-[1440px] px-5 md:px-10">
     <div class="grid gap-8 lg:grid-cols-12">
       <p class="eyebrow rv lg:col-span-3">Behandlungs-Menü</p>
@@ -260,12 +327,12 @@ tailwind.config = {
 </section>
 
 <!-- ============ PHILOSOPHIE ============ -->
-<section id="philosophie" class="scroll-mt-24 bg-sand py-24 md:py-36">
+<section id="philosophie" class="section-pine scroll-mt-24 pb-24 pt-24 md:pb-36" data-blob="0.42 -0.42 0.2">
   <div class="mx-auto max-w-[1440px] px-5 md:px-10">
     <div class="grid gap-14 lg:grid-cols-12">
       <div class="lg:col-span-5 lg:order-2">
-        <figure class="reveal-img relative aspect-[4/5] w-full overflow-hidden">
-          <img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Augenbrauen im Detail" class="parallax h-full w-full object-cover" loading="lazy">
+        <figure class="bridge-img relative aspect-[4/5] w-full overflow-hidden" data-speed="1.12">
+          <img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Augenbrauen im Detail" class="h-full w-full object-cover" loading="lazy" data-zoom>
         </figure>
       </div>
       <div class="lg:col-span-6 lg:order-1 lg:pr-10">
@@ -293,7 +360,7 @@ tailwind.config = {
 </section>
 
 <!-- ============ AUS DEM STUDIO (Galerie) ============ -->
-<section class="py-24 md:py-32" aria-labelledby="gal-h">
+<section class="gal-section py-24 md:py-32" aria-labelledby="gal-h" data-blob="-0.42 0.34 0.26">
   <div class="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
     <div>
       <p class="eyebrow rv">Aus dem Studio</p>
@@ -301,6 +368,7 @@ tailwind.config = {
     </div>
     <div class="rv flex items-center gap-4">
       <span class="gal-count text-[.78rem] tabular-nums tracking-label text-stone"><b class="font-medium text-ink">01</b> / 07</span>
+      <button type="button" class="gal-btn gal-play" aria-pressed="false" aria-label="Slideshow pausieren"><span class="ico-pause" aria-hidden="true"></span><span class="ico-play" aria-hidden="true"></span></button>
       <button type="button" class="gal-btn" data-dir="-1" aria-label="Vorheriges Bild">←</button>
       <button type="button" class="gal-btn" data-dir="1" aria-label="Nächstes Bild">→</button>
     </div>
@@ -318,7 +386,7 @@ tailwind.config = {
 </section>
 
 <!-- ============ STUDIO LANDSHUT ============ -->
-<section id="studio" class="scroll-mt-24 border-t border-ink/10 py-24 md:py-36">
+<section id="studio" class="scroll-mt-24 border-t border-ink/10 py-24 md:py-36" data-blob="0.44 -0.3 0.28">
   <div class="mx-auto grid max-w-[1440px] gap-14 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-5">
       <p class="eyebrow rv">Studio Landshut</p>
@@ -341,12 +409,22 @@ tailwind.config = {
         <li class="rv" style="--d:.16s"><span>03</span><h3>Behandlung</h3><p>Mit sterilen, personengebundenen Aufsätzen.</p></li>
         <li class="rv" style="--d:.24s"><span>04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei PhiBrows, Powder Brows, Lippen und Linern im Preis enthalten.</p></li>
       </ol>
+
+      <div class="map-wrap rv mt-16" id="map-wrap">
+        <div class="map" id="map" role="region" aria-label="Karte: Mel Beauty Studio, Neustadt 439, Landshut"></div>
+        <div class="map-consent" id="map-consent">
+          <span class="map-pin" aria-hidden="true"><i></i><i></i><b></b></span>
+          <p class="font-serif text-[1.6rem] leading-tight text-ink">Neustadt 439, 84028 Landshut</p>
+          <button type="button" class="btn btn-primary mt-6" id="map-load">Interaktive Karte laden</button>
+          <p class="mt-4 max-w-[26rem] text-[.75rem] leading-relaxed text-stone">Beim Laden werden Kartendaten von OpenStreetMap abgerufen. Dabei wird deine IP-Adresse an diesen Dienst übertragen.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="fragen" class="scroll-mt-24 bg-sand py-24 md:py-32">
+<section id="fragen" class="scroll-mt-24 py-24 md:py-32" data-blob="-0.42 0.18 0.3">
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-4">
       <p class="eyebrow rv">Häufige Fragen</p>
@@ -364,22 +442,22 @@ tailwind.config = {
 </section>
 
 <!-- ============ ABSCHLUSS ============ -->
-<section class="relative overflow-hidden border-t border-ink/10 bg-linen py-24 text-ink md:py-32">
+<section class="section-pine cta-final relative overflow-hidden py-24 md:py-36" data-blob="0 0.6 0.2">
   <div class="mx-auto grid max-w-[1440px] items-end gap-12 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-8">
       <p class="eyebrow rv">Termin</p>
-      <h2 class="split mt-6 font-serif text-[2.8rem] leading-[1.02] md:text-[4.8rem]">Bereit für <em>deinen</em> Termin?</h2>
+      <h2 class="split mt-6 font-serif text-[2.8rem] leading-[1.02] md:text-[5.6rem]">Bereit für <em>deinen</em> Termin?</h2>
     </div>
     <div class="rv flex flex-col gap-4 lg:col-span-4 lg:items-end">
-      <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
-      <a href="https://wa.me/491636839277" target="_blank" rel="noopener" class="ulink text-[.88rem] text-stone">oder direkt per WhatsApp schreiben</a>
+      <button type="button" class="btn btn-gold" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
+      <a href="https://wa.me/491636839277" target="_blank" rel="noopener" class="ulink text-[.88rem]">oder direkt per WhatsApp schreiben</a>
     </div>
   </div>
 </section>
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-cream pt-20">
+<footer class="site-footer pt-20" data-blob="0 0.3 0.42">
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-12 md:grid-cols-12 md:px-10">
     <div class="md:col-span-5">
       <p class="font-serif text-[2rem] leading-tight text-ink">Mel Beauty Studio</p>
@@ -416,7 +494,7 @@ tailwind.config = {
     <span class="c-dot" aria-hidden="true"></span>
     <span class="c-launch-text">Concierge</span>
   </button>
-  <section id="c-panel" class="c-panel" role="dialog" aria-label="Beauty-Concierge" hidden>
+  <section id="c-panel" class="c-panel" role="dialog" aria-label="Beauty-Concierge" data-lenis-prevent hidden>
     <header class="c-head">
       <div class="flex items-center gap-3">
         <img src="images/mel-portrait.jpg" alt="" class="h-10 w-10 rounded-full object-cover object-top" width="40" height="40">
@@ -438,5 +516,7 @@ tailwind.config = {
 </div>
 
 <script src="assets/app.js" defer></script>
+<script src="assets/motion.js" defer></script>
+<script type="module" src="assets/scene.js"></script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     burger.setAttribute('aria-expanded', open);
     burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
     document.body.style.overflow = open ? 'hidden' : '';
+    if (window.lenis) open ? window.lenis.stop() : window.lenis.start();
     if (open) { mnav.hidden = false; requestAnimationFrame(() => mnav.classList.add('is-open')); bar.classList.add('is-scrolled'); }
     else { mnav.classList.remove('is-open'); setTimeout(() => { if (!mnav.classList.contains('is-open')) mnav.hidden = true; }, 450); }
   };
@@ -28,7 +29,7 @@
     bar.classList.toggle('is-scrolled', y > 10 || open);
     if (!open) bar.classList.toggle('is-hidden', y > 520 && y > lastY + 3);
     if (y < lastY - 3) bar.classList.remove('is-hidden');
-    if (!still) {
+    if (false) {
       parallax.forEach(img => {
         const r = img.parentElement.getBoundingClientRect();
         if (r.bottom > 0 && r.top < innerHeight) img.style.transform = `translate3d(0,${((r.top + r.height / 2 - innerHeight / 2) * -0.06).toFixed(1)}px,0) scale(1.08)`;
@@ -104,28 +105,70 @@
   addEventListener('load', () => moveInk($('[role="tab"][aria-selected="true"]')));
   addEventListener('resize', () => moveInk($('[role="tab"][aria-selected="true"]')));
   moveInk(tabs[0]);
+  window.melSelectTab = name => { const t = tabs.find(x => x.dataset.tab === name); if (t) selectTab(t); };
 
-  /* ---------- Galerie ---------- */
+  /* ---------- Galerie mit Slideshow ---------- */
   const gal = $('.gallery');
   if (gal) {
-    const items = $$('.g-item', gal), count = $('.gal-count b'), fill = $('.gal-bar span');
-    const update = () => {
-      const max = gal.scrollWidth - gal.clientWidth, p = max > 0 ? gal.scrollLeft / max : 0;
-      fill.style.transform = `scaleX(${Math.max(1 / items.length, p)})`;
-      let idx = 0, best = Infinity;
-      items.forEach((it, i) => { const d = Math.abs(it.getBoundingClientRect().left - gal.getBoundingClientRect().left - parseFloat(getComputedStyle(gal).paddingLeft)); if (d < best) { best = d; idx = i; } });
-      if (p > 0.98) idx = items.length - 1;
-      count.textContent = String(idx + 1).padStart(2, '0');
+    const items = $$('.g-item', gal), n = items.length, count = $('.gal-count b'), fill = $('.gal-bar span'), toggle = $('.gal-play');
+    const DELAY = 3500;           // Wechsel alle 3,5 Sekunden
+    let pos = 0, programmatic = 0;
+
+    // Aktives Bild hervorheben, Zähler und Fortschritt setzen
+    const setActive = i => {
+      pos = (i + n) % n;
+      items.forEach((it, k) => it.classList.toggle('is-active', k === pos));
+      count.textContent = String(pos + 1).padStart(2, '0');
+      fill.style.transform = 'scaleX(' + ((pos + 1) / n) + ')';
     };
-    gal.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-    $$('.gal-btn').forEach(b => b.addEventListener('click', () => gal.scrollBy({ left: +b.dataset.dir * (items[0].offsetWidth + 24), behavior: still ? 'auto' : 'smooth' })));
+    const goTo = i => {
+      setActive(i);
+      const pad = parseFloat(getComputedStyle(gal).paddingLeft);
+      const max = gal.scrollWidth - gal.clientWidth;
+      programmatic = Date.now() + 900;
+      gal.scrollTo({ left: Math.min(max, items[pos].offsetLeft - pad), behavior: still ? 'auto' : 'smooth' });
+    };
+    // Bei manuellem Scrollen das Bild am linken Rand als aktiv nehmen
+    gal.addEventListener('scroll', () => requestAnimationFrame(() => {
+      if (Date.now() < programmatic) return;
+      const left = gal.getBoundingClientRect().left + parseFloat(getComputedStyle(gal).paddingLeft);
+      let idx = 0, best = Infinity;
+      items.forEach((it, k) => { const d = Math.abs(it.getBoundingClientRect().left - left); if (d < best) { best = d; idx = k; } });
+      if (idx !== pos) setActive(idx);
+    }), { passive: true });
+
+    /* Automatik: pausiert bei Hover, Fokus, Berührung, außerhalb des Sichtbereichs,
+       in einem Hintergrund-Tab, per Pause-Button und bei "Bewegung reduzieren". */
+    let timer = null, paused = still, hover = false, visible = false, holdUntil = 0;
+    const canRun = () => !paused && !hover && visible && !document.hidden && Date.now() > holdUntil && !gal.contains(document.activeElement);
+    const schedule = () => { clearTimeout(timer); timer = setTimeout(() => { if (canRun()) goTo(pos + 1); schedule(); }, DELAY); };
+    const hold = () => { holdUntil = Date.now() + 6000; schedule(); };
+    const setPaused = p => {
+      paused = p;
+      toggle.setAttribute('aria-pressed', p);
+      toggle.setAttribute('aria-label', p ? 'Slideshow starten' : 'Slideshow pausieren');
+      toggle.classList.toggle('is-paused', p);
+      schedule();
+    };
+    toggle.addEventListener('click', () => setPaused(!paused));
+    gal.addEventListener('mouseenter', () => { hover = true; });
+    gal.addEventListener('mouseleave', () => { hover = false; schedule(); });
+    gal.addEventListener('touchstart', hold, { passive: true });
+    gal.addEventListener('wheel', hold, { passive: true });
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.35 }).observe(gal);
+    document.addEventListener('visibilitychange', schedule);
+    $$('.gal-btn[data-dir]').forEach(b => b.addEventListener('click', () => { goTo(pos + Number(b.dataset.dir)); hold(); }));
+
+    // Ziehen mit der Maus
     let down = false, sx = 0, sl = 0, moved = false;
-    gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('is-drag'); });
+    gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; hold(); down = true; moved = false; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('is-drag'); });
     addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 3) moved = true; gal.scrollLeft = sl - dx; });
     addEventListener('pointerup', () => { if (!down) return; down = false; gal.classList.remove('is-drag'); });
     gal.addEventListener('click', e => { if (moved) e.preventDefault(); }, true);
     $$('img', gal).forEach(i => i.draggable = false);
-    update();
+
+    setActive(0);
+    setPaused(paused);
   }
 
   /* ---------- FAQ weich animieren ---------- */
@@ -249,7 +292,7 @@
   function openConcierge(mode) {
     box.classList.add('is-open'); panel.hidden = false; launch.setAttribute('aria-expanded', 'true');
     requestAnimationFrame(() => panel.classList.add('is-open'));
-    if (innerWidth <= 640) document.body.style.overflow = 'hidden';
+    if (innerWidth <= 640) { document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); }
     setMenu(false);
     if (!state.started) {
       state.started = true;
@@ -262,6 +305,7 @@
   function closeConcierge() {
     if (!box.classList.contains('is-open')) return;
     panel.classList.remove('is-open'); launch.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
     setTimeout(() => { panel.hidden = true; box.classList.remove('is-open'); launch.focus({ preventScroll: true }); }, 380);
   }
   launch.addEventListener('click', () => openConcierge());

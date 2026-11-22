@@ -1,0 +1,148 @@
+/* =========================================================
+   Mel Beauty Studio · Design-Upgrade
+   Grüne Flächen, Showcase, 3D-Ebene, Cursor, Karte, Übergänge
+   ========================================================= */
+
+/* ---------- Ebenen: 3D-Szene hinter dem Inhalt ---------- */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.6s var(--ease)}
+#scene.is-ready{opacity:1}
+main,.site-footer{position:relative;z-index:1}
+.site-footer{background:transparent}
+
+/* ---------- Tiefgrüne Flächen (wie Mels Flyer) ---------- */
+.section-pine{position:relative;background:var(--pine);color:var(--cream)}
+.section-pine .text-ink{color:var(--cream)}
+.section-pine .text-stone,.section-pine .principles p,.section-pine footer{color:rgba(247,244,239,.72)}
+.section-pine em{color:var(--gold)!important}
+.section-pine .eyebrow{color:var(--gold)}
+.section-pine .eyebrow::before{background:var(--gold)}
+.section-pine .principles,.section-pine .principles li{border-color:rgba(247,244,239,.16)}
+.section-pine .principles h3{color:var(--cream)}
+.section-pine .principles .n{color:var(--gold)}
+.section-pine .ulink{color:var(--cream)}
+.section-pine ::selection{background:var(--gold);color:var(--pine)}
+.section-pine .cert{background:#fff;border-color:transparent}
+/* weicher Übergang statt harter Kante */
+.section-pine::before{content:"";position:absolute;left:0;right:0;top:-1px;height:120px;transform:translateY(-100%);background:linear-gradient(to bottom,rgba(22,51,43,0),rgba(22,51,43,.06));pointer-events:none}
+
+/* Bild ragt aus der grünen Fläche in die Sektion davor */
+@media (min-width:1024px){
+  #philosophie{margin-top:12rem}
+  #philosophie .bridge-img{margin-top:-20rem;box-shadow:0 60px 120px -60px rgba(0,0,0,.45)}
+}
+@media (max-width:1023px){
+  #philosophie{margin-top:6rem}
+  #philosophie .bridge-img{margin-top:-9rem;max-width:520px;margin-left:auto}
+}
+.bridge-img img{transform-origin:50% 40%}
+
+.btn-gold{background:var(--gold);color:var(--pine);border-color:var(--gold)}
+.btn-gold::before{background:var(--cream)}
+.cta-final{text-align:left}
+.cta-final h2{color:var(--cream)}
+
+/* ---------- Laufband reagiert auf Scrolltempo ---------- */
+.marquee{position:relative;z-index:1;background:rgba(247,244,239,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.marquee-track{will-change:transform}
+
+/* ---------- Signature-Showcase ---------- */
+.showcase{position:relative;height:420vh}
+.sc-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(1.2rem,3vh,2.4rem);padding-top:76px;overflow:hidden}
+.sc-head{width:100%}
+.sc-stage{position:relative;width:100%;height:min(58vh,560px)}
+.sc-slide{position:absolute;inset:0 clamp(1.25rem,4vw,2.5rem);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,6vw,6rem);align-items:center;pointer-events:none}
+.sc-slide.is-active{pointer-events:auto}
+.sc-img{position:relative;height:100%;margin:0;overflow:hidden;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--ease-io)}
+.sc-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);transition:transform 1.8s var(--ease)}
+.sc-slide.is-active .sc-img{clip-path:inset(0 0 0 0)}
+.sc-slide.is-active .sc-img img{transform:scale(1)}
+.sc-slide.is-leaving .sc-img{clip-path:inset(0 0 100% 0);transition-duration:1s}
+.sc-text > *{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.sc-slide.is-active .sc-text > *{opacity:1;transform:none}
+.sc-slide.is-active .sc-text > *:nth-child(2){transition-delay:.08s}
+.sc-slide.is-active .sc-text > *:nth-child(3){transition-delay:.16s}
+.sc-slide.is-active .sc-text > *:nth-child(4){transition-delay:.24s}
+.sc-slide.is-active .sc-text > *:nth-child(5){transition-delay:.32s}
+.sc-num{display:block;font:italic 400 clamp(4rem,9vw,8.5rem)/.8 "Cormorant",serif;color:var(--gold);letter-spacing:-.03em}
+.sc-text h3{margin-top:1rem;font:500 clamp(2rem,3.6vw,3.4rem)/1.04 "Cormorant",serif;color:var(--ink)}
+.sc-text p{margin-top:1.1rem;max-width:32rem;font-size:.98rem;line-height:1.75;color:var(--stone)}
+.sc-text .sc-meta{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+.sc-link{display:inline-block;margin-top:1.6rem;font-size:.88rem;font-weight:500;color:var(--ink)}
+.sc-progress{width:100%;display:flex;align-items:center;gap:1.4rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.sc-count b{font-weight:600;color:var(--ink)}
+.sc-bar{flex:1;height:1px;background:var(--line);position:relative;overflow:hidden}
+.sc-bar i{position:absolute;inset:0;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
+@media (max-width:1023px){
+  /* Mobil: kein Sticky, die vier Behandlungen stehen untereinander */
+  .showcase{height:auto;padding:5rem 0 2rem}
+  .sc-pin{position:relative;height:auto;padding-top:0;overflow:visible}
+  .sc-stage{height:auto;display:grid;gap:3.5rem}
+  .sc-slide{position:relative;inset:auto;grid-template-columns:1fr;gap:1.4rem;pointer-events:auto}
+  .sc-img{aspect-ratio:4/3;height:auto;clip-path:none}
+  .sc-img img{transform:none}
+  .sc-text > *{opacity:1;transform:none}
+  .sc-num{font-size:3.6rem}
+  .sc-progress{display:none}
+}
+
+/* ---------- Karte ---------- */
+.map-wrap{position:relative;height:clamp(320px,42vw,460px);overflow:hidden;border:1px solid var(--line);background:
+  radial-gradient(circle at 58% 46%,rgba(200,170,110,.18),transparent 42%),
+  repeating-linear-gradient(115deg,transparent 0 46px,rgba(51,53,47,.05) 46px 47px),
+  repeating-linear-gradient(25deg,transparent 0 62px,rgba(51,53,47,.045) 62px 63px),var(--sand)}
+.map{position:absolute;inset:0;z-index:1}
+.map-consent{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .8s var(--ease)}
+.map-wrap.is-loaded .map-consent{opacity:0;pointer-events:none}
+.map-pin,.mel-marker{position:relative;display:block;width:18px;height:18px;margin-bottom:1.4rem}
+.map-pin b,.mel-marker b{position:absolute;inset:3px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(247,244,239,.9)}
+.map-pin i,.mel-marker i{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);animation:ping 2.6s var(--ease) infinite}
+.map-pin i:nth-child(2),.mel-marker i:nth-child(2){animation-delay:1.3s}
+@keyframes ping{from{transform:scale(1);opacity:.9}to{transform:scale(4.2);opacity:0}}
+.mel-marker{margin:0}
+/* Kartenkacheln in Creme, Salbei und Gold einfärben */
+.map .leaflet-tile-pane{filter:grayscale(1) sepia(.38) saturate(.9) brightness(1.06) contrast(.82)}
+.map.leaflet-container{background:var(--sand);font-family:"Jakarta",system-ui,sans-serif}
+.map .leaflet-control-zoom{border:0!important;box-shadow:none!important}
+.map .leaflet-control-zoom a{width:38px;height:38px;line-height:36px;background:var(--cream);color:var(--ink);border:1px solid var(--line)!important;border-radius:0!important}
+.map .leaflet-control-zoom a:hover{background:var(--ink);color:var(--cream)}
+.map .leaflet-control-attribution{background:rgba(247,244,239,.85);font-size:10px;color:var(--stone)}
+.map .leaflet-popup-content-wrapper{border-radius:0;background:var(--pine);color:var(--cream);box-shadow:0 24px 50px -24px rgba(0,0,0,.5)}
+.map .leaflet-popup-tip{background:var(--pine)}
+.map .leaflet-popup-content{margin:1rem 1.2rem;font-size:.82rem;line-height:1.5}
+.map .leaflet-popup-content b{display:block;font:500 1.3rem/1.1 "Cormorant",serif;color:var(--cream);margin-bottom:.3rem}
+.map .leaflet-popup-content a{color:var(--gold)}
+.map .leaflet-popup-close-button{color:var(--cream)!important}
+
+/* ---------- Eigener Cursor ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:95;pointer-events:none;display:none}
+.has-cursor .cursor{display:block}
+.has-cursor,.has-cursor a,.has-cursor button,.has-cursor [role="tab"],.has-cursor summary,.has-cursor .gallery{cursor:none}
+.has-cursor input{cursor:text}
+.cursor-dot,.cursor-ring{position:absolute;left:0;top:0;border-radius:50%;will-change:transform}
+.cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--gold)}
+.cursor-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid var(--gold);display:grid;place-items:center;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background-color .45s,border-color .45s,opacity .3s}
+.cursor-label{font:600 .58rem/1 "Jakarta",sans-serif;letter-spacing:.18em;text-transform:uppercase;font-style:normal;color:var(--pine);opacity:0;transition:opacity .3s}
+.cursor.is-link .cursor-ring{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(200,170,110,.12)}
+.cursor.is-media .cursor-ring{width:92px;height:92px;margin:-46px 0 0 -46px;background:rgba(200,170,110,.88);border-color:transparent}
+.cursor.is-media .cursor-label{opacity:1}
+.cursor.is-media .cursor-dot,.cursor.is-link .cursor-dot{opacity:0}
+.cursor.is-hidden .cursor-ring,.cursor.is-hidden .cursor-dot{opacity:0}
+
+/* Magnetische Elemente */
+[data-magnetic]{will-change:transform}
+
+/* Fallback & reduzierte Bewegung */
+@media (prefers-reduced-motion:reduce){
+  #scene{display:none}
+  .sc-img,.sc-img img,.sc-text > *{transition:none!important}
+  .map-pin i,.mel-marker i{animation:none}
+}
+
+/* Platz für den Concierge-Knopf unten rechts */
+.site-footer > .border-t > div{padding-bottom:5.5rem}
+
+/* Handy: Skulptur dezenter, Text bleibt im Vordergrund */
+@media (max-width:767px){#scene.is-ready{opacity:.5}}
