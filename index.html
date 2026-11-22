@@ -2,18 +2,48 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Permanent Make-up &amp; Kosmetik in Landshut | Mel Beauty Studio</title>
-<meta name="description" content="Mel Beauty Studio in Landshut: PhiBrows Microblading, Powder Brows, Lippen- und Lidstrich-Pigmentierung, Kopfhautpigmentierung, Microneedling und Skin Care. Nachbehandlung nach 21 Tagen inklusive.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mel Beauty Studio Landshut | PhiBrows, Permanent Make-up &amp; Hautbehandlungen</title>
+<meta name="description" content="Mel Beauty Studio in der Landshuter Neustadt: PhiBrows Microblading, Permanent Make-up, PhiRemoval, DS V-Line Kollagen, Microneedling und Skin Care. Persönlich von Meltem Demirci.">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="canonical" href="https://www.mel-beauty-studio.de/">
-<meta property="og:title" content="Mel Beauty Studio | Permanent Make-up &amp; Kosmetik in Landshut">
-<meta property="og:description" content="PhiBrows, Powder Brows, Lippen, Microneedling und Skin Care in Landshut.">
+<meta property="og:title" content="Mel Beauty Studio · Landshut">
+<meta property="og:description" content="PhiBrows, Permanent Make-up, PhiRemoval und ästhetische Hautbehandlungen in der Landshuter Neustadt.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta name="theme-color" content="#F6EFE6">
-<link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:image" content="https://www.mel-beauty-studio.de/images/mel-portrait.jpg">
+<meta name="theme-color" content="#F7F4EF">
+<link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Tailwind CSS via CDN, mit eigener Studio-Palette -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream:  '#F7F4EF',
+        sand:   '#EFECE6',
+        linen:  '#E6E0D6',
+        forest: '#1E3F35',
+        sage:   '#3A5A40',
+        gold:   '#C2A878',
+        ink:    '#1F2622',
+        stone:  '#5E625C',
+      },
+      fontFamily: {
+        serif: ['"Cormorant"', 'Georgia', 'serif'],
+        sans:  ['"Jakarta"', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+      },
+      letterSpacing: { label: '.22em' },
+      transitionTimingFunction: { lux: 'cubic-bezier(.22,1,.36,1)' },
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="assets/styles.css">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +60,6 @@
       "sameAs": ["https://www.instagram.com/melbeautystudio.landshut/", "https://www.facebook.com/melbeautystudio.landshut"],
       "priceRange": "€€",
       "address": {"@type": "PostalAddress", "streetAddress": "Neustadt 439", "postalCode": "84028", "addressLocality": "Landshut", "addressRegion": "Bayern", "addressCountry": "DE"},
-      "areaServed": ["Landshut", "Ergolding", "Altdorf", "Kumhausen", "Essenbach", "Vilsbiburg", "Moosburg"],
       "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"},
         {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00"}
@@ -41,8 +70,9 @@
         "itemListElement": [
           {"@type": "Offer", "price": "490", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiBrows Microblading inkl. Nachbehandlung"}},
           {"@type": "Offer", "price": "390", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Powder Brows inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "450", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Lippenpigmentierung inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "350", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Kopfhautpigmentierung"}},
+          {"@type": "Offer", "price": "450", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Permanent Make-up Lippen inkl. Nachbehandlung"}},
+          {"@type": "Offer", "price": "149", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiRemoval Gesicht"}},
+          {"@type": "Offer", "price": "245", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "DS V-Line Kollagen"}},
           {"@type": "Offer", "price": "119", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Microneedling Gesicht"}},
           {"@type": "Offer", "price": "90", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Wimpernlifting"}}
         ]
@@ -52,694 +82,367 @@
       "@type": "FAQPage",
       "mainEntity": [
         {"@type": "Question", "name": "Ist die Nachbehandlung im Preis enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits im Preis enthalten."}},
-        {"@type": "Question", "name": "Was ist der Unterschied zwischen PhiBrows Microblading und Powder Brows?", "acceptedAnswer": {"@type": "Answer", "text": "Beim PhiBrows Microblading werden einzelne, feine Härchen gezeichnet. Das Ergebnis ist ein sehr natürlicher 3D-Haareffekt. Powder Brows wirken weicher und gepudert, ähnlich wie geschminkte Brauen."}},
-        {"@type": "Question", "name": "Wann sollte Permanent Make-up aufgefrischt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Für ein frisches Ergebnis empfiehlt sich eine Auffrischung nach etwa 12 Monaten. Ab 18 Monaten oder bei Arbeiten aus einem anderen Studio gilt der Neupreis."}},
-        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre."}}
+        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre."}},
+        {"@type": "Question", "name": "Kann altes Permanent Make-up entfernt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Mit PhiRemoval lassen sich Permanent Make-up, Microblading oder kleine Tattoos sanft und ohne Laser entfernen."}}
       ]
     }
   ]
 }
 </script>
-<style>
-@font-face{font-family:"Cormorant";src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Cormorant";src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Cormorant";src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
-
-:root{
-  /* Studiofarben: Creme, Greige, Karamell (aus Studio-Fotos und Flyern) */
-  --paper:#F6EFE6;
-  --paper-2:#EFE4D6;
-  --sand:#E8D9C5;
-  --taupe:#CDB79C;
-  --slot:#E3D4C1;
-  --ink:#2D2420;
-  --ink-2:#5C4E44;
-  --muted:#76634F;
-  --accent:#845F40;
-  --accent-2:#6B4C33;
-  --gold:#B08D57;
-  --rule:rgba(45,36,32,.16);
-  --rule-light:rgba(45,36,32,.14);
-  --serif:"Cormorant",Georgia,serif;
-  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --pad:clamp(1.25rem,4vw,3.5rem);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit}
-p{margin:0}
-h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.015em}
-.wrap{padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
-.label{font:600 .7rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--paper);padding:.5rem 1rem}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-/* Bild-Slots: bewusst wie ein Layout-Entwurf, nicht wie Deko */
-.slot{background:var(--slot);position:relative;overflow:hidden}
-.slot::after{content:attr(data-label);position:absolute;left:1rem;bottom:.9rem;font:500 .68rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.slot--dark{background:var(--taupe)}
-/* Echte Fotos (aus Instagram und melbeautystudio.carrd.co) */
-.ph{position:relative;overflow:hidden;background:var(--slot);margin:0}
-.ph img{display:block;width:100%;height:100%;object-fit:cover}
-.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1rem .8rem;background:linear-gradient(transparent,rgba(35,36,28,.6));color:var(--paper);font:500 .72rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase}
-.certs{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;align-items:center}
-.certs img{width:88px;height:88px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:.35rem}
-.maplink{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem;padding:var(--pad);background:var(--taupe);color:var(--ink);text-decoration:none;min-height:460px}
-.maplink b{font:500 clamp(1.8rem,3vw,2.6rem)/1.1 var(--serif)}
-.maplink span{font:600 .75rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.maplink:hover b{text-decoration:underline;text-underline-offset:.2em}
-.social{display:flex;gap:1.4rem;margin-top:1.6rem;font-size:.9rem}
-
-/* Links & Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem 1.7rem;background:var(--accent);color:#fff;text-decoration:none;font:600 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--accent);transition:background .25s,color .25s,border-color .25s}
-.btn:hover{background:var(--ink);border-color:var(--ink)}
-.btn--line{background:transparent;color:var(--accent-2);border-color:var(--accent)}
-.btn--line:hover{background:var(--accent);color:#fff}
-.tlink{font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s}
-.tlink:hover{color:var(--accent)}
-
-/* Header */
-.header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule)}
-.header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px}
-.nav{display:flex;gap:2rem}
-.nav a,.header-r a{font-size:.86rem;text-decoration:none;color:var(--ink-2)}
-.nav a:hover,.header-r a:hover{color:var(--ink)}
-.logo{text-decoration:none;text-align:center;line-height:1}
-.logo b{display:block;font:500 1.9rem/1 var(--serif);letter-spacing:.02em}
-.logo span{display:block;font:600 .55rem/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;padding-left:.42em}
-.header-r{display:flex;justify-content:flex-end;align-items:center;gap:1.8rem}
-.header-r .btn{padding:.8rem 1.2rem;color:var(--paper)}
-.header-r .btn:hover{color:var(--paper)}
-.burger{display:none;background:none;border:0;padding:.5rem;cursor:pointer;font:600 .72rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-
-/* Hero */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 72px);max-height:900px;border-bottom:1px solid var(--rule)}
-.hero-text{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(2.5rem,6vw,5rem) var(--pad);gap:3rem}
-.hero h1{font-size:clamp(3rem,6.4vw,6.2rem);max-width:11ch}
-.hero-sub{font-size:1.08rem;color:var(--ink-2);max-width:31rem;margin-top:1.8rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:1.6rem;align-items:center;margin-top:2.2rem}
-.hero-facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;border-top:1px solid var(--rule);padding-top:1.4rem}
-.hero-facts div{padding-right:2rem;margin-right:2rem;border-right:1px solid var(--rule);font-size:.86rem;color:var(--ink-2);line-height:1.5}
-.hero-facts div:last-child{border:0;margin:0;padding:0}
-.hero-facts b{display:block;color:var(--ink);font-weight:600}
-.hero .slot,.hero .ph{min-height:520px}
-
-/* Intro */
-.intro{padding-block:clamp(5rem,11vw,9rem)}
-.intro .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
-.intro .label{grid-column:1 / 3}
-.intro-text{grid-column:3 / 10}
-.intro-text p:first-child{font:400 clamp(1.7rem,2.9vw,2.6rem)/1.28 var(--serif);letter-spacing:-.005em}
-.intro-text p+p{margin-top:1.6rem;color:var(--ink-2);max-width:36rem}
-.intro-img{grid-column:10 / 13;aspect-ratio:3/4;align-self:end}
-.sign{font:italic 400 2rem/1 var(--serif);margin-top:2rem;display:block}
-
-/* Schwerpunkte */
-.focus{padding-bottom:clamp(5rem,10vw,8rem)}
-.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--rule);margin-bottom:2.5rem;flex-wrap:wrap}
-.head h2{font-size:clamp(2.4rem,4.6vw,4rem)}
-.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,2.5vw,2.5rem)}
-.f-item .slot,.f-item .ph{aspect-ratio:4/5;margin-bottom:1.4rem}
-.f-item h3{font-size:2rem;margin-bottom:.6rem}
-.f-item p{color:var(--ink-2);font-size:.95rem;max-width:26rem}
-.f-meta{display:flex;justify-content:space-between;margin-top:1.2rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.86rem}
-.f-meta span:last-child{font-weight:600}
-
-/* Preisliste im Flyer-Look */
-.menu{background:var(--sand);color:var(--ink);padding-block:clamp(5rem,10vw,8rem)}
-.menu .head{border-color:var(--rule-light)}
-.menu .head p{max-width:24rem;color:var(--ink-2);font-size:.95rem}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2.5rem,6vw,6rem)}
-.cat{padding-block:2.2rem;border-bottom:1px solid var(--rule-light)}
-.cat h3{font:600 .78rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2)}
-.cat > p{font-size:.9rem;color:var(--ink-2);margin:.7rem 0 1.1rem;max-width:32rem}
-.row{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;font-size:.98rem}
-.row .n{flex:none;max-width:75%}
-.row .n small{display:block;font-size:.8rem;color:var(--ink-2);margin-top:.1rem}
-.row .d{flex:1;border-bottom:1px dotted rgba(45,36,32,.3);transform:translateY(-.3em);min-width:1rem}
-.row .p{flex:none;font-weight:600;white-space:nowrap}
-.menu-foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:3rem;font-size:.88rem;color:var(--ink-2)}
-.menu .btn{background:var(--accent);color:#fff;border-color:var(--accent)}
-.menu .btn:hover{background:var(--ink);border-color:var(--ink)}
-
-/* Ablauf mit echten Zeitpunkten */
-.flow{padding-block:clamp(5rem,10vw,8rem)}
-.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
-.flow-grid > div{padding:1.4rem 1.6rem 0 0}
-.flow-grid > div + div{padding-left:1.6rem;border-left:1px solid var(--rule)}
-.flow .when{font:600 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-.flow h3{font-size:1.75rem;margin:1rem 0 .6rem}
-.flow p{font-size:.93rem;color:var(--ink-2)}
-
-/* Ergebnisse */
-.results{padding-bottom:clamp(5rem,10vw,8rem)}
-.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
-.res-grid .ph{aspect-ratio:1}
-
-/* Stimme */
-.voice{background:var(--paper-2);padding-block:clamp(5rem,10vw,8rem)}
-.voice .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
-.voice .label{grid-column:1 / 3}
-.voice blockquote{grid-column:3 / 11;margin:0}
-.voice blockquote p{font:400 clamp(1.9rem,3.6vw,3.2rem)/1.2 var(--serif)}
-.voice footer{margin-top:2rem;font-size:.9rem;color:var(--ink-2);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
-.voice .note{grid-column:3 / 11;font-size:.8rem;color:var(--muted)}
-
-/* FAQ */
-.faq{padding-block:clamp(5rem,10vw,8rem)}
-.faq-list{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2rem,5vw,5rem)}
-details{border-bottom:1px solid var(--rule)}
-summary{cursor:pointer;list-style:none;padding:1.3rem 2rem 1.3rem 0;position:relative;font-weight:500;font-size:1rem}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:0;top:1.15rem;font:400 1.4rem/1 var(--sans);color:var(--muted)}
-details[open] summary::after{content:"–"}
-details p{padding-bottom:1.4rem;color:var(--ink-2);font-size:.95rem}
-
-/* Kontakt */
-.contact{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr}
-.contact-text{padding:clamp(4rem,8vw,6.5rem) var(--pad)}
-.contact h2{font-size:clamp(2.6rem,5vw,4.4rem);margin-bottom:1.5rem}
-.contact-text > p{color:var(--ink-2);max-width:30rem}
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)}
-.c-grid .label{display:block;margin-bottom:.7rem}
-.c-grid p,.c-grid a{font-size:.95rem;text-decoration:none}
-.hours{border-collapse:collapse;font-size:.92rem;width:100%}
-.hours td{padding:.2rem 0}.hours td+td{text-align:right;padding-left:1rem}
-.hours .off{color:var(--muted)}
-.contact .slot{min-height:460px}
-
-footer.site{background:var(--taupe);color:var(--ink);font-size:.82rem}
-footer.site .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1.6rem}
-footer.site .wrap > span:last-child{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
-footer.site a{text-decoration:none;padding-block:.35rem}
-footer.site a:hover{text-decoration:underline}
-
-.mcta{display:none}
-
-@media (max-width:1000px){
-  .nav,.header-r .tel{display:none}
-  .header .wrap{grid-template-columns:auto 1fr auto}
-  .logo{text-align:left;grid-column:1;grid-row:1}
-  .header-r{grid-column:3}
-  .burger{display:block}
-  .nav{position:fixed;inset:72px 0 0;background:var(--paper);flex-direction:column;padding:2rem var(--pad);gap:0}
-  .menu-open .nav{display:flex}
-  .nav a{font:500 2rem/1 var(--serif);color:var(--ink);padding:1rem 0;border-bottom:1px solid var(--rule)}
-  .hero,.contact{grid-template-columns:1fr}
-  .hero{max-height:none;min-height:0}
-  .hero .slot,.hero .ph{min-height:0;aspect-ratio:4/3}
-  .hero .ph img{object-position:center 30%}
-  .maplink{min-height:260px}
-  .hero-facts{grid-template-columns:1fr 1fr 1fr}
-  .hero-facts div{margin-right:1rem;padding-right:1rem}
-  .intro .label,.intro-text,.intro-img,.voice .label,.voice blockquote,.voice .note{grid-column:1 / -1}
-  .intro-img{max-width:320px;aspect-ratio:4/5}
-  .focus-grid{grid-template-columns:1fr 1fr}
-  .menu-grid,.faq-list{grid-template-columns:1fr}
-  .flow-grid{grid-template-columns:1fr 1fr;row-gap:2.5rem}
-  .flow-grid > div:nth-child(3){padding-left:0;border-left:0}
-  .res-grid{grid-template-columns:repeat(3,1fr)}
-  .contact .slot{min-height:320px}
-}
-@media (max-width:640px){
-  .header-r .btn{display:none}
-  .focus-grid{grid-template-columns:1fr}
-  .hero-facts{grid-template-columns:1fr;gap:.8rem}
-  .hero-facts div{border:0;margin:0;padding:0}
-  .flow-grid{grid-template-columns:1fr}
-  .flow-grid > div + div{padding-left:0;border-left:0;border-top:1px solid var(--rule);padding-top:1.4rem}
-  .c-grid{grid-template-columns:1fr}
-  .res-grid{grid-template-columns:1fr}
-  .row{font-size:.94rem}
-  .mcta{display:grid;grid-template-columns:1fr auto;position:fixed;inset:auto 0 0;z-index:30;border-top:1px solid var(--rule);background:var(--paper);padding:.6rem;gap:.6rem;transform:translateY(100%);transition:transform .35s}
-  .mcta.show{transform:none}
-  .mcta .btn{padding:1rem}
-  footer.site{padding-bottom:4.5rem}
-}
-/* ===================== Motion & Interaktion =====================
-   Nur aktiv, wenn JS läuft (html.js) und keine reduzierte Bewegung gewünscht ist.
-   Ohne JS bleibt alles sichtbar. */
-:root{--ease:cubic-bezier(.22,1,.36,1);--ease-io:cubic-bezier(.65,0,.35,1)}
-
-/* Scroll-Fortschritt */
-.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
-
-/* Smarter Header: wird beim Scrollen kompakt, leicht transparent und weicht beim Runterscrollen aus */
-.header{transition:transform .5s var(--ease),background-color .4s,box-shadow .4s,border-color .4s}
-.header .wrap{transition:height .4s var(--ease)}
-.header.scrolled{background:rgba(246,239,230,.82);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 10px 30px -18px rgba(45,36,32,.35);border-color:transparent}
-.header.scrolled .wrap{height:62px}
-.header.hide{transform:translateY(-100%)}
-.logo b{transition:font-size .4s var(--ease)}
-.header.scrolled .logo b{font-size:1.65rem}
-
-/* Navigation: Unterstrich gleitet ein, aktiver Abschnitt bleibt markiert */
-.nav a{position:relative;padding-block:.35rem}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:100% 50%;transition:transform .5s var(--ease)}
-.nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:0 50%}
-.nav a.active{color:var(--ink)}
-
-/* Buttons: Farbe fließt von unten ein, Pfeil-artige Bewegung über Abstand */
-.btn{position:relative;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease)}
-.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);transform:translateY(101%);transition:transform .55s var(--ease)}
-.btn:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(45,36,32,.55)}
-.btn:hover::before{transform:none}
-.btn:active{transform:translateY(0);transition-duration:.15s}
-.btn--line:hover{background:transparent;color:#fff;border-color:var(--ink)}
-.menu .btn:hover{background:var(--accent)}
-
-/* Textlinks: Linie zieht sich zurück und kommt wieder */
-.tlink{border-bottom:0;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .55s var(--ease),color .3s}
-.tlink:hover{background-size:0 1px;background-position:100% 100%}
-
-/* Bilder: sanfter Zoom beim Hover */
-.ph img{transition:transform 1.2s var(--ease),filter .6s}
-.f-item:hover .ph img,.res-grid .ph:hover img{transform:scale(1.06)}
-.res-grid .ph figcaption{transition:transform .6s var(--ease),opacity .6s}
-.res-grid .ph:hover figcaption{transform:translateY(-4px)}
-.certs img{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.certs img:hover{transform:translateY(-4px) rotate(-1.5deg);box-shadow:0 14px 26px -18px rgba(45,36,32,.6)}
-.maplink{transition:background-color .5s}
-.maplink:hover{background:#C6AE90}
-.maplink span:last-child{transition:transform .5s var(--ease);display:inline-block}
-.maplink:hover span:last-child{transform:translateX(6px)}
-
-/* FAQ: Plus dreht sich zum Minus, Inhalt gleitet auf */
-summary{transition:color .3s}
-summary:hover{color:var(--accent-2)}
-summary::after{content:"+";transition:transform .45s var(--ease)}
-details[open] summary::after{content:"+";transform:rotate(45deg)}
-details .faq-body{overflow:hidden}
-
-/* --- Reveal-System --- */
-html.js .rv{opacity:0;transform:translate3d(0,28px,0);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
-html.js .rv.in{opacity:1;transform:none}
-/* Überschriften: Wörter steigen aus einer Maske */
-.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.w > span{display:inline-block}
-html.js .split .w > span{transform:translate3d(0,105%,0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--d,0s) + var(--i,0) * 55ms)}
-html.js .split.in .w > span{transform:none}
-/* Bilder: Vorhang öffnet sich, Foto setzt sich */
-html.js .ph.rv{opacity:1;transform:none}
-html.js .ph.rv::before{content:"";position:absolute;inset:0;z-index:2;background:var(--paper);transform-origin:50% 0;transition:transform 1.4s var(--ease-io);transition-delay:var(--d,0s);pointer-events:none}
-html.js .ph.rv.in::before{transform:scaleY(0)}
-html.js .ph.rv img{transform:scale(1.18);transition:transform 1.8s var(--ease);transition-delay:var(--d,0s)}
-html.js .ph.rv.in img{transform:scale(1)}
-html.js .f-item:hover .ph.rv.in img,html.js .res-grid .ph.rv.in:hover img{transform:scale(1.06)}
-/* Preisliste: Punktlinien zeichnen sich */
-html.js .row .d{transform:translateY(-.3em) scaleX(0);transform-origin:0 50%;transition:transform 1.2s var(--ease);transition-delay:calc(var(--d,0s) + .25s)}
-html.js .cat.in .row .d{transform:translateY(-.3em) scaleX(1)}
-/* Ablauf: Linie oben zieht sich durch */
-.flow-grid{position:relative;border-top:0}
-.flow-grid::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--ink);transform-origin:0 50%}
-html.js .flow-grid::before{transform:scaleX(0);transition:transform 1.6s var(--ease-io)}
-html.js .flow-grid.in::before{transform:scaleX(1)}
-/* Hero-Bild: dezente Parallaxe */
-.hero .ph img{will-change:transform}
-
-/* Mobiles Menü: blendet weich ein, Links folgen gestaffelt */
-@media (max-width:1000px){
-  .nav{display:flex!important;visibility:hidden;opacity:0;transition:opacity .5s var(--ease),visibility 0s .5s}
-  .menu-open .nav{visibility:visible;opacity:1;transition:opacity .5s var(--ease),visibility 0s}
-  .nav a{padding:1rem 0;opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .7s var(--ease)}
-  .menu-open .nav a{opacity:1;transform:none}
-  .menu-open .nav a:nth-child(2){transition-delay:.05s}.menu-open .nav a:nth-child(3){transition-delay:.1s}
-  .menu-open .nav a:nth-child(4){transition-delay:.15s}.menu-open .nav a:nth-child(5){transition-delay:.2s}
-  .nav a::after{display:none}
-  .header.scrolled .wrap{height:72px}
-  .menu-open .header{transform:none;background:var(--paper)}
-  .menu-open .nav{inset:72px 0 0}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{transition:none!important;animation:none!important}
-  html{scroll-behavior:auto}
-  html.js .rv,html.js .ph.rv,html.js .split .w > span,html.js .ph.rv img{opacity:1;transform:none}
-  html.js .ph.rv::before{display:none}
-  html.js .row .d{transform:translateY(-.3em)}
-  html.js .flow-grid::before{transform:none}
-  .progress{display:none}
-}
-</style>
 </head>
-<body>
-<a class="skip" href="#main">Zum Inhalt springen</a>
 
-<header class="header">
-  <div class="wrap">
-    <nav class="nav" id="nav" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#preise">Preise</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#fragen">Fragen</a>
-      <a href="#kontakt">Kontakt</a>
+<body class="bg-cream text-ink font-sans antialiased">
+<a href="#main" class="skip">Zum Inhalt springen</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ NAVIGATION ============ -->
+<header id="top-bar" class="topbar fixed inset-x-0 top-0 z-50">
+  <div class="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
+    <a href="#" class="brand group" aria-label="Mel Beauty Studio, zum Seitenanfang">
+      <span class="brand-mark">M</span>
+      <span class="hidden sm:block text-[.68rem] font-semibold tracking-label text-ink">MEL BEAUTY STUDIO <span class="text-gold">·</span> LANDSHUT</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-10 text-[.86rem] text-stone" aria-label="Hauptnavigation">
+      <a href="#behandlungen" class="ulink" data-spy>Behandlungen</a>
+      <a href="#philosophie" class="ulink" data-spy>Philosophie</a>
+      <a href="#studio" class="ulink" data-spy>Studio Landshut</a>
     </nav>
-    <a href="#" class="logo" aria-label="Mel Beauty Studio, Startseite"><b>Mel</b><span>Beauty Studio</span></a>
-    <div class="header-r">
-      <a href="tel:+491636839277" class="tel">0163 6839277</a>
-      <a href="#kontakt" class="btn">Termin anfragen</a>
-      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menü</button>
+    <div class="flex items-center gap-3">
+      <a href="tel:+491636839277" class="hidden xl:inline text-[.86rem] text-stone ulink">0163 6839277</a>
+      <button type="button" class="btn btn-primary hidden sm:inline-flex" data-concierge="termin">Termin anfragen</button>
+      <button type="button" id="burger" class="burger lg:hidden" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span><span></span></button>
+    </div>
+  </div>
+  <!-- Mobiles Menü -->
+  <div id="mnav" class="mnav lg:hidden" hidden>
+    <nav class="flex flex-col px-6 pt-4" aria-label="Mobile Navigation">
+      <a href="#behandlungen">Behandlungen</a>
+      <a href="#philosophie">Philosophie</a>
+      <a href="#studio">Studio Landshut</a>
+      <a href="#fragen">Häufige Fragen</a>
+    </nav>
+    <div class="mt-auto space-y-3 px-6 pb-10">
+      <button type="button" class="btn btn-primary w-full" data-concierge="termin">Termin anfragen</button>
+      <a href="tel:+491636839277" class="btn btn-line w-full">0163 6839277 anrufen</a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-<section class="hero">
-  <div class="hero-text">
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden pt-[76px]">
+  <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-10 md:px-10 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16">
+    <div class="lg:col-span-6 lg:pt-10 flex flex-col">
+      <p class="eyebrow rv">Permanent Make-up &amp; Kosmetik · Landshuter Neustadt</p>
+      <h1 class="split mt-7 font-serif text-[2.9rem] leading-[1.02] tracking-[-.01em] text-forest sm:text-[4rem] lg:text-[5.4rem]">Natürliche Schönheit, <em>sorgfältig</em> unterstrichen.</h1>
+      <p class="rv mt-8 max-w-[34rem] text-[1.05rem] leading-[1.75] text-stone" style="--d:.35s">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Persönlich von Meltem, mit Ruhe, Hygiene und einer Beratung, die sich nach dir richtet.</p>
+      <div class="rv mt-10 flex flex-wrap items-center gap-6" style="--d:.45s">
+        <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
+        <a href="#behandlungen" class="ulink text-[.9rem] font-medium text-forest">Behandlungen entdecken</a>
+      </div>
+      <dl class="rv mt-14 grid grid-cols-3 gap-6 border-t border-ink/10 pt-7 text-[.8rem] text-stone lg:mt-20" style="--d:.55s">
+        <div><dt class="font-serif text-[2.1rem] leading-none text-forest"><span data-count="10">10</span></dt><dd class="mt-2">Jahre als Kosmetikerin</dd></div>
+        <div><dt class="font-serif text-[2.1rem] leading-none text-forest">2–3</dt><dd class="mt-2">Jahre hält PhiBrows</dd></div>
+        <div><dt class="font-serif text-[2.1rem] leading-none text-forest"><span data-count="21">21</span></dt><dd class="mt-2">Tage bis zur inkl. Nachbehandlung</dd></div>
+      </dl>
+    </div>
+
+    <div class="relative lg:col-span-6">
+      <figure class="hero-img reveal-img relative ml-auto aspect-[4/5] w-full max-w-[560px]">
+        <img src="images/mel-portrait.jpg" width="1100" height="1100" alt="Meltem Demirci im Mel Beauty Studio in Landshut" class="h-full w-full object-cover" fetchpriority="high">
+      </figure>
+      <div class="hero-frame" aria-hidden="true"></div>
+      <figure class="hero-detail reveal-img absolute -bottom-6 left-0 hidden w-[42%] max-w-[240px] md:block" style="--d:.35s">
+        <img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" class="aspect-square w-full object-cover" loading="lazy">
+        <figcaption class="mt-3 text-[.68rem] uppercase tracking-label text-stone">Vermessen nach dem Goldenen Schnitt</figcaption>
+      </figure>
+      <p class="vlabel hidden lg:block" aria-hidden="true">Meltem Demirci · PhiBrows Artist</p>
+    </div>
+  </div>
+</section>
+
+<!-- Laufband mit Behandlungen aus der Instagram-Bio -->
+<div class="marquee border-y border-ink/10 bg-sand" aria-hidden="true">
+  <div class="marquee-track font-serif text-[1.6rem] italic text-forest/80">
+    <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
+    <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ BEHANDLUNGS-MENÜ ============ -->
+<section id="behandlungen" class="scroll-mt-24 py-24 md:py-36">
+  <div class="mx-auto max-w-[1440px] px-5 md:px-10">
+    <div class="grid gap-8 lg:grid-cols-12">
+      <p class="eyebrow rv lg:col-span-3">Behandlungs-Menü</p>
+      <div class="lg:col-span-9">
+        <h2 class="split font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.8rem]">Ausgewählte Behandlungen, <em>klar</em> und ehrlich bepreist.</h2>
+        <p class="rv mt-6 max-w-[38rem] text-stone">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
+      </div>
+    </div>
+
+    <!-- Filter-Tabs -->
+    <div class="rv mt-16 border-b border-ink/10">
+      <div class="tabs no-scrollbar" role="tablist" aria-label="Behandlungskategorien">
+        <button role="tab" aria-selected="true" aria-controls="p-brows" id="t-brows" data-tab="brows">Brows &amp; Permanent Make-up</button>
+        <button role="tab" aria-selected="false" aria-controls="p-removal" id="t-removal" data-tab="removal" tabindex="-1">PhiRemoval</button>
+        <button role="tab" aria-selected="false" aria-controls="p-skin" id="t-skin" data-tab="skin" tabindex="-1">Haut &amp; Anti-Aging</button>
+        <button role="tab" aria-selected="false" aria-controls="p-hair" id="t-hair" data-tab="hair" tabindex="-1">Haar &amp; Vitamin</button>
+        <button role="tab" aria-selected="false" aria-controls="p-lashes" id="t-lashes" data-tab="lashes" tabindex="-1">Lashes</button>
+        <span class="tab-ink" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <!-- Wechselndes Bild zur Kategorie -->
+      <div class="lg:col-span-4">
+        <div class="menu-visual lg:sticky lg:top-28">
+          <figure class="menu-img is-on" data-for="brows"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption>PhiBrows Microblading, Härchentechnik</figcaption></figure>
+          <figure class="menu-img" data-for="removal"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
+          <figure class="menu-img" data-for="skin"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"><figcaption>DS V-Line Kollagenfäden, vorher / nachher</figcaption></figure>
+          <figure class="menu-img" data-for="hair"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Augenbrauen in feiner Härchenzeichnung" loading="lazy"><figcaption>Haar, Bart &amp; Brauen</figcaption></figure>
+          <figure class="menu-img" data-for="lashes"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Brauen und Wimpern" loading="lazy"><figcaption>Natürlicher Blick</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <!-- Brows & PMU -->
+        <div class="panel" role="tabpanel" id="p-brows" aria-labelledby="t-brows">
+          <ul class="menu-list">
+            <li class="mrow"><div><h3>PhiBrows Microblading</h3><p>Härchen für Härchen gezeichnet, mit veganen PhiBrows Pigmenten. Keine spätere Farbveränderung, alle Aufsätze steril und personengebunden.</p><span class="meta">Hält 2–3 Jahre · inkl. Nachbehandlung</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
+            <li class="mrow"><div><h3>Powder Brows</h3><p>Weich gepuderter Look, ähnlich wie sorgfältig geschminkte Brauen.</p><span class="meta">inkl. Nachbehandlung</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
+            <li class="mrow"><div><h3>Permanent Make-up Lippen</h3><p>Mit organischen Pigmenten für mehr Farbe und eine harmonische Kontur.</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung</span></div><span class="price">450 €</span><button class="pick" data-pick="Permanent Make-up Lippen">Auswählen</button></li>
+            <li class="mrow"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Betonung des Wimpernkranzes, von zart bis ausdrucksstark.</p><span class="meta">inkl. Nachbehandlung</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
+            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel.</p></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
+            <li class="mrow"><div><h3>Augenbrauenkorrektur</h3><p>Mit Fadentechnik und Vermessung nach dem Goldenen Schnitt.</p></div><span class="price">auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
+          </ul>
+          <div class="mt-10 grid gap-x-10 gap-y-2 border-t border-ink/10 pt-6 text-[.86rem] text-stone sm:grid-cols-2">
+            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-sage sm:col-span-2">Auffrischung nach 12 Monaten</p>
+            <p class="flex justify-between gap-4"><span>PhiBrows</span><span class="text-ink">225 €</span></p>
+            <p class="flex justify-between gap-4"><span>Brows &amp; Lippen</span><span class="text-ink">190 €</span></p>
+            <p class="flex justify-between gap-4"><span>Eyeliner, Babyliner, Dipliner</span><span class="text-ink">150 €</span></p>
+            <p class="flex justify-between gap-4"><span>Ab 18 Monaten oder Fremdarbeit</span><span class="text-ink">Neupreis</span></p>
+          </div>
+        </div>
+
+        <!-- PhiRemoval -->
+        <div class="panel" role="tabpanel" id="p-removal" aria-labelledby="t-removal" hidden>
+          <ul class="menu-list">
+            <li class="mrow"><div><h3>PhiRemoval Gesicht</h3><p>Alte oder nicht mehr gewünschte Pigmentierungen sanft entfernen: Permanent Make-up und Microblading. Ohne Laser, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
+            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch kleine Tattoos können mit PhiRemoval entfernt werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
+          </ul>
+        </div>
+
+        <!-- Haut -->
+        <div class="panel" role="tabpanel" id="p-skin" aria-labelledby="t-skin" hidden>
+          <ul class="menu-list">
+            <li class="mrow"><div><h3>DS V-Line Kollagen</h3><p>Natürliche Kollagenfäden straffen die Haut sanft und reduzieren Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p></div><span class="price">245 €</span><button class="pick" data-pick="DS V-Line Kollagen">Auswählen</button></li>
+            <li class="mrow"><div><h3>Algae Peeling Gesicht</h3><p>Biologische Behandlung mit feinen Algenpartikeln. Unterstützt die natürliche Hauterneuerung, etwa bei unreiner Haut, Narben, großen Poren oder Pigmentflecken.</p></div><span class="price">99 €</span><button class="pick" data-pick="Algae Peeling">Auswählen</button></li>
+            <li class="mrow"><div><h3>Microneedling</h3><p>Mit individuell abgestimmten Seren gegen Narben, Pigmentflecken und unregelmäßige Hautstruktur.</p><span class="meta">Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell</span></div><span class="price">ab 119 €</span><button class="pick" data-pick="Microneedling">Auswählen</button></li>
+            <li class="mrow"><div><h3>Skin Care</h3><p>Individuell nach Hauttyp: Feuchtigkeit bei trockener Haut, Regulierung bei fettiger Haut, schonende Tiefenreinigung bei Akne-Neigung.</p><span class="meta">Classic 99 € · Professional 129 € · Akne 139 €</span></div><span class="price">ab 99 €</span><button class="pick" data-pick="Skin Care">Auswählen</button></li>
+          </ul>
+        </div>
+
+        <!-- Haar & Vitamin -->
+        <div class="panel" role="tabpanel" id="p-hair" aria-labelledby="t-hair" hidden>
+          <ul class="menu-list">
+            <li class="mrow"><div><h3>Vitaminbehandlung Kopfhaut</h3><p>Haarvitalisierung mit speziellen Seren und gezielten Anwendungstechniken, um geschwächte Bereiche zu stärken.</p></div><span class="price">199 €</span><button class="pick" data-pick="Vitaminbehandlung Kopfhaut">Auswählen</button></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Bart</h3><p>Stärkt und revitalisiert lichte oder ausgefallene Stellen im Bart.</p></div><span class="price">139 €</span><button class="pick" data-pick="Vitaminbehandlung Bart">Auswählen</button></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Augenbrauen</h3><p>Für geschwächte Brauen, die wieder kräftiger werden sollen.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung Augenbrauen">Auswählen</button></li>
+            <li class="mrow"><div><h3>Einzelne Stellen</h3><p>Zum Beispiel Bart, Geheimratsecken oder Scheitel.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung einzelne Stellen">Auswählen</button></li>
+          </ul>
+        </div>
+
+        <!-- Lashes -->
+        <div class="panel" role="tabpanel" id="p-lashes" aria-labelledby="t-lashes" hidden>
+          <ul class="menu-list">
+            <li class="mrow"><div><h3>Wimpernlifting</h3><p>Dauerhafter Schwung für die eigenen Wimpern, ohne künstliche Verlängerung.</p></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting">Auswählen</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHIE ============ -->
+<section id="philosophie" class="scroll-mt-24 bg-sand py-24 md:py-36">
+  <div class="mx-auto max-w-[1440px] px-5 md:px-10">
+    <div class="grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5 lg:order-2">
+        <figure class="reveal-img relative aspect-[4/5] w-full overflow-hidden">
+          <img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Augenbrauen im Detail" class="parallax h-full w-full object-cover" loading="lazy">
+        </figure>
+      </div>
+      <div class="lg:col-span-6 lg:order-1 lg:pr-10">
+        <p class="eyebrow rv">Philosophie</p>
+        <blockquote class="mt-8">
+          <p class="split font-serif text-[2.2rem] leading-[1.15] text-forest md:text-[3.3rem]">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
+          <footer class="rv mt-6 text-[.8rem] uppercase tracking-label text-stone">Meltem Demirci</footer>
+        </blockquote>
+
+        <ul class="principles mt-16">
+          <li class="rv"><span class="n">01</span><div><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Algae Peeling. Gearbeitet wird mit veganen PhiBrows Pigmenten und organischen Pigmenten für die Lippen.</p></div></li>
+          <li class="rv"><span class="n">02</span><div><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></div></li>
+          <li class="rv"><span class="n">03</span><div><h3>Individuelle Beratung</h3><p>Jede Behandlung beginnt mit einem Gespräch und einer Vorzeichnung. Brauen werden nach dem Goldenen Schnitt vermessen.</p></div></li>
+          <li class="rv"><span class="n">04</span><div><h3>Natürliche Ergebnisse</h3><p>Das Ziel ist ein Ergebnis, das nach dir aussieht und nicht nach Make-up.</p></div></li>
+        </ul>
+
+        <div class="rv mt-14 flex flex-wrap items-center gap-4">
+          <img src="images/zert-phibrows-artist.jpg" width="400" height="400" alt="Zertifikat PhiBrows Artist Meltem Demirci" class="cert" loading="lazy">
+          <img src="images/zert-ds-v-line.jpg" width="400" height="400" alt="Zertifikat DS V-Line Meltem Demirci" class="cert" loading="lazy">
+          <img src="images/zert-allgae.jpg" width="400" height="400" alt="Zertifikat Algae Peeling Meltem Demirci" class="cert" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUS DEM STUDIO (Galerie) ============ -->
+<section class="py-24 md:py-32" aria-labelledby="gal-h">
+  <div class="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
     <div>
-      <h1>Permanent Make-up und Kosmetik in Landshut</h1>
-      <p class="hero-sub">Brauen, Lippen und Lidstrich, die nach dir aussehen und nicht nach Make-up. Dazu Microneedling, Skin Care und Vitaminbehandlungen für Haut, Haar und Bart.</p>
-      <div class="hero-cta">
-        <a href="#kontakt" class="btn">Termin anfragen</a>
-        <a href="#preise" class="tlink">Zur Preisliste</a>
-      </div>
+      <p class="eyebrow rv">Aus dem Studio</p>
+      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.6rem]">Arbeiten von Meltem.</h2>
     </div>
-    <div class="hero-facts">
-      <div><b>Nachbehandlung</b>nach 21 Tagen inklusive</div>
-      <div><b>PhiBrows</b>Microblading-Methode</div>
-      <div><b>Landshut</b>Neustadt 439</div>
+    <div class="rv flex items-center gap-4">
+      <span class="gal-count text-[.78rem] tabular-nums tracking-label text-stone"><b class="font-medium text-ink">01</b> / 07</span>
+      <button type="button" class="gal-btn" data-dir="-1" aria-label="Vorheriges Bild">←</button>
+      <button type="button" class="gal-btn" data-dir="1" aria-label="Nächstes Bild">→</button>
     </div>
   </div>
-  <figure class="ph"><img src="images/mel-portrait.jpg" width="1100" height="1100" alt="Meltem Demirci im Mel Beauty Studio in Landshut"></figure>
-</section>
-
-<section class="intro" id="ueber-mich">
-  <div class="wrap">
-    <span class="label">Über mich</span>
-    <div class="intro-text">
-      <p>Ich bin Meltem, Kosmetikerin seit 10 Jahren. Ich pigmentiere Augenbrauen, Lippen und Lidstriche, und zwar so, dass am Ende niemand fragt, ob es Permanent Make-up ist.</p>
-      <p>Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen bei mir im Mittelpunkt. Jede Behandlung beginnt mit einer Vorzeichnung, bei den Brauen vermessen nach dem Goldenen Schnitt.</p>
-      <p>Zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Allgae Peeling.</p>
-      <div class="certs">
-        <img src="images/zert-phibrows-artist.jpg" width="400" height="400" loading="lazy" alt="Zertifikat PhiBrows Artist Meltem Demirci">
-        <img src="images/zert-ds-v-line.jpg" width="400" height="400" loading="lazy" alt="Zertifikat DS V-Line Meltem Demirci">
-        <img src="images/zert-allgae.jpg" width="400" height="400" loading="lazy" alt="Zertifikat Allgae Peeling Meltem Demirci">
-      </div>
-      <span class="sign">Meltem</span>
-    </div>
-    <figure class="ph intro-img"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" loading="lazy" alt="Augenbrauen werden nach dem Goldenen Schnitt vermessen"></figure>
+  <div class="gallery no-scrollbar mt-12" tabindex="0" aria-label="Galerie, horizontal scrollbar">
+    <figure class="g-item"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption><span>01</span>PhiBrows Microblading</figcaption></figure>
+    <figure class="g-item tall"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung" loading="lazy"><figcaption><span>02</span>Permanent Make-up Lippen</figcaption></figure>
+    <figure class="g-item"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung" loading="lazy"><figcaption><span>03</span>Lippen, Ergebnis</figcaption></figure>
+    <figure class="g-item"><img src="images/brauen-fadentechnik.jpg" width="1000" height="1000" alt="Augenbrauenkorrektur mit Fadentechnik" loading="lazy"><figcaption><span>04</span>Augenbrauenkorrektur mit Fadentechnik</figcaption></figure>
+    <figure class="g-item"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vorher und nachher" loading="lazy"><figcaption><span>05</span>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
+    <figure class="g-item"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line vorher und nachher" loading="lazy"><figcaption><span>06</span>DS V-Line Kollagenfäden</figcaption></figure>
+    <figure class="g-item"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik" loading="lazy"><figcaption><span>07</span>PhiBrows Pigmente, vegan</figcaption></figure>
   </div>
+  <div class="mx-auto mt-8 max-w-[1440px] px-5 md:px-10"><div class="gal-bar"><span></span></div></div>
 </section>
 
-<section class="focus" id="leistungen">
-  <div class="wrap">
-    <div class="head">
-      <h2>Schwerpunkte</h2>
-      <a href="#preise" class="tlink">Alle Leistungen &amp; Preise</a>
+<!-- ============ STUDIO LANDSHUT ============ -->
+<section id="studio" class="scroll-mt-24 border-t border-ink/10 py-24 md:py-36">
+  <div class="mx-auto grid max-w-[1440px] gap-14 px-5 md:px-10 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <p class="eyebrow rv">Studio Landshut</p>
+      <h2 class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.6rem]">Mitten in der <em>Neustadt.</em></h2>
+      <p class="rv mt-8 max-w-[30rem] text-stone">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. In meinem Studio in der Neustadt nehme ich mir Zeit für dich und deine Wünsche.</p>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener" class="rv ulink mt-10 inline-flex items-center gap-3 text-[.9rem] font-medium text-forest">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="focus-grid">
-      <article class="f-item">
-        <figure class="ph"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" loading="lazy" alt="Natürliche Augenbrauen in Härchentechnik"></figure>
-        <h3>PhiBrows Microblading</h3>
-        <p>Einzelne Härchen, präzise gezeichnet. Mit veganen PhiBrows Pigmenten, ohne spätere Farbveränderung. Das Ergebnis hält 2 bis 3 Jahre.</p>
-        <div class="f-meta"><span>inkl. Nachbehandlung</span><span>490 €</span></div>
-      </article>
-      <article class="f-item">
-        <figure class="ph"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" loading="lazy" alt="Lippenpigmentierung im Mel Beauty Studio"></figure>
-        <h3>Powder Brows &amp; Lippen</h3>
-        <p>Weich gepuderte Brauen oder mehr Farbe und eine klare Kontur für die Lippen. Lippen mit organischen Pigmenten, Haltbarkeit etwa 2 Jahre.</p>
-        <div class="f-meta"><span>inkl. Nachbehandlung</span><span>ab 390 €</span></div>
-      </article>
-      <article class="f-item">
-        <figure class="ph"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" loading="lazy" alt="Vorher und nachher: Kollagenfadenlifting mit DS V-Line"></figure>
-        <h3>DS V-Line Kollagen</h3>
-        <p>Natürliche Kollagenfäden straffen die Haut sanft und mildern Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p>
-        <div class="f-meta"><span>Gesicht</span><span>245 €</span></div>
-      </article>
+
+    <div class="lg:col-span-7">
+      <dl class="info-grid">
+        <div class="rv"><dt>Adresse</dt><dd>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</dd></div>
+        <div class="rv" style="--d:.08s"><dt>Kontakt</dt><dd><a class="ulink" href="tel:+491636839277">0163 6839277</a><br><a class="ulink" href="https://wa.me/491636839277" target="_blank" rel="noopener">WhatsApp</a><br><a class="ulink break-all" href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></dd></div>
+        <div class="rv" style="--d:.16s"><dt>Öffnungszeiten</dt><dd><span class="flex justify-between gap-6"><span>Di – Fr</span><span>09:00 – 18:00</span></span><span class="flex justify-between gap-6"><span>Sa</span><span>09:00 – 14:00</span></span><span class="flex justify-between gap-6 text-stone"><span>So, Mo</span><span>geschlossen</span></span></dd></div>
+        <div class="rv" style="--d:.24s"><dt>Termine</dt><dd>Nach Vereinbarung, am schnellsten per WhatsApp oder Direktnachricht auf Instagram.</dd></div>
+      </dl>
+
+      <ol class="steps mt-16">
+        <li class="rv"><span>01</span><h3>Beratung</h3><p>Per WhatsApp oder im Studio. Wunsch, Hauttyp, passende Behandlung.</p></li>
+        <li class="rv" style="--d:.08s"><span>02</span><h3>Vorzeichnung</h3><p>Form und Farbe werden auf dich abgestimmt, bevor es losgeht.</p></li>
+        <li class="rv" style="--d:.16s"><span>03</span><h3>Behandlung</h3><p>In Ruhe, mit sterilen, personengebundenen Aufsätzen.</p></li>
+        <li class="rv" style="--d:.24s"><span>04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei Permanent Make-up im Preis enthalten.</p></li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="menu" id="preise">
-  <div class="wrap">
-    <div class="head">
-      <h2>Preisliste</h2>
-      <p>Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten.</p>
+<!-- ============ FAQ ============ -->
+<section id="fragen" class="scroll-mt-24 bg-sand py-24 md:py-32">
+  <div class="mx-auto grid max-w-[1440px] gap-12 px-5 md:px-10 lg:grid-cols-12">
+    <div class="lg:col-span-4">
+      <p class="eyebrow rv">Häufige Fragen</p>
+      <h2 class="split mt-6 font-serif text-[2.4rem] leading-[1.05] text-forest md:text-[3.2rem]">Gut zu wissen.</h2>
+      <p class="rv mt-6 text-stone">Noch etwas offen? Der Concierge unten rechts hilft weiter, oder schreib direkt per WhatsApp.</p>
     </div>
-    <div class="menu-grid">
-      <div>
-        <div class="cat">
-          <h3>Permanent Make-up</h3>
-          <p>Pigmentierung zur Betonung von Augenbrauen, Lippen und Wimpernkranz. Blasse Lippen bekommen Farbe, asymmetrische eine harmonische Kontur.</p>
-          <div class="row"><span class="n">Powder Brows</span><span class="d"></span><span class="p">390 €</span></div>
-          <div class="row"><span class="n">Lippen</span><span class="d"></span><span class="p">450 €</span></div>
-          <div class="row"><span class="n">Eyeliner</span><span class="d"></span><span class="p">350 €</span></div>
-          <div class="row"><span class="n">Babyliner</span><span class="d"></span><span class="p">300 €</span></div>
-          <div class="row"><span class="n">Dipliner</span><span class="d"></span><span class="p">250 €</span></div>
-          <div class="row"><span class="n">Kopfhautpigmentierung<small>einzelne Stellen, z.&nbsp;B. Geheimratsecken, Haaransatz, Scheitel</small></span><span class="d"></span><span class="p">350 €</span></div>
-          <div class="row"><span class="n">Auffrischung nach 12 Monaten<small>Brows &amp; Lippen</small></span><span class="d"></span><span class="p">190 €</span></div>
-          <div class="row"><span class="n">Auffrischung nach 12 Monaten<small>Eyeliner, Babyliner, Dipliner</small></span><span class="d"></span><span class="p">150 €</span></div>
-          <div class="row"><span class="n">Nach 18 Monaten bzw. Fremdarbeit</span><span class="d"></span><span class="p">Neupreis</span></div>
-        </div>
-        <div class="cat">
-          <h3>PhiBrows Microblading</h3>
-          <p>Natürlicher 3D-Effekt durch präzise Zeichentechnik. Vegane PhiBrows Pigmente ohne spätere Farbveränderung, alle Aufsätze steril und personengebunden. Hält 2 bis 3 Jahre.</p>
-          <div class="row"><span class="n">PhiBrows inkl. Nachbehandlung</span><span class="d"></span><span class="p">490 €</span></div>
-          <div class="row"><span class="n">Auffrischung nach 12 Monaten</span><span class="d"></span><span class="p">225 €</span></div>
-          <div class="row"><span class="n">Nach 18 Monaten bzw. Fremdarbeit</span><span class="d"></span><span class="p">Neupreis</span></div>
-        </div>
-        <div class="cat">
-          <h3>Wimpernlifting</h3>
-          <p>Dauerhafter Schwung für die eigenen Wimpern, ohne künstliche Verlängerung.</p>
-          <div class="row"><span class="n">Wimpernlifting</span><span class="d"></span><span class="p">90 €</span></div>
-        </div>
-        <div class="cat">
-          <h3>PhiRemoval</h3>
-          <p>Entfernt alte oder nicht mehr gewünschte Pigmentierungen sanft und ohne Laser: Permanent Make-up, Microblading oder kleine Tattoos.</p>
-          <div class="row"><span class="n">Gesicht</span><span class="d"></span><span class="p">149 €</span></div>
-          <div class="row"><span class="n">Körper</span><span class="d"></span><span class="p">individuell</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="cat">
-          <h3>Skin Care</h3>
-          <p>Individuell nach Hauttyp: Feuchtigkeit bei trockener Haut, Regulierung bei fettiger Haut, schonende Tiefenreinigung bei Akne-Neigung.</p>
-          <div class="row"><span class="n">Skin Care Classic</span><span class="d"></span><span class="p">99 €</span></div>
-          <div class="row"><span class="n">Skin Care Professional</span><span class="d"></span><span class="p">129 €</span></div>
-          <div class="row"><span class="n">Skin Care Akne</span><span class="d"></span><span class="p">139 €</span></div>
-        </div>
-        <div class="cat">
-          <h3>Microneedling</h3>
-          <p>Mit individuell abgestimmten Seren gegen Narben, Pigmentflecken und unregelmäßige Hautstruktur.</p>
-          <div class="row"><span class="n">Gesicht</span><span class="d"></span><span class="p">119 €</span></div>
-          <div class="row"><span class="n">Gesicht + Hals</span><span class="d"></span><span class="p">139 €</span></div>
-          <div class="row"><span class="n">Körper</span><span class="d"></span><span class="p">individuell</span></div>
-        </div>
-        <div class="cat">
-          <h3>Algea Peeling &amp; DS V-Line Kollagen</h3>
-          <p>Natürliche Hauterneuerung mit Algen sowie Anti-Aging mit Kollagenfäden, ohne chirurgischen Eingriff.</p>
-          <div class="row"><span class="n">Algea Peeling Gesicht</span><span class="d"></span><span class="p">99 €</span></div>
-          <div class="row"><span class="n">Algea Peeling Körper</span><span class="d"></span><span class="p">individuell</span></div>
-          <div class="row"><span class="n">DS V-Line Kollagen</span><span class="d"></span><span class="p">245 €</span></div>
-        </div>
-        <div class="cat">
-          <h3>Vitaminbehandlung Haar, Bart &amp; Brauen</h3>
-          <p>Seren und Aufbautechniken für geschwächte oder ausgefallene Bereiche.</p>
-          <div class="row"><span class="n">Einzelne Stellen<small>z.&nbsp;B. Bart, Geheimratsecken, Scheitel</small></span><span class="d"></span><span class="p">99 €</span></div>
-          <div class="row"><span class="n">Augenbrauen</span><span class="d"></span><span class="p">99 €</span></div>
-          <div class="row"><span class="n">Bart</span><span class="d"></span><span class="p">139 €</span></div>
-          <div class="row"><span class="n">Kopfhaut</span><span class="d"></span><span class="p">199 €</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="menu-foot">
-      <span>Unsicher, was passt? Schreib mir kurz, dann beraten wir das gemeinsam.</span>
-      <a href="#kontakt" class="btn">Termin anfragen</a>
+    <div class="lg:col-span-8">
+      <details class="faq rv"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
+      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre. Für ein frisches Ergebnis empfiehlt sich eine Auffrischung nach etwa 12 Monaten.</p></div></details>
+      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows zeichnet einzelne Härchen und wirkt sehr natürlich. Powder Brows sind weicher und gepudert, ähnlich wie geschminkte Brauen. Das entscheiden wir gemeinsam in der Beratung.</p></div></details>
+      <details class="faq rv"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval lassen sich Permanent Make-up, Microblading oder kleine Tattoos sanft und ohne Laser entfernen. Arbeiten aus einem anderen Studio können danach neu gemacht werden, zum Neupreis.</p></div></details>
+      <details class="faq rv"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Die verwendeten PhiBrows Pigmente verursachen keine Farbveränderung und sind vegan.</p></div></details>
+      <details class="faq rv"><summary>Behandelst du auch Männer?</summary><div class="faq-body"><p>Ja. Vitaminbehandlungen für Bart und Kopfhaut, Kopfhautpigmentierung und Hautbehandlungen sind auch für Männer.</p></div></details>
     </div>
   </div>
 </section>
 
-<section class="flow" id="ablauf">
-  <div class="wrap">
-    <div class="head" style="border:0;margin-bottom:1rem"><h2>So läuft Permanent Make-up bei mir ab</h2></div>
-    <div class="flow-grid">
-      <div><span class="when">Vorab</span><h3>Beratung</h3><p>Per WhatsApp oder im Studio. Wir klären Wunsch, Hauttyp und ob die Behandlung für dich passt.</p></div>
-      <div><span class="when">Tag 1</span><h3>Vorzeichnung &amp; Pigmentierung</h3><p>Die Form wird auf dein Gesicht abgestimmt und vorgezeichnet. Pigmentiert wird erst, wenn du zufrieden bist.</p></div>
-      <div><span class="when">Tag 21</span><h3>Nachbehandlung</h3><p>Nach der Heilung wird das Ergebnis geprüft und perfektioniert. Im Preis enthalten.</p></div>
-      <div><span class="when">Nach 12 Monaten</span><h3>Auffrischung</h3><p>Damit Farbe und Kontur frisch bleiben. Zum reduzierten Preis.</p></div>
+<!-- ============ ABSCHLUSS ============ -->
+<section class="relative overflow-hidden bg-forest py-24 text-cream md:py-32">
+  <div class="mx-auto grid max-w-[1440px] items-end gap-12 px-5 md:px-10 lg:grid-cols-12">
+    <div class="lg:col-span-8">
+      <p class="eyebrow eyebrow-light rv">Termin</p>
+      <h2 class="split mt-6 font-serif text-[2.8rem] leading-[1.02] md:text-[4.8rem]">Bereit für <em class="text-gold">deinen</em> Termin?</h2>
+    </div>
+    <div class="rv flex flex-col gap-4 lg:col-span-4 lg:items-end">
+      <button type="button" class="btn btn-gold" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
+      <a href="https://wa.me/491636839277" target="_blank" rel="noopener" class="ulink text-[.88rem] text-cream/80">oder direkt per WhatsApp schreiben</a>
     </div>
   </div>
-</section>
-
-<section class="results" aria-label="Ergebnisse">
-  <div class="wrap">
-    <div class="head"><h2>Ergebnisse</h2><a href="https://www.instagram.com/melbeautystudio.landshut/" class="tlink" target="_blank" rel="noopener">Mehr auf Instagram</a></div>
-    <div class="res-grid">
-      <figure class="ph"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" loading="lazy" alt="PhiBrows Microblading: Augenbrauen vorher und nachher"><figcaption>PhiBrows Microblading</figcaption></figure>
-      <figure class="ph"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" loading="lazy" alt="Permanent Make-up an den Lippen, Ergebnis"><figcaption>Lippen</figcaption></figure>
-      <figure class="ph"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" loading="lazy" alt="PhiRemoval: Augenbraue vor und nach der ersten Behandlung"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="voice" aria-label="Kundenstimme">
-  <div class="wrap">
-    <span class="label">Kundenstimme</span>
-    <blockquote>
-      <p>„Meine Brauen sehen so natürlich aus, dass mich noch niemand darauf angesprochen hat. Genau so wollte ich es haben.“</p>
-      <footer><span>Sarah K., PhiBrows</span><a href="#" class="tlink">Alle Bewertungen auf Google</a></footer>
-    </blockquote>
-    <p class="note">Platzhalter. Wird durch eine echte Google-Bewertung ersetzt.</p>
-  </div>
-</section>
-
-<section class="faq" id="fragen">
-  <div class="wrap">
-    <div class="head"><h2>Häufige Fragen</h2></div>
-    <div class="faq-list">
-      <div>
-        <details><summary>Ist die Nachbehandlung im Preis enthalten?</summary><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></details>
-        <details><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><p>PhiBrows zeichnet einzelne Härchen und wirkt sehr natürlich. Powder Brows sind weicher und gepudert, ähnlich wie geschminkte Brauen. Das entscheiden wir gemeinsam in der Beratung.</p></details>
-        <details><summary>Wann muss Permanent Make-up aufgefrischt werden?</summary><p>Nach etwa 12 Monaten, zum reduzierten Preis (Brows &amp; Lippen 190&nbsp;€, PhiBrows 225&nbsp;€, Liner 150&nbsp;€). Ab 18 Monaten gilt der Neupreis.</p></details>
-      </div>
-      <div>
-        <details><summary>Kannst du Arbeiten aus einem anderen Studio korrigieren?</summary><p>Ja, je nach Zustand zum Neupreis. Bei fehlerhaftem Permanent Make-up kann PhiRemoval die Pigmente vorher ohne Laser entfernen oder aufhellen.</p></details>
-        <details><summary>Behandelst du auch Männer?</summary><p>Ja. Kopfhautpigmentierung, Vitaminbehandlungen für Bart und Kopfhaut sowie Skin Care werden auch von Männern gebucht.</p></details>
-        <details><summary>Wie lange hält das Ergebnis?</summary><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre.</p></details>
-        <details><summary>Wo ist das Studio?</summary><p>In der Landshuter Neustadt: Neustadt 439, 84028 Landshut.</p></details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="kontakt">
-  <div class="contact-text">
-    <h2>Termin anfragen</h2>
-    <p>Am schnellsten per WhatsApp. Schreib kurz, welche Behandlung dich interessiert. Bei Korrekturen gern mit Foto.</p>
-    <div class="hero-cta">
-      <a href="https://wa.me/491636839277" class="btn">WhatsApp</a>
-      <a href="tel:+491636839277" class="btn btn--line">Anrufen</a>
-    </div>
-    <div class="c-grid">
-      <div><span class="label">Adresse</span><p>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</p>
-        <p style="margin-top:1rem"><a href="tel:+491636839277">0163 6839277</a><br><a href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></p></div>
-      <div><span class="label">Öffnungszeiten</span>
-        <table class="hours">
-          <tr><td>Di – Fr</td><td>09:00 – 18:00</td></tr>
-          <tr><td>Sa</td><td>09:00 – 14:00</td></tr>
-          <tr class="off"><td>So, Mo</td><td>geschlossen</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener">
-    <span>Anfahrt</span>
-    <b>Neustadt 439, 84028 Landshut</b>
-    <span>In Google Maps öffnen →</span>
-  </a>
 </section>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <span>© 2026 Mel Beauty Studio, Landshut</span>
-    <span><a href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
+<!-- ============ FOOTER ============ -->
+<footer class="bg-cream pt-20">
+  <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-12 md:grid-cols-12 md:px-10">
+    <div class="md:col-span-5">
+      <p class="font-serif text-[2rem] leading-tight text-forest">Mel Beauty Studio</p>
+      <p class="mt-2 text-[.7rem] font-semibold uppercase tracking-label text-stone">Permanent Make-up &amp; Kosmetik · Landshut</p>
+    </div>
+    <div class="text-[.9rem] leading-relaxed text-stone md:col-span-3">
+      <p class="mb-3 text-[.68rem] font-semibold uppercase tracking-label text-ink">Studio</p>
+      Neustadt 439<br>84028 Landshut<br><br>Di – Fr 09:00 – 18:00<br>Sa 09:00 – 14:00
+    </div>
+    <div class="text-[.9rem] leading-relaxed text-stone md:col-span-2">
+      <p class="mb-3 text-[.68rem] font-semibold uppercase tracking-label text-ink">Kontakt</p>
+      <a class="ulink" href="tel:+491636839277">0163 6839277</a><br>
+      <a class="ulink" href="https://wa.me/491636839277" target="_blank" rel="noopener">WhatsApp</a><br>
+      <a class="ulink" href="mailto:mel.studio439@gmail.com">E-Mail</a>
+    </div>
+    <div class="text-[.9rem] leading-relaxed text-stone md:col-span-2">
+      <p class="mb-3 text-[.68rem] font-semibold uppercase tracking-label text-ink">Folgen</p>
+      <a class="ulink" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><br>
+      <a class="ulink" href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Mel Beauty Studio</div>
+  <div class="border-t border-ink/10">
+    <div class="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-4 px-5 py-6 text-[.78rem] text-stone md:px-10">
+      <span>© 2026 Mel Beauty Studio, Landshut</span>
+      <span class="flex gap-6"><a href="#" class="ulink">Impressum</a><a href="#" class="ulink">Datenschutz</a></span>
+    </div>
   </div>
 </footer>
 
-<div class="mcta" id="mcta">
-  <a href="https://wa.me/491636839277" class="btn">Termin per WhatsApp</a>
-  <a href="tel:+491636839277" class="btn btn--line">Anrufen</a>
+<!-- ============ BEAUTY-CONCIERGE ============ -->
+<div id="concierge" class="concierge">
+  <button type="button" class="c-launch" aria-expanded="false" aria-controls="c-panel">
+    <span class="c-dot" aria-hidden="true"></span>
+    <span class="c-launch-text">Concierge</span>
+  </button>
+  <section id="c-panel" class="c-panel" role="dialog" aria-label="Beauty-Concierge" hidden>
+    <header class="c-head">
+      <div class="flex items-center gap-3">
+        <img src="images/mel-portrait.jpg" alt="" class="h-10 w-10 rounded-full object-cover object-top" width="40" height="40">
+        <div>
+          <p class="font-serif text-[1.3rem] leading-none text-cream">Beauty-Concierge</p>
+          <p class="mt-1 text-[.68rem] text-cream/70">Automatischer Assistent · Antwort von Meltem per WhatsApp</p>
+        </div>
+      </div>
+      <button type="button" class="c-x" aria-label="Concierge schließen">×</button>
+    </header>
+    <div class="c-log" aria-live="polite"></div>
+    <div class="c-quick"></div>
+    <form class="c-form" autocomplete="off">
+      <label for="c-input" class="sr-only">Nachricht</label>
+      <input id="c-input" type="text" placeholder="Frage stellen …" maxlength="300">
+      <button type="submit" aria-label="Senden">→</button>
+    </form>
+  </section>
 </div>
 
-<script>
-(() => {
-  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const b = $('#burger'), nav = $('#nav'), m = $('#mcta'), header = $('.header');
-  const mq = matchMedia('(max-width:1000px)');
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- Mobiles Menü --- */
-  const set = open => {
-    document.body.classList.toggle('menu-open', open);
-    b.setAttribute('aria-expanded', open); b.textContent = open ? 'Schließen' : 'Menü';
-    document.body.style.overflow = open && mq.matches ? 'hidden' : '';
-  };
-  set(false);
-  mq.addEventListener('change', () => set(false));
-  b.addEventListener('click', () => set(!document.body.classList.contains('menu-open')));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
-  addEventListener('keydown', e => e.key === 'Escape' && set(false));
-
-  /* --- Scroll: Fortschritt, Header, mobile Leiste, Parallaxe --- */
-  const bar = document.createElement('div'); bar.className = 'progress'; document.body.prepend(bar);
-  const heroImg = $('.hero .ph img');
-  let lastY = scrollY, ticking = false, parallax = false;
-  /* Parallaxe erst nach dem Einblenden des Hero-Bilds, damit sich beide Bewegungen nicht stören */
-  if (heroImg && !still) setTimeout(() => { heroImg.style.transition = 'none'; parallax = true; onScroll(); }, 2000);
-  const onScroll = () => {
-    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    header.classList.toggle('scrolled', y > 12);
-    if (!document.body.classList.contains('menu-open')) header.classList.toggle('hide', y > 480 && y > lastY + 2);
-    if (y < lastY - 2) header.classList.remove('hide');
-    m.classList.toggle('show', y > 500);
-    if (parallax && !mq.matches && y < innerHeight * 1.2) heroImg.style.transform = `translate3d(0,${(y * .1).toFixed(1)}px,0) scale(1.1)`;
-    else if (parallax && mq.matches) heroImg.style.transform = '';
-    lastY = y; ticking = false;
-  };
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
-  onScroll();
-
-  /* --- Aktiver Abschnitt in der Navigation --- */
-  const links = new Map($$('a', nav).map(a => [a.getAttribute('href').slice(1), a]));
-  const spy = new IntersectionObserver(es => es.forEach(e => {
-    const a = links.get(e.target.id); if (a && e.isIntersecting) { links.forEach(l => l.classList.remove('active')); a.classList.add('active'); }
-  }), {rootMargin: '-45% 0px -50% 0px'});
-  links.forEach((_, id) => { const s = document.getElementById(id); s && spy.observe(s); });
-
-  /* --- FAQ: weich auf- und zuklappen --- */
-  $$('details').forEach(d => {
-    const s = $('summary', d), body = document.createElement('div'); body.className = 'faq-body';
-    while (s.nextSibling) body.appendChild(s.nextSibling); d.appendChild(body);
-    s.addEventListener('click', e => {
-      if (still) return; e.preventDefault();
-      if (d.open) {
-        const a = body.animate([{height: body.offsetHeight + 'px', opacity: 1}, {height: '0px', opacity: 0}], {duration: 420, easing: 'cubic-bezier(.65,0,.35,1)'});
-        a.onfinish = () => { d.open = false; };
-      } else {
-        d.open = true; const h = body.offsetHeight;
-        body.animate([{height: '0px', opacity: 0}, {height: h + 'px', opacity: 1}], {duration: 520, easing: 'cubic-bezier(.22,1,.36,1)'});
-      }
-    });
-  });
-
-  if (still || !('IntersectionObserver' in window)) return;
-
-  /* --- Reveal-Elemente markieren --- */
-  const splitWords = el => {
-    const words = el.textContent.trim().split(/\s+/);
-    el.setAttribute('aria-label', el.textContent.trim());
-    el.innerHTML = words.map((w, i) => `<span class="w" aria-hidden="true"><span style="--i:${i}">${w}</span></span>`).join(' ');
-    el.classList.add('split', 'rvx');
-  };
-  $$('h1, main h2, .intro-text > p:first-child, .voice blockquote > p').forEach(splitWords);
-  const stagger = (sel, step = .08) => $$(sel).forEach(el => {
-    const sibs = [...el.parentElement.children].filter(c => c.matches(sel));
-    el.style.setProperty('--d', (sibs.indexOf(el) * step).toFixed(2) + 's'); el.classList.add('rv');
-  });
-  stagger('.hero-sub, .hero-cta, .hero-facts', .12);
-  $$('.hero-sub, .hero-cta, .hero-facts').forEach((el, i) => el.style.setProperty('--d', (.35 + i * .12) + 's'));
-  stagger('.ph');
-  stagger('.intro-text > p:not(:first-child), .certs, .sign, .intro .label, .voice .label, .voice footer, .voice .note', .1);
-  stagger('.f-item', .12);
-  stagger('.cat', .08);
-  stagger('.flow-grid > div', .14);
-  stagger('.faq-list > div', .1);
-  stagger('.c-grid > div, .contact-text > p, .contact-text .hero-cta, .head > p, .head > .tlink, .menu-foot', .1);
-  $$('.flow-grid').forEach(el => el.classList.add('rvx'));
-  $$('.hero .ph').forEach(el => el.style.setProperty('--d', '.15s'));
-
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), {rootMargin: '0px 0px -12% 0px', threshold: .08});
-  requestAnimationFrame(() => $$('.rv, .rvx').forEach(el => io.observe(el)));
-})();
-</script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
