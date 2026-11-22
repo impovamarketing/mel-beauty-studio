@@ -6,12 +6,11 @@
 <title>Mel Beauty Studio Landshut | PhiBrows, Permanent Make-up &amp; Hautbehandlungen</title>
 <meta name="description" content="Mel Beauty Studio in der Landshuter Neustadt: PhiBrows Microblading, Permanent Make-up, PhiRemoval, DS V-Line Kollagen, Microneedling und Skin Care. Persönlich von Meltem Demirci.">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="canonical" href="https://www.mel-beauty-studio.de/">
 <meta property="og:title" content="Mel Beauty Studio · Landshut">
 <meta property="og:description" content="PhiBrows, Permanent Make-up, PhiRemoval und ästhetische Hautbehandlungen in der Landshuter Neustadt.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://www.mel-beauty-studio.de/images/mel-portrait.jpg">
+<meta property="og:image" content="https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg">
 <meta name="theme-color" content="#F6F1EA">
 <link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,20 +49,16 @@ tailwind.config = {
   "@graph": [
     {
       "@type": "BeautySalon",
-      "@id": "https://www.mel-beauty-studio.de/#studio",
+      "@id": "https://mel-beauty-studio.vercel.app/#studio",
       "name": "Mel Beauty Studio",
-      "url": "https://www.mel-beauty-studio.de/",
+      "url": "https://mel-beauty-studio.vercel.app/",
       "telephone": "+49-163-6839277",
       "email": "mel.studio439@gmail.com",
-      "image": "https://www.mel-beauty-studio.de/images/mel-portrait.jpg",
+      "image": "https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg",
       "founder": {"@type": "Person", "name": "Meltem Demirci"},
       "sameAs": ["https://www.instagram.com/melbeautystudio.landshut/", "https://www.facebook.com/melbeautystudio.landshut"],
       "priceRange": "€€",
       "address": {"@type": "PostalAddress", "streetAddress": "Neustadt 439", "postalCode": "84028", "addressLocality": "Landshut", "addressRegion": "Bayern", "addressCountry": "DE"},
-      "openingHoursSpecification": [
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"},
-        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00"}
-      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Behandlungen",
@@ -136,7 +131,7 @@ tailwind.config = {
     <div class="lg:col-span-6 lg:pt-10 flex flex-col">
       <p class="eyebrow rv">Permanent Make-up &amp; Kosmetik · Landshuter Neustadt</p>
       <h1 class="split mt-7 font-serif text-[2.9rem] leading-[1.02] tracking-[-.01em] text-ink sm:text-[4rem] lg:text-[5.4rem]">Natürliche Schönheit, <em>sorgfältig</em> unterstrichen.</h1>
-      <p class="rv mt-8 max-w-[34rem] text-[1.05rem] leading-[1.75] text-stone" style="--d:.35s">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Persönlich von Meltem, mit Ruhe, Hygiene und einer Beratung, die sich nach dir richtet.</p>
+      <p class="rv mt-8 max-w-[34rem] text-[1.05rem] leading-[1.75] text-stone" style="--d:.35s">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen im Mittelpunkt.</p>
       <div class="rv mt-10 flex flex-wrap items-center gap-6" style="--d:.45s">
         <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
         <a href="#behandlungen" class="ulink text-[.9rem] font-medium text-ink">Behandlungen entdecken</a>
@@ -176,7 +171,7 @@ tailwind.config = {
     <div class="grid gap-8 lg:grid-cols-12">
       <p class="eyebrow rv lg:col-span-3">Behandlungs-Menü</p>
       <div class="lg:col-span-9">
-        <h2 class="split font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.8rem]">Ausgewählte Behandlungen, <em>klar</em> und ehrlich bepreist.</h2>
+        <h2 class="split font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.8rem]">Behandlungen &amp; Preise, <em>klar</em> auf einen Blick.</h2>
         <p class="rv mt-6 max-w-[38rem] text-stone">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
       </div>
     </div>
@@ -209,12 +204,12 @@ tailwind.config = {
         <!-- Brows & PMU -->
         <div class="panel" role="tabpanel" id="p-brows" aria-labelledby="t-brows">
           <ul class="menu-list">
-            <li class="mrow"><div><h3>PhiBrows Microblading</h3><p>Härchen für Härchen gezeichnet, mit veganen PhiBrows Pigmenten. Keine spätere Farbveränderung, alle Aufsätze steril und personengebunden.</p><span class="meta">Hält 2–3 Jahre · inkl. Nachbehandlung</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
-            <li class="mrow"><div><h3>Powder Brows</h3><p>Weich gepuderter Look, ähnlich wie sorgfältig geschminkte Brauen.</p><span class="meta">inkl. Nachbehandlung</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
-            <li class="mrow"><div><h3>Permanent Make-up Lippen</h3><p>Mit organischen Pigmenten für mehr Farbe und eine harmonische Kontur.</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung</span></div><span class="price">450 €</span><button class="pick" data-pick="Permanent Make-up Lippen">Auswählen</button></li>
-            <li class="mrow"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Betonung des Wimpernkranzes, von zart bis ausdrucksstark.</p><span class="meta">inkl. Nachbehandlung</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
-            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel.</p></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
-            <li class="mrow"><div><h3>Augenbrauenkorrektur</h3><p>Mit Fadentechnik und Vermessung nach dem Goldenen Schnitt.</p></div><span class="price">auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
+            <li class="mrow"><div><h3>PhiBrows Microblading</h3><p>Natürlicher 3D-Augenbraueneffekt durch eine präzise Zeichentechnik: Fehlende oder ausgefallene Härchen werden ergänzt, blasse Brauen optisch verdichtet. Vegane PhiBrows Pigmente ohne Farbveränderung, alle Aufsätze steril und personengebunden.</p><span class="meta">Hält 2–3 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
+            <li class="mrow"><div><h3>Powder Brows</h3><p>Pigmentierung der Augenbrauen.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
+            <li class="mrow"><div><h3>Permanent Make-up Lippen</h3><p>Blasse Lippenfarben werden intensiviert, asymmetrische oder formlose Lippen erhalten eine harmonische, natürliche Kontur. Mit organischen Pigmenten.</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">450 €</span><button class="pick" data-pick="Permanent Make-up Lippen">Auswählen</button></li>
+            <li class="mrow"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Pigmentierung zur Betonung des Wimpernkranzes. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
+            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Professionelle Kopfhautpigmentierung zur Verdichtung einzelner Stellen, z.&nbsp;B. Geheimratsecken, Haaransatz oder Scheitel.</p></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
+            <li class="mrow"><div><h3>Augenbrauenkorrektur</h3><p>Mit Fadentechnik und Vermessung nach dem Goldenen Schnitt.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
           </ul>
           <div class="mt-10 grid gap-x-10 gap-y-2 border-t border-ink/10 pt-6 text-[.86rem] text-stone sm:grid-cols-2">
             <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone sm:col-span-2">Auffrischung nach 12 Monaten</p>
@@ -228,8 +223,8 @@ tailwind.config = {
         <!-- PhiRemoval -->
         <div class="panel" role="tabpanel" id="p-removal" aria-labelledby="t-removal" hidden>
           <ul class="menu-list">
-            <li class="mrow"><div><h3>PhiRemoval Gesicht</h3><p>Alte oder nicht mehr gewünschte Pigmentierungen sanft entfernen: Permanent Make-up und Microblading. Ohne Laser, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
-            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch kleine Tattoos können mit PhiRemoval entfernt werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
+            <li class="mrow"><div><h3>PhiRemoval Gesicht</h3><p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
+            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
           </ul>
         </div>
 
@@ -256,7 +251,7 @@ tailwind.config = {
         <!-- Lashes -->
         <div class="panel" role="tabpanel" id="p-lashes" aria-labelledby="t-lashes" hidden>
           <ul class="menu-list">
-            <li class="mrow"><div><h3>Wimpernlifting</h3><p>Dauerhafter Schwung für die eigenen Wimpern, ohne künstliche Verlängerung.</p></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting">Auswählen</button></li>
+            <li class="mrow"><div><h3>Wimpernlifting</h3><p>Schonende Methode zur dauerhaften Schwunggebung der natürlichen Wimpern, ohne künstliche Wimpernverlängerung.</p></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting">Auswählen</button></li>
           </ul>
         </div>
       </div>
@@ -283,8 +278,8 @@ tailwind.config = {
         <ul class="principles mt-16">
           <li class="rv"><span class="n">01</span><div><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Algae Peeling. Gearbeitet wird mit veganen PhiBrows Pigmenten und organischen Pigmenten für die Lippen.</p></div></li>
           <li class="rv"><span class="n">02</span><div><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></div></li>
-          <li class="rv"><span class="n">03</span><div><h3>Individuelle Beratung</h3><p>Jede Behandlung beginnt mit einem Gespräch und einer Vorzeichnung. Brauen werden nach dem Goldenen Schnitt vermessen.</p></div></li>
-          <li class="rv"><span class="n">04</span><div><h3>Natürliche Ergebnisse</h3><p>Das Ziel ist ein Ergebnis, das nach dir aussieht und nicht nach Make-up.</p></div></li>
+          <li class="rv"><span class="n">03</span><div><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></div></li>
+          <li class="rv"><span class="n">04</span><div><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></div></li>
         </ul>
 
         <div class="rv mt-14 flex flex-wrap items-center gap-4">
@@ -302,7 +297,7 @@ tailwind.config = {
   <div class="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
     <div>
       <p class="eyebrow rv">Aus dem Studio</p>
-      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.6rem]">Arbeiten von Meltem.</h2>
+      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.6rem]">Einblicke von Instagram.</h2>
     </div>
     <div class="rv flex items-center gap-4">
       <span class="gal-count text-[.78rem] tabular-nums tracking-label text-stone"><b class="font-medium text-ink">01</b> / 07</span>
@@ -328,7 +323,7 @@ tailwind.config = {
     <div class="lg:col-span-5">
       <p class="eyebrow rv">Studio Landshut</p>
       <h2 class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.6rem]">Mitten in der <em>Neustadt.</em></h2>
-      <p class="rv mt-8 max-w-[30rem] text-stone">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. In meinem Studio in der Neustadt nehme ich mir Zeit für dich und deine Wünsche.</p>
+      <p class="rv mt-8 max-w-[30rem] text-stone">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Meine Mission: mit hochwertigen und individuellen Behandlungen auf deine Wünsche und Bedürfnisse eingehen.</p>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener" class="rv ulink mt-10 inline-flex items-center gap-3 text-[.9rem] font-medium text-ink">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
     </div>
 
@@ -336,15 +331,15 @@ tailwind.config = {
       <dl class="info-grid">
         <div class="rv"><dt>Adresse</dt><dd>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</dd></div>
         <div class="rv" style="--d:.08s"><dt>Kontakt</dt><dd><a class="ulink" href="tel:+491636839277">0163 6839277</a><br><a class="ulink" href="https://wa.me/491636839277" target="_blank" rel="noopener">WhatsApp</a><br><a class="ulink break-all" href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></dd></div>
-        <div class="rv" style="--d:.16s"><dt>Öffnungszeiten</dt><dd><span class="flex justify-between gap-6"><span>Di – Fr</span><span>09:00 – 18:00</span></span><span class="flex justify-between gap-6"><span>Sa</span><span>09:00 – 14:00</span></span><span class="flex justify-between gap-6 text-stone"><span>So, Mo</span><span>geschlossen</span></span></dd></div>
-        <div class="rv" style="--d:.24s"><dt>Termine</dt><dd>Nach Vereinbarung, am schnellsten per WhatsApp oder Direktnachricht auf Instagram.</dd></div>
+        <div class="rv" style="--d:.16s"><dt>Terminvereinbarung</dt><dd>Per Telefon, WhatsApp oder Direktnachricht auf Instagram.</dd></div>
+        <div class="rv" style="--d:.24s"><dt>Folgen</dt><dd><a class="ulink" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><br><a class="ulink" href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a></dd></div>
       </dl>
 
       <ol class="steps mt-16">
-        <li class="rv"><span>01</span><h3>Beratung</h3><p>Per WhatsApp oder im Studio. Wunsch, Hauttyp, passende Behandlung.</p></li>
-        <li class="rv" style="--d:.08s"><span>02</span><h3>Vorzeichnung</h3><p>Form und Farbe werden auf dich abgestimmt, bevor es losgeht.</p></li>
-        <li class="rv" style="--d:.16s"><span>03</span><h3>Behandlung</h3><p>In Ruhe, mit sterilen, personengebundenen Aufsätzen.</p></li>
-        <li class="rv" style="--d:.24s"><span>04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei Permanent Make-up im Preis enthalten.</p></li>
+        <li class="rv"><span>01</span><h3>Termin</h3><p>Per Telefon, WhatsApp oder Instagram-DM.</p></li>
+        <li class="rv" style="--d:.08s"><span>02</span><h3>Beratung</h3><p>Individuell abgestimmt, Brauen vermessen nach dem Goldenen Schnitt.</p></li>
+        <li class="rv" style="--d:.16s"><span>03</span><h3>Behandlung</h3><p>Mit sterilen, personengebundenen Aufsätzen.</p></li>
+        <li class="rv" style="--d:.24s"><span>04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei PhiBrows, Powder Brows, Lippen und Linern im Preis enthalten.</p></li>
       </ol>
     </div>
   </div>
@@ -360,11 +355,10 @@ tailwind.config = {
     </div>
     <div class="lg:col-span-8">
       <details class="faq rv"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
-      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre. Für ein frisches Ergebnis empfiehlt sich eine Auffrischung nach etwa 12 Monaten.</p></div></details>
-      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows zeichnet einzelne Härchen und wirkt sehr natürlich. Powder Brows sind weicher und gepudert, ähnlich wie geschminkte Brauen. Das entscheiden wir gemeinsam in der Beratung.</p></div></details>
-      <details class="faq rv"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval lassen sich Permanent Make-up, Microblading oder kleine Tattoos sanft und ohne Laser entfernen. Arbeiten aus einem anderen Studio können danach neu gemacht werden, zum Neupreis.</p></div></details>
+      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis.</p></div></details>
+      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows Microblading erzielt einen natürlichen 3D-Augenbraueneffekt, bei dem einzelne Härchen ergänzt werden. Powder Brows sind eine Pigmentierung der Augenbrauen. Was zu dir passt, klärt Meltem in der individuellen Beratung.</p></div></details>
+      <details class="faq rv"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval werden fehlerhafte Permanent Make-ups, Microblading oder Tattoos ohne Laser entfernt oder korrigiert. Für das Nacharbeiten von Fremdarbeiten gilt der Neupreis.</p></div></details>
       <details class="faq rv"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Die verwendeten PhiBrows Pigmente verursachen keine Farbveränderung und sind vegan.</p></div></details>
-      <details class="faq rv"><summary>Behandelst du auch Männer?</summary><div class="faq-body"><p>Ja. Vitaminbehandlungen für Bart und Kopfhaut, Kopfhautpigmentierung und Hautbehandlungen sind auch für Männer.</p></div></details>
     </div>
   </div>
 </section>
@@ -393,7 +387,7 @@ tailwind.config = {
     </div>
     <div class="text-[.9rem] leading-relaxed text-stone md:col-span-3">
       <p class="mb-3 text-[.68rem] font-semibold uppercase tracking-label text-ink">Studio</p>
-      Neustadt 439<br>84028 Landshut<br><br>Di – Fr 09:00 – 18:00<br>Sa 09:00 – 14:00
+      Neustadt 439<br>84028 Landshut<br><br>Termine per Telefon,<br>WhatsApp oder Instagram-DM
     </div>
     <div class="text-[.9rem] leading-relaxed text-stone md:col-span-2">
       <p class="mb-3 text-[.68rem] font-semibold uppercase tracking-label text-ink">Kontakt</p>
