@@ -13,8 +13,8 @@
 
 :root{
   /* Studio-Palette: Beige wie der Raum, Grün nur als Pflanzen-Akzent */
-  --cream:#F7F4EF; --sand:#EFEAE2; --linen:#E3D8C8; --pine:#16332B; --moss:#2C5245;
-  --forest:#3F413A; --sage:#5A6649; /* forest = Anthrazit für Bedienelemente, sage = einziges Grün (Akzentwörter, Hover) */ --gold:#C8AA6E; --gold-ink:#6F6455;
+  --cream:#F6F3EE; --sand:#EFEAE2; --linen:#E3D8C8; --pine:#122620; --moss:#2C5245;
+  --forest:#3F413A; --sage:#5A6649; /* forest = Anthrazit für Bedienelemente, sage = einziges Grün (Akzentwörter, Hover) */ --gold:#C5A86F; --gold-ink:#6F6455;
   --ink:#33352F; --stone:#625F56; --line:rgba(51,53,47,.12);
   --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
 }

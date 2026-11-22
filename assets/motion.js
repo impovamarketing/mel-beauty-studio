@@ -135,7 +135,7 @@
     };
     tick();
     document.addEventListener('pointerover', e => {
-      const media = e.target.closest('.g-item, .sc-img, .menu-visual, .bridge-img, .hero-img');
+      const media = e.target.closest('.g-item, .sc-img, .menu-visual, .bridge-img, .hero-visual, .studio-ambient');
       const link = e.target.closest('a, button, [role="tab"], summary, input, .leaflet-marker-icon');
       cur.classList.toggle('is-media', !!media && !link);
       cur.classList.toggle('is-link', !!link);
@@ -143,6 +143,29 @@
       const onPine = e.target.closest('.section-pine');
       ring.style.borderColor = ''; if (onPine && !media) ring.style.borderColor = 'rgba(200,170,110,.9)';
     });
+  }
+
+  /* ---------- Floating Image Reveal: Foto schwebt träge neben der Maus ---------- */
+  const fp = $('.float-preview');
+  if (fp && fine && !reduce && matchMedia('(min-width: 1024px)').matches) {
+    const img = $('img', fp);
+    let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, vx = 0, on = false;
+    addEventListener('pointermove', e => { tx = e.clientX + 170; ty = e.clientY; }, { passive: true });
+    $$('.mrow[data-preview]').forEach(row => {
+      row.addEventListener('pointerenter', () => {
+        const src = row.dataset.preview;
+        if (!img.src.endsWith(src)) img.src = src;
+        fp.classList.add('is-on'); on = true;
+      });
+      row.addEventListener('pointerleave', () => { fp.classList.remove('is-on'); on = false; });
+    });
+    const tick = () => {
+      const nx = x + (tx - x) * 0.11, ny = y + (ty - y) * 0.11;
+      vx += ((nx - x) - vx) * 0.2; x = nx; y = ny;
+      if (on || fp.classList.contains('is-on')) fp.style.transform = `translate3d(${x}px,${y}px,0) rotate(${Math.max(-8, Math.min(8, vx * 0.35))}deg)`;
+      requestAnimationFrame(tick);
+    };
+    tick();
   }
 
   /* ---------- Magnetische Buttons ---------- */

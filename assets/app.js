@@ -72,7 +72,9 @@
     e.target.classList.add('in'); io.unobserve(e.target);
     $$('[data-count]', e.target).forEach(countUp);
   }), { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-  $$('.rv, .split, .reveal-img').forEach(el => io.observe(el));
+  const startReveals = () => $$('.rv, .split, .reveal-img').forEach(el => io.observe(el));
+  if (document.documentElement.classList.contains('preloading')) document.addEventListener('mel:ready', startReveals, { once: true });
+  else startReveals();
 
   function countUp(el) {
     if (still) return;

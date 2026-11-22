@@ -55,7 +55,7 @@ function init() {
     uFreq: { value: 0.95 },
     uMouse: { value: new THREE.Vector3(0, 0, 1) },
     uPearl: { value: new THREE.Color('#FBF7F0') },
-    uChamp: { value: new THREE.Color('#C8AA6E') },
+    uChamp: { value: new THREE.Color('#C5A86F') },
     uSand: { value: new THREE.Color('#E8DCC8') },
     uSage: { value: new THREE.Color('#9FB3A0') },
   };
