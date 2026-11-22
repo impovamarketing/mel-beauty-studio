@@ -10,7 +10,7 @@
 <meta property="og:description" content="PhiBrows, Powder Brows, Lippen, Microneedling und Skin Care in Landshut.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta name="theme-color" content="#F2ECE1">
+<meta name="theme-color" content="#F6EFE6">
 <link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -68,17 +68,20 @@
 @font-face{font-family:"Manrope";src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
 
 :root{
-  --paper:#F2ECE1;
-  --paper-2:#E9E1D3;
-  --slot:#DDD3C2;
-  --ink:#23241C;
-  --ink-2:#55564B;
-  --muted:#857F70;
-  --olive:#565C45;
-  --olive-2:#4A4F3B;
-  --gold:#D3BC8C;
-  --rule:rgba(35,36,28,.18);
-  --rule-light:rgba(242,236,225,.22);
+  /* Studiofarben: Creme, Greige, Karamell (aus Studio-Fotos und Flyern) */
+  --paper:#F6EFE6;
+  --paper-2:#EFE4D6;
+  --sand:#E8D9C5;
+  --taupe:#CDB79C;
+  --slot:#E3D4C1;
+  --ink:#2D2420;
+  --ink-2:#5C4E44;
+  --muted:#76634F;
+  --accent:#845F40;
+  --accent-2:#6B4C33;
+  --gold:#B08D57;
+  --rule:rgba(45,36,32,.16);
+  --rule-light:rgba(45,36,32,.14);
   --serif:"Cormorant",Georgia,serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --pad:clamp(1.25rem,4vw,3.5rem);
@@ -92,31 +95,31 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 .wrap{padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
 .label{font:600 .7rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--paper);padding:.5rem 1rem}
-:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* Bild-Slots: bewusst wie ein Layout-Entwurf, nicht wie Deko */
 .slot{background:var(--slot);position:relative;overflow:hidden}
 .slot::after{content:attr(data-label);position:absolute;left:1rem;bottom:.9rem;font:500 .68rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.slot--dark{background:#4F5440}.slot--dark::after{color:rgba(242,236,225,.55)}
+.slot--dark{background:var(--taupe)}
 /* Echte Fotos (aus Instagram und melbeautystudio.carrd.co) */
 .ph{position:relative;overflow:hidden;background:var(--slot);margin:0}
 .ph img{display:block;width:100%;height:100%;object-fit:cover}
 .ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1rem .8rem;background:linear-gradient(transparent,rgba(35,36,28,.6));color:var(--paper);font:500 .72rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase}
 .certs{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;align-items:center}
 .certs img{width:88px;height:88px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:.35rem}
-.maplink{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem;padding:var(--pad);background:#4F5440;color:var(--paper);text-decoration:none;min-height:460px}
+.maplink{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem;padding:var(--pad);background:var(--taupe);color:var(--ink);text-decoration:none;min-height:460px}
 .maplink b{font:500 clamp(1.8rem,3vw,2.6rem)/1.1 var(--serif)}
-.maplink span{font:600 .75rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.maplink span{font:600 .75rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
 .maplink:hover b{text-decoration:underline;text-underline-offset:.2em}
 .social{display:flex;gap:1.4rem;margin-top:1.6rem;font-size:.9rem}
 
 /* Links & Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem 1.7rem;background:var(--olive);color:var(--paper);text-decoration:none;font:600 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--olive);transition:background .25s,color .25s,border-color .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem 1.7rem;background:var(--accent);color:#fff;text-decoration:none;font:600 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--accent);transition:background .25s,color .25s,border-color .25s}
 .btn:hover{background:var(--ink);border-color:var(--ink)}
-.btn--line{background:transparent;color:var(--ink);border-color:var(--ink)}
-.btn--line:hover{background:var(--ink);color:var(--paper)}
+.btn--line{background:transparent;color:var(--accent-2);border-color:var(--accent)}
+.btn--line:hover{background:var(--accent);color:#fff}
 .tlink{font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s}
-.tlink:hover{color:var(--olive)}
+.tlink:hover{color:var(--accent)}
 
 /* Header */
 .header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule)}
@@ -166,28 +169,28 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 .f-meta span:last-child{font-weight:600}
 
 /* Preisliste im Flyer-Look */
-.menu{background:var(--olive);color:var(--paper);padding-block:clamp(5rem,10vw,8rem)}
+.menu{background:var(--sand);color:var(--ink);padding-block:clamp(5rem,10vw,8rem)}
 .menu .head{border-color:var(--rule-light)}
-.menu .head p{max-width:24rem;color:rgba(242,236,225,.72);font-size:.95rem}
+.menu .head p{max-width:24rem;color:var(--ink-2);font-size:.95rem}
 .menu-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2.5rem,6vw,6rem)}
 .cat{padding-block:2.2rem;border-bottom:1px solid var(--rule-light)}
-.cat h3{font:600 .78rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.cat > p{font-size:.9rem;color:rgba(242,236,225,.68);margin:.7rem 0 1.1rem;max-width:32rem}
+.cat h3{font:600 .78rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2)}
+.cat > p{font-size:.9rem;color:var(--ink-2);margin:.7rem 0 1.1rem;max-width:32rem}
 .row{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;font-size:.98rem}
 .row .n{flex:none;max-width:75%}
-.row .n small{display:block;font-size:.8rem;color:rgba(242,236,225,.55);margin-top:.1rem}
-.row .d{flex:1;border-bottom:1px dotted rgba(242,236,225,.35);transform:translateY(-.3em);min-width:1rem}
+.row .n small{display:block;font-size:.8rem;color:var(--ink-2);margin-top:.1rem}
+.row .d{flex:1;border-bottom:1px dotted rgba(45,36,32,.3);transform:translateY(-.3em);min-width:1rem}
 .row .p{flex:none;font-weight:600;white-space:nowrap}
-.menu-foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:3rem;font-size:.88rem;color:rgba(242,236,225,.68)}
-.menu .btn{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.menu .btn:hover{background:var(--paper);border-color:var(--paper)}
+.menu-foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:3rem;font-size:.88rem;color:var(--ink-2)}
+.menu .btn{background:var(--accent);color:#fff;border-color:var(--accent)}
+.menu .btn:hover{background:var(--ink);border-color:var(--ink)}
 
 /* Ablauf mit echten Zeitpunkten */
 .flow{padding-block:clamp(5rem,10vw,8rem)}
 .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
 .flow-grid > div{padding:1.4rem 1.6rem 0 0}
 .flow-grid > div + div{padding-left:1.6rem;border-left:1px solid var(--rule)}
-.flow .when{font:600 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+.flow .when{font:600 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .flow h3{font-size:1.75rem;margin:1rem 0 .6rem}
 .flow p{font-size:.93rem;color:var(--ink-2)}
 
@@ -228,10 +231,11 @@ details p{padding-bottom:1.4rem;color:var(--ink-2);font-size:.95rem}
 .hours .off{color:var(--muted)}
 .contact .slot{min-height:460px}
 
-footer.site{background:var(--olive-2);color:rgba(242,236,225,.7);font-size:.82rem}
+footer.site{background:var(--taupe);color:var(--ink);font-size:.82rem}
 footer.site .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1.6rem}
-footer.site a{text-decoration:none;margin-left:1.4rem}
-footer.site a:hover{color:var(--paper)}
+footer.site .wrap > span:last-child{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+footer.site a{text-decoration:none;padding-block:.35rem}
+footer.site a:hover{text-decoration:underline}
 
 .mcta{display:none}
 
