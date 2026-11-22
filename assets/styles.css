@@ -259,3 +259,7 @@ html.js .steps::before{transform:scaleX(var(--p,0))}
   html.js .reveal-img::after{display:none}
   html.js .steps::before{transform:none}
 }
+
+/* Sicherung: Inhalte sichtbar, falls die Reveal-Logik nicht startet */
+html.rv-safe:not(.rv-live) .rv,html.rv-safe:not(.rv-live) .split .w > span,html.rv-safe:not(.rv-live) .reveal-img img{opacity:1;transform:none}
+html.rv-safe:not(.rv-live) .reveal-img::after{transform:scaleY(0)}

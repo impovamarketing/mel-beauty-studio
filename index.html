@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mel Beauty Studio Landshut | PhiBrows, Permanent Make-up &amp; Hautbehandlungen</title>
 <meta name="description" content="Mel Beauty Studio in der Landshuter Neustadt: PhiBrows Microblading, Permanent Make-up, PhiRemoval, DS V-Line Kollagen, Microneedling und Skin Care. Persönlich von Meltem Demirci.">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');
+/* Sicherung: Falls Skripte nicht laden, Inhalte nach 6 s trotzdem zeigen */
+setTimeout(function(){document.documentElement.classList.add('rv-safe')},6000);</script>
 <meta property="og:title" content="Mel Beauty Studio · Landshut">
 <meta property="og:description" content="PhiBrows, Permanent Make-up, PhiRemoval und ästhetische Hautbehandlungen in der Landshuter Neustadt.">
 <meta property="og:type" content="website">
@@ -45,6 +47,8 @@ tailwind.config = {
 </script>
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/upgrade.css">
+<!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
+<script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
@@ -559,7 +563,6 @@ tailwind.config = {
   </section>
 </div>
 
-<script src="assets/app.js" defer></script>
 <script src="assets/motion.js" defer></script>
 <script type="module" src="assets/scene.js"></script>
 </body>

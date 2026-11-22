@@ -145,7 +145,7 @@ main,.site-footer{position:relative;z-index:1}
 .site-footer > .border-t > div{padding-bottom:5.5rem}
 
 /* Handy: Skulptur dezenter, Text bleibt im Vordergrund */
-@media (max-width:767px){#scene.is-ready{opacity:.5}}
+@media (max-width:1023px){#scene.is-ready{opacity:.5}}
 
 /* =========================================================
    Fotografie-Regie: einheitliches Grading, Ken Burns, weiche Kanten

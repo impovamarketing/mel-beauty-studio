@@ -7,6 +7,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 const canvas = document.getElementById('scene');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const small = matchMedia('(max-width: 767px)').matches;
+const compact = matchMedia('(max-width: 1023px)'); // einspaltiges Layout: Skulptur an den Rand
 
 function webglOK() {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
@@ -124,7 +125,7 @@ function init() {
     viewH = 2 * Math.tan((camera.fov * Math.PI / 180) / 2) * camera.position.z;
     viewW = viewH * camera.aspect;
   }
-  addEventListener('resize', resize); resize();
+  addEventListener('resize', () => { resize(); pickTarget(); }); resize();
 
   /* ---- Ziele aus den Sektionen (data-blob="x y scale" in Bildschirmanteilen) ---- */
   const target = { x: .16, y: .02, s: .62 }, cur = { x: .4, y: -.2, s: .05 };
@@ -142,7 +143,7 @@ function init() {
     }
     let { x, y, s } = best;
     // Handy: an den Rand, damit Text lesbar bleibt
-    if (small) { x = (x < 0 ? -1 : 1) * .52; s *= .75; }
+    if (compact.matches) { x = (x < 0 ? -1 : 1) * .52; s *= .75; }
     Object.assign(target, { x, y, s });
   }
 
