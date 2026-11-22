@@ -22,9 +22,13 @@
       "@id": "https://www.mel-beauty-studio.de/#studio",
       "name": "Mel Beauty Studio",
       "url": "https://www.mel-beauty-studio.de/",
-      "telephone": "+49-000-0000000",
+      "telephone": "+49-163-6839277",
+      "email": "mel.studio439@gmail.com",
+      "image": "https://www.mel-beauty-studio.de/images/mel-portrait.jpg",
+      "founder": {"@type": "Person", "name": "Meltem Demirci"},
+      "sameAs": ["https://www.instagram.com/melbeautystudio.landshut/", "https://www.facebook.com/melbeautystudio.landshut"],
       "priceRange": "€€",
-      "address": {"@type": "PostalAddress", "streetAddress": "Musterstraße 1", "postalCode": "84028", "addressLocality": "Landshut", "addressRegion": "Bayern", "addressCountry": "DE"},
+      "address": {"@type": "PostalAddress", "streetAddress": "Neustadt 439", "postalCode": "84028", "addressLocality": "Landshut", "addressRegion": "Bayern", "addressCountry": "DE"},
       "areaServed": ["Landshut", "Ergolding", "Altdorf", "Kumhausen", "Essenbach", "Vilsbiburg", "Moosburg"],
       "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"},
@@ -48,7 +52,8 @@
       "mainEntity": [
         {"@type": "Question", "name": "Ist die Nachbehandlung im Preis enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits im Preis enthalten."}},
         {"@type": "Question", "name": "Was ist der Unterschied zwischen PhiBrows Microblading und Powder Brows?", "acceptedAnswer": {"@type": "Answer", "text": "Beim PhiBrows Microblading werden einzelne, feine Härchen gezeichnet. Das Ergebnis ist ein sehr natürlicher 3D-Haareffekt. Powder Brows wirken weicher und gepudert, ähnlich wie geschminkte Brauen."}},
-        {"@type": "Question", "name": "Wann sollte Permanent Make-up aufgefrischt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Für ein frisches Ergebnis empfiehlt sich eine Auffrischung nach etwa 12 Monaten. Ab 18 Monaten oder bei Arbeiten aus einem anderen Studio gilt der Neupreis."}}
+        {"@type": "Question", "name": "Wann sollte Permanent Make-up aufgefrischt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Für ein frisches Ergebnis empfiehlt sich eine Auffrischung nach etwa 12 Monaten. Ab 18 Monaten oder bei Arbeiten aus einem anderen Studio gilt der Neupreis."}},
+        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre."}}
       ]
     }
   ]
@@ -93,6 +98,17 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 .slot{background:var(--slot);position:relative;overflow:hidden}
 .slot::after{content:attr(data-label);position:absolute;left:1rem;bottom:.9rem;font:500 .68rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .slot--dark{background:#4F5440}.slot--dark::after{color:rgba(242,236,225,.55)}
+/* Echte Fotos (aus Instagram und melbeautystudio.carrd.co) */
+.ph{position:relative;overflow:hidden;background:var(--slot);margin:0}
+.ph img{display:block;width:100%;height:100%;object-fit:cover}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1rem .8rem;background:linear-gradient(transparent,rgba(35,36,28,.6));color:var(--paper);font:500 .72rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.certs{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;align-items:center}
+.certs img{width:88px;height:88px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:.35rem}
+.maplink{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem;padding:var(--pad);background:#4F5440;color:var(--paper);text-decoration:none;min-height:460px}
+.maplink b{font:500 clamp(1.8rem,3vw,2.6rem)/1.1 var(--serif)}
+.maplink span{font:600 .75rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.maplink:hover b{text-decoration:underline;text-underline-offset:.2em}
+.social{display:flex;gap:1.4rem;margin-top:1.6rem;font-size:.9rem}
 
 /* Links & Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem 1.7rem;background:var(--olive);color:var(--paper);text-decoration:none;font:600 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--olive);transition:background .25s,color .25s,border-color .25s}
@@ -126,7 +142,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 .hero-facts div{padding-right:2rem;margin-right:2rem;border-right:1px solid var(--rule);font-size:.86rem;color:var(--ink-2);line-height:1.5}
 .hero-facts div:last-child{border:0;margin:0;padding:0}
 .hero-facts b{display:block;color:var(--ink);font-weight:600}
-.hero .slot{min-height:520px}
+.hero .slot,.hero .ph{min-height:520px}
 
 /* Intro */
 .intro{padding-block:clamp(5rem,11vw,9rem)}
@@ -143,7 +159,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--rule);margin-bottom:2.5rem;flex-wrap:wrap}
 .head h2{font-size:clamp(2.4rem,4.6vw,4rem)}
 .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,2.5vw,2.5rem)}
-.f-item .slot{aspect-ratio:4/5;margin-bottom:1.4rem}
+.f-item .slot,.f-item .ph{aspect-ratio:4/5;margin-bottom:1.4rem}
 .f-item h3{font-size:2rem;margin-bottom:.6rem}
 .f-item p{color:var(--ink-2);font-size:.95rem;max-width:26rem}
 .f-meta{display:flex;justify-content:space-between;margin-top:1.2rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.86rem}
@@ -177,9 +193,8 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.02;l
 
 /* Ergebnisse */
 .results{padding-bottom:clamp(5rem,10vw,8rem)}
-.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
-.res-grid .slot{aspect-ratio:1}
-.res-grid .wide{grid-column:span 2;aspect-ratio:auto}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.res-grid .ph{aspect-ratio:1}
 
 /* Stimme */
 .voice{background:var(--paper-2);padding-block:clamp(5rem,10vw,8rem)}
@@ -231,7 +246,9 @@ footer.site a:hover{color:var(--paper)}
   .nav a{font:500 2rem/1 var(--serif);color:var(--ink);padding:1rem 0;border-bottom:1px solid var(--rule)}
   .hero,.contact{grid-template-columns:1fr}
   .hero{max-height:none;min-height:0}
-  .hero .slot{min-height:0;aspect-ratio:4/3}
+  .hero .slot,.hero .ph{min-height:0;aspect-ratio:4/3}
+  .hero .ph img{object-position:center 30%}
+  .maplink{min-height:260px}
   .hero-facts{grid-template-columns:1fr 1fr 1fr}
   .hero-facts div{margin-right:1rem;padding-right:1rem}
   .intro .label,.intro-text,.intro-img,.voice .label,.voice blockquote,.voice .note{grid-column:1 / -1}
@@ -240,7 +257,7 @@ footer.site a:hover{color:var(--paper)}
   .menu-grid,.faq-list{grid-template-columns:1fr}
   .flow-grid{grid-template-columns:1fr 1fr;row-gap:2.5rem}
   .flow-grid > div:nth-child(3){padding-left:0;border-left:0}
-  .res-grid{grid-template-columns:1fr 1fr}
+  .res-grid{grid-template-columns:repeat(3,1fr)}
   .contact .slot{min-height:320px}
 }
 @media (max-width:640px){
@@ -251,6 +268,7 @@ footer.site a:hover{color:var(--paper)}
   .flow-grid{grid-template-columns:1fr}
   .flow-grid > div + div{padding-left:0;border-left:0;border-top:1px solid var(--rule);padding-top:1.4rem}
   .c-grid{grid-template-columns:1fr}
+  .res-grid{grid-template-columns:1fr}
   .row{font-size:.94rem}
   .mcta{display:grid;grid-template-columns:1fr auto;position:fixed;inset:auto 0 0;z-index:30;border-top:1px solid var(--rule);background:var(--paper);padding:.6rem;gap:.6rem;transform:translateY(100%);transition:transform .35s}
   .mcta.show{transform:none}
@@ -274,7 +292,7 @@ footer.site a:hover{color:var(--paper)}
     </nav>
     <a href="#" class="logo" aria-label="Mel Beauty Studio, Startseite"><b>Mel</b><span>Beauty Studio</span></a>
     <div class="header-r">
-      <a href="tel:+490000000000" class="tel">0000 000 000</a>
+      <a href="tel:+491636839277" class="tel">0163 6839277</a>
       <a href="#kontakt" class="btn">Termin anfragen</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menü</button>
     </div>
@@ -296,21 +314,27 @@ footer.site a:hover{color:var(--paper)}
     <div class="hero-facts">
       <div><b>Nachbehandlung</b>nach 21 Tagen inklusive</div>
       <div><b>PhiBrows</b>Microblading-Methode</div>
-      <div><b>Landshut</b>Musterstraße 1</div>
+      <div><b>Landshut</b>Neustadt 439</div>
     </div>
   </div>
-  <div class="slot" data-label="Foto: Mel bei der Arbeit, Hochformat"></div>
+  <figure class="ph"><img src="images/mel-portrait.jpg" width="1100" height="1100" alt="Meltem Demirci im Mel Beauty Studio in Landshut"></figure>
 </section>
 
 <section class="intro" id="ueber-mich">
   <div class="wrap">
     <span class="label">Über mich</span>
     <div class="intro-text">
-      <p>Ich bin Mel. Ich pigmentiere Augenbrauen, Lippen und Lidstriche, und zwar so, dass am Ende niemand fragt, ob es Permanent Make-up ist.</p>
-      <p>Jede Behandlung beginnt bei mir mit einer Vorzeichnung. Erst wenn Form und Farbe für dich stimmen, geht es los. Ich arbeite mit organischen Pigmenten und der PhiBrows-Methode. [Platzhalter: Ausbildung, Zertifikate, seit wann selbstständig]</p>
-      <span class="sign">Mel</span>
+      <p>Ich bin Meltem, Kosmetikerin seit 10 Jahren. Ich pigmentiere Augenbrauen, Lippen und Lidstriche, und zwar so, dass am Ende niemand fragt, ob es Permanent Make-up ist.</p>
+      <p>Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen bei mir im Mittelpunkt. Jede Behandlung beginnt mit einer Vorzeichnung, bei den Brauen vermessen nach dem Goldenen Schnitt.</p>
+      <p>Zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Allgae Peeling.</p>
+      <div class="certs">
+        <img src="images/zert-phibrows-artist.jpg" width="400" height="400" loading="lazy" alt="Zertifikat PhiBrows Artist Meltem Demirci">
+        <img src="images/zert-ds-v-line.jpg" width="400" height="400" loading="lazy" alt="Zertifikat DS V-Line Meltem Demirci">
+        <img src="images/zert-allgae.jpg" width="400" height="400" loading="lazy" alt="Zertifikat Allgae Peeling Meltem Demirci">
+      </div>
+      <span class="sign">Meltem</span>
     </div>
-    <div class="slot intro-img" data-label="Foto: Portrait Mel"></div>
+    <figure class="ph intro-img"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" loading="lazy" alt="Augenbrauen werden nach dem Goldenen Schnitt vermessen"></figure>
   </div>
 </section>
 
@@ -322,22 +346,22 @@ footer.site a:hover{color:var(--paper)}
     </div>
     <div class="focus-grid">
       <article class="f-item">
-        <div class="slot" data-label="Foto: PhiBrows Ergebnis"></div>
+        <figure class="ph"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" loading="lazy" alt="Natürliche Augenbrauen in Härchentechnik"></figure>
         <h3>PhiBrows Microblading</h3>
-        <p>Einzelne Härchen, präzise gezeichnet. Für lichte oder blasse Brauen, die wieder voll aussehen sollen.</p>
+        <p>Einzelne Härchen, präzise gezeichnet. Mit veganen PhiBrows Pigmenten, ohne spätere Farbveränderung. Das Ergebnis hält 2 bis 3 Jahre.</p>
         <div class="f-meta"><span>inkl. Nachbehandlung</span><span>490 €</span></div>
       </article>
       <article class="f-item">
-        <div class="slot" data-label="Foto: Lippen Ergebnis"></div>
+        <figure class="ph"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" loading="lazy" alt="Lippenpigmentierung im Mel Beauty Studio"></figure>
         <h3>Powder Brows &amp; Lippen</h3>
-        <p>Weich gepuderte Brauen oder mehr Farbe und eine klare Kontur für die Lippen.</p>
+        <p>Weich gepuderte Brauen oder mehr Farbe und eine klare Kontur für die Lippen. Lippen mit organischen Pigmenten, Haltbarkeit etwa 2 Jahre.</p>
         <div class="f-meta"><span>inkl. Nachbehandlung</span><span>ab 390 €</span></div>
       </article>
       <article class="f-item">
-        <div class="slot" data-label="Foto: Behandlung Gesicht"></div>
-        <h3>Microneedling &amp; Skin Care</h3>
-        <p>Für feinere Poren, weniger Pigmentflecken und ein ruhigeres Hautbild. Abgestimmt auf deinen Hauttyp.</p>
-        <div class="f-meta"><span>Gesicht</span><span>ab 99 €</span></div>
+        <figure class="ph"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" loading="lazy" alt="Vorher und nachher: Kollagenfadenlifting mit DS V-Line"></figure>
+        <h3>DS V-Line Kollagen</h3>
+        <p>Natürliche Kollagenfäden straffen die Haut sanft und mildern Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p>
+        <div class="f-meta"><span>Gesicht</span><span>245 €</span></div>
       </article>
     </div>
   </div>
@@ -366,7 +390,7 @@ footer.site a:hover{color:var(--paper)}
         </div>
         <div class="cat">
           <h3>PhiBrows Microblading</h3>
-          <p>Natürlicher 3D-Effekt durch organische Pigmente und präzise Zeichentechnik. Ergänzt fehlende Härchen und verdichtet blasse Brauen.</p>
+          <p>Natürlicher 3D-Effekt durch präzise Zeichentechnik. Vegane PhiBrows Pigmente ohne spätere Farbveränderung, alle Aufsätze steril und personengebunden. Hält 2 bis 3 Jahre.</p>
           <div class="row"><span class="n">PhiBrows inkl. Nachbehandlung</span><span class="d"></span><span class="p">490 €</span></div>
           <div class="row"><span class="n">Auffrischung nach 12 Monaten</span><span class="d"></span><span class="p">225 €</span></div>
           <div class="row"><span class="n">Nach 18 Monaten bzw. Fremdarbeit</span><span class="d"></span><span class="p">Neupreis</span></div>
@@ -378,7 +402,7 @@ footer.site a:hover{color:var(--paper)}
         </div>
         <div class="cat">
           <h3>PhiRemoval</h3>
-          <p>Entfernt oder korrigiert fehlerhaftes Permanent Make-up und Tattoos ohne Laser.</p>
+          <p>Entfernt alte oder nicht mehr gewünschte Pigmentierungen sanft und ohne Laser: Permanent Make-up, Microblading oder kleine Tattoos.</p>
           <div class="row"><span class="n">Gesicht</span><span class="d"></span><span class="p">149 €</span></div>
           <div class="row"><span class="n">Körper</span><span class="d"></span><span class="p">individuell</span></div>
         </div>
@@ -436,14 +460,11 @@ footer.site a:hover{color:var(--paper)}
 
 <section class="results" aria-label="Ergebnisse">
   <div class="wrap">
-    <div class="head"><h2>Ergebnisse</h2><a href="#" class="tlink">Mehr auf Instagram</a></div>
+    <div class="head"><h2>Ergebnisse</h2><a href="https://www.instagram.com/melbeautystudio.landshut/" class="tlink" target="_blank" rel="noopener">Mehr auf Instagram</a></div>
     <div class="res-grid">
-      <div class="slot wide" data-label="Vorher / Nachher Brauen"></div>
-      <div class="slot" data-label="Lippen"></div>
-      <div class="slot" data-label="Lidstrich"></div>
-      <div class="slot" data-label="Studio"></div>
-      <div class="slot" data-label="Behandlung"></div>
-      <div class="slot wide" data-label="Vorher / Nachher Lippen"></div>
+      <figure class="ph"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" loading="lazy" alt="PhiBrows Microblading: Augenbrauen vorher und nachher"><figcaption>PhiBrows Microblading</figcaption></figure>
+      <figure class="ph"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" loading="lazy" alt="Permanent Make-up an den Lippen, Ergebnis"><figcaption>Lippen</figcaption></figure>
+      <figure class="ph"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" loading="lazy" alt="PhiRemoval: Augenbraue vor und nach der ersten Behandlung"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
     </div>
   </div>
 </section>
@@ -471,7 +492,8 @@ footer.site a:hover{color:var(--paper)}
       <div>
         <details><summary>Kannst du Arbeiten aus einem anderen Studio korrigieren?</summary><p>Ja, je nach Zustand zum Neupreis. Bei fehlerhaftem Permanent Make-up kann PhiRemoval die Pigmente vorher ohne Laser entfernen oder aufhellen.</p></details>
         <details><summary>Behandelst du auch Männer?</summary><p>Ja. Kopfhautpigmentierung, Vitaminbehandlungen für Bart und Kopfhaut sowie Skin Care werden auch von Männern gebucht.</p></details>
-        <details><summary>Wo ist das Studio, gibt es Parkplätze?</summary><p>[Platzhalter: Adresse, Stadtteil, Parkmöglichkeiten]</p></details>
+        <details><summary>Wie lange hält das Ergebnis?</summary><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre.</p></details>
+        <details><summary>Wo ist das Studio?</summary><p>In der Landshuter Neustadt: Neustadt 439, 84028 Landshut.</p></details>
       </div>
     </div>
   </div>
@@ -482,11 +504,12 @@ footer.site a:hover{color:var(--paper)}
     <h2>Termin anfragen</h2>
     <p>Am schnellsten per WhatsApp. Schreib kurz, welche Behandlung dich interessiert. Bei Korrekturen gern mit Foto.</p>
     <div class="hero-cta">
-      <a href="https://wa.me/490000000000" class="btn">WhatsApp</a>
-      <a href="tel:+490000000000" class="btn btn--line">Anrufen</a>
+      <a href="https://wa.me/491636839277" class="btn">WhatsApp</a>
+      <a href="tel:+491636839277" class="btn btn--line">Anrufen</a>
     </div>
     <div class="c-grid">
-      <div><span class="label">Adresse</span><p>Mel Beauty Studio<br>Musterstraße 1<br>84028 Landshut</p></div>
+      <div><span class="label">Adresse</span><p>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</p>
+        <p style="margin-top:1rem"><a href="tel:+491636839277">0163 6839277</a><br><a href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></p></div>
       <div><span class="label">Öffnungszeiten</span>
         <table class="hours">
           <tr><td>Di – Fr</td><td>09:00 – 18:00</td></tr>
@@ -496,20 +519,24 @@ footer.site a:hover{color:var(--paper)}
       </div>
     </div>
   </div>
-  <div class="slot slot--dark" data-label="Karte (lädt erst nach Klick, DSGVO)"></div>
+  <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener">
+    <span>Anfahrt</span>
+    <b>Neustadt 439, 84028 Landshut</b>
+    <span>In Google Maps öffnen →</span>
+  </a>
 </section>
 </main>
 
 <footer class="site">
   <div class="wrap">
     <span>© 2026 Mel Beauty Studio, Landshut</span>
-    <span><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
+    <span><a href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
   </div>
 </footer>
 
 <div class="mcta" id="mcta">
-  <a href="https://wa.me/490000000000" class="btn">Termin per WhatsApp</a>
-  <a href="tel:+490000000000" class="btn btn--line">Anrufen</a>
+  <a href="https://wa.me/491636839277" class="btn">Termin per WhatsApp</a>
+  <a href="tel:+491636839277" class="btn btn--line">Anrufen</a>
 </div>
 
 <script>
