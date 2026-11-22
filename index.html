@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://www.mel-beauty-studio.de/images/mel-portrait.jpg">
-<meta name="theme-color" content="#F6EFE6">
+<meta name="theme-color" content="#F6F1EA">
 <link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -23,14 +23,14 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        cream:  '#F6EFE6',
-        sand:   '#EEE3D4',
-        linen:  '#E4D5C1',
-        forest: '#3B2A20', // Espresso
-        sage:   '#7E5C3C', // Karamell
-        gold:   '#C2A878',
-        ink:    '#2B211B',
-        stone:  '#6A5A4D',
+        cream:  '#F6F1EA',
+        sand:   '#EDE5D9',
+        linen:  '#E3D8C8',
+        forest: '#3F413A', // Anthrazit für Bedienelemente
+        sage:   '#5A6649', // einziges Grün: Akzentwörter
+        gold:   '#CDB99A',
+        ink:    '#33352F',
+        stone:  '#625F56',
       },
       fontFamily: {
         serif: ['"Cormorant"', 'Georgia', 'serif'],
@@ -135,16 +135,16 @@ tailwind.config = {
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-10 md:px-10 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16">
     <div class="lg:col-span-6 lg:pt-10 flex flex-col">
       <p class="eyebrow rv">Permanent Make-up &amp; Kosmetik · Landshuter Neustadt</p>
-      <h1 class="split mt-7 font-serif text-[2.9rem] leading-[1.02] tracking-[-.01em] text-forest sm:text-[4rem] lg:text-[5.4rem]">Natürliche Schönheit, <em>sorgfältig</em> unterstrichen.</h1>
+      <h1 class="split mt-7 font-serif text-[2.9rem] leading-[1.02] tracking-[-.01em] text-ink sm:text-[4rem] lg:text-[5.4rem]">Natürliche Schönheit, <em>sorgfältig</em> unterstrichen.</h1>
       <p class="rv mt-8 max-w-[34rem] text-[1.05rem] leading-[1.75] text-stone" style="--d:.35s">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Persönlich von Meltem, mit Ruhe, Hygiene und einer Beratung, die sich nach dir richtet.</p>
       <div class="rv mt-10 flex flex-wrap items-center gap-6" style="--d:.45s">
         <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
-        <a href="#behandlungen" class="ulink text-[.9rem] font-medium text-forest">Behandlungen entdecken</a>
+        <a href="#behandlungen" class="ulink text-[.9rem] font-medium text-ink">Behandlungen entdecken</a>
       </div>
       <dl class="rv mt-14 grid grid-cols-3 gap-6 border-t border-ink/10 pt-7 text-[.8rem] text-stone lg:mt-20" style="--d:.55s">
-        <div><dt class="font-serif text-[2.1rem] leading-none text-forest"><span data-count="10">10</span></dt><dd class="mt-2">Jahre als Kosmetikerin</dd></div>
-        <div><dt class="font-serif text-[2.1rem] leading-none text-forest">2–3</dt><dd class="mt-2">Jahre hält PhiBrows</dd></div>
-        <div><dt class="font-serif text-[2.1rem] leading-none text-forest"><span data-count="21">21</span></dt><dd class="mt-2">Tage bis zur inkl. Nachbehandlung</dd></div>
+        <div><dt class="font-serif text-[2.1rem] leading-none text-ink"><span data-count="10">10</span></dt><dd class="mt-2">Jahre als Kosmetikerin</dd></div>
+        <div><dt class="font-serif text-[2.1rem] leading-none text-ink">2–3</dt><dd class="mt-2">Jahre hält PhiBrows</dd></div>
+        <div><dt class="font-serif text-[2.1rem] leading-none text-ink"><span data-count="21">21</span></dt><dd class="mt-2">Tage bis zur inkl. Nachbehandlung</dd></div>
       </dl>
     </div>
 
@@ -164,7 +164,7 @@ tailwind.config = {
 
 <!-- Laufband mit Behandlungen aus der Instagram-Bio -->
 <div class="marquee border-y border-ink/10 bg-sand" aria-hidden="true">
-  <div class="marquee-track font-serif text-[1.6rem] italic text-forest/80">
+  <div class="marquee-track font-serif text-[1.6rem] italic text-ink/80">
     <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
     <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
   </div>
@@ -176,7 +176,7 @@ tailwind.config = {
     <div class="grid gap-8 lg:grid-cols-12">
       <p class="eyebrow rv lg:col-span-3">Behandlungs-Menü</p>
       <div class="lg:col-span-9">
-        <h2 class="split font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.8rem]">Ausgewählte Behandlungen, <em>klar</em> und ehrlich bepreist.</h2>
+        <h2 class="split font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.8rem]">Ausgewählte Behandlungen, <em>klar</em> und ehrlich bepreist.</h2>
         <p class="rv mt-6 max-w-[38rem] text-stone">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
       </div>
     </div>
@@ -217,7 +217,7 @@ tailwind.config = {
             <li class="mrow"><div><h3>Augenbrauenkorrektur</h3><p>Mit Fadentechnik und Vermessung nach dem Goldenen Schnitt.</p></div><span class="price">auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
           </ul>
           <div class="mt-10 grid gap-x-10 gap-y-2 border-t border-ink/10 pt-6 text-[.86rem] text-stone sm:grid-cols-2">
-            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-sage sm:col-span-2">Auffrischung nach 12 Monaten</p>
+            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone sm:col-span-2">Auffrischung nach 12 Monaten</p>
             <p class="flex justify-between gap-4"><span>PhiBrows</span><span class="text-ink">225 €</span></p>
             <p class="flex justify-between gap-4"><span>Brows &amp; Lippen</span><span class="text-ink">190 €</span></p>
             <p class="flex justify-between gap-4"><span>Eyeliner, Babyliner, Dipliner</span><span class="text-ink">150 €</span></p>
@@ -276,7 +276,7 @@ tailwind.config = {
       <div class="lg:col-span-6 lg:order-1 lg:pr-10">
         <p class="eyebrow rv">Philosophie</p>
         <blockquote class="mt-8">
-          <p class="split font-serif text-[2.2rem] leading-[1.15] text-forest md:text-[3.3rem]">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
+          <p class="split font-serif text-[2.2rem] leading-[1.15] text-ink md:text-[3.3rem]">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
           <footer class="rv mt-6 text-[.8rem] uppercase tracking-label text-stone">Meltem Demirci</footer>
         </blockquote>
 
@@ -302,7 +302,7 @@ tailwind.config = {
   <div class="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
     <div>
       <p class="eyebrow rv">Aus dem Studio</p>
-      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.6rem]">Arbeiten von Meltem.</h2>
+      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.6rem]">Arbeiten von Meltem.</h2>
     </div>
     <div class="rv flex items-center gap-4">
       <span class="gal-count text-[.78rem] tabular-nums tracking-label text-stone"><b class="font-medium text-ink">01</b> / 07</span>
@@ -327,9 +327,9 @@ tailwind.config = {
   <div class="mx-auto grid max-w-[1440px] gap-14 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-5">
       <p class="eyebrow rv">Studio Landshut</p>
-      <h2 class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-forest md:text-[3.6rem]">Mitten in der <em>Neustadt.</em></h2>
+      <h2 class="split mt-6 font-serif text-[2.5rem] leading-[1.05] text-ink md:text-[3.6rem]">Mitten in der <em>Neustadt.</em></h2>
       <p class="rv mt-8 max-w-[30rem] text-stone">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. In meinem Studio in der Neustadt nehme ich mir Zeit für dich und deine Wünsche.</p>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener" class="rv ulink mt-10 inline-flex items-center gap-3 text-[.9rem] font-medium text-forest">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener" class="rv ulink mt-10 inline-flex items-center gap-3 text-[.9rem] font-medium text-ink">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
     </div>
 
     <div class="lg:col-span-7">
@@ -355,7 +355,7 @@ tailwind.config = {
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-4">
       <p class="eyebrow rv">Häufige Fragen</p>
-      <h2 class="split mt-6 font-serif text-[2.4rem] leading-[1.05] text-forest md:text-[3.2rem]">Gut zu wissen.</h2>
+      <h2 class="split mt-6 font-serif text-[2.4rem] leading-[1.05] text-ink md:text-[3.2rem]">Gut zu wissen.</h2>
       <p class="rv mt-6 text-stone">Noch etwas offen? Der Concierge unten rechts hilft weiter, oder schreib direkt per WhatsApp.</p>
     </div>
     <div class="lg:col-span-8">
@@ -370,15 +370,15 @@ tailwind.config = {
 </section>
 
 <!-- ============ ABSCHLUSS ============ -->
-<section class="relative overflow-hidden bg-forest py-24 text-cream md:py-32">
+<section class="relative overflow-hidden border-t border-ink/10 bg-linen py-24 text-ink md:py-32">
   <div class="mx-auto grid max-w-[1440px] items-end gap-12 px-5 md:px-10 lg:grid-cols-12">
     <div class="lg:col-span-8">
-      <p class="eyebrow eyebrow-light rv">Termin</p>
-      <h2 class="split mt-6 font-serif text-[2.8rem] leading-[1.02] md:text-[4.8rem]">Bereit für <em class="text-gold">deinen</em> Termin?</h2>
+      <p class="eyebrow rv">Termin</p>
+      <h2 class="split mt-6 font-serif text-[2.8rem] leading-[1.02] md:text-[4.8rem]">Bereit für <em>deinen</em> Termin?</h2>
     </div>
     <div class="rv flex flex-col gap-4 lg:col-span-4 lg:items-end">
-      <button type="button" class="btn btn-gold" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
-      <a href="https://wa.me/491636839277" target="_blank" rel="noopener" class="ulink text-[.88rem] text-cream/80">oder direkt per WhatsApp schreiben</a>
+      <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
+      <a href="https://wa.me/491636839277" target="_blank" rel="noopener" class="ulink text-[.88rem] text-stone">oder direkt per WhatsApp schreiben</a>
     </div>
   </div>
 </section>
@@ -388,7 +388,7 @@ tailwind.config = {
 <footer class="bg-cream pt-20">
   <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-12 md:grid-cols-12 md:px-10">
     <div class="md:col-span-5">
-      <p class="font-serif text-[2rem] leading-tight text-forest">Mel Beauty Studio</p>
+      <p class="font-serif text-[2rem] leading-tight text-ink">Mel Beauty Studio</p>
       <p class="mt-2 text-[.7rem] font-semibold uppercase tracking-label text-stone">Permanent Make-up &amp; Kosmetik · Landshut</p>
     </div>
     <div class="text-[.9rem] leading-relaxed text-stone md:col-span-3">
