@@ -12,7 +12,7 @@
   /* ---------- Lenis: weiches Scrollen ---------- */
   let lenis = null;
   if (!reduce && typeof window.Lenis !== 'undefined') {
-    lenis = new window.Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.95 });
+    lenis = new window.Lenis({ lerp: 0.07, smoothWheel: true, wheelMultiplier: 0.9 });
     window.lenis = lenis;
     if (hasGsap) {
       lenis.on('scroll', ScrollTrigger.update);
@@ -64,9 +64,9 @@
     /* Parallax: Elemente mit data-speed bewegen sich mit eigener Geschwindigkeit */
     $$('[data-speed]').forEach(el => {
       const s = parseFloat(el.dataset.speed) || 1;
-      gsap.fromTo(el, { y: () => (1 - s) * -160 }, {
-        y: () => (1 - s) * 160, ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true, invalidateOnRefresh: true },
+      gsap.fromTo(el, { y: () => (1 - s) * -110 }, {
+        y: () => (1 - s) * 110, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1.2, invalidateOnRefresh: true },
       });
     });
 
@@ -75,17 +75,17 @@
     if (bridge) {
       gsap.fromTo(bridge, { clipPath: 'inset(18% 12% 18% 12%)' }, {
         clipPath: 'inset(0% 0% 0% 0%)', ease: 'none',
-        scrollTrigger: { trigger: bridge, start: 'top 95%', end: 'top 30%', scrub: true },
+        scrollTrigger: { trigger: bridge, start: 'top 95%', end: 'top 30%', scrub: 1.2 },
       });
       gsap.fromTo($('img', bridge), { scale: 1.35 }, {
         scale: 1, ease: 'none',
-        scrollTrigger: { trigger: bridge, start: 'top bottom', end: 'bottom top', scrub: true },
+        scrollTrigger: { trigger: bridge, start: 'top bottom', end: 'bottom top', scrub: 1.2 },
       });
     }
 
     /* Hero: Inhalt gleitet beim Wegscrollen weich zurück */
     const heroText = $('.hero .lg\\:col-span-6');
-    if (heroText) gsap.to(heroText, { yPercent: -8, opacity: .35, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    if (heroText) gsap.to(heroText, { yPercent: -5, opacity: .55, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 
     /* Galerie-Bilder: leichte Parallaxe innerhalb der Rahmen */
     $$('.g-item img, .menu-img img').forEach(img => {
@@ -105,15 +105,14 @@
     const track = $('.marquee-track');
     if (track) {
       track.style.animation = 'none';
-      let x = 0, dir = -1, skew = 0;
+      let x = 0, speed = 0.45;
       const half = () => track.scrollWidth / 2;
-      ScrollTrigger.create({ onUpdate: self => { dir = self.direction === 1 ? -1 : 1; } });
       gsap.ticker.add(() => {
-        const v = lenis ? lenis.velocity : 0;
-        x += (dir * (0.6 + Math.min(Math.abs(v) * 0.35, 8)));
-        const w = half(); if (x <= -w) x += w; if (x > 0) x -= w;
-        skew += ((Math.max(-8, Math.min(8, v * 0.4))) - skew) * 0.1;
-        track.style.transform = `translate3d(${x}px,0,0) skewX(${skew}deg)`;
+        const v = lenis ? Math.abs(lenis.velocity) : 0;
+        speed += ((0.45 + Math.min(v * 0.12, 1.8)) - speed) * 0.04;
+        x -= speed;
+        const w = half(); if (x <= -w) x += w;
+        track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
       });
     }
 
@@ -124,8 +123,9 @@
   if (fine && !reduce) {
     const cur = $('.cursor'), ring = $('.cursor-ring'), dot = $('.cursor-dot'), label = $('.cursor-label');
     document.documentElement.classList.add('has-cursor');
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; cur.classList.remove('is-hidden'); }, { passive: true });
+    cur.classList.add('is-hidden'); // erst sichtbar, wenn die Maus sich bewegt
+    let mx = -100, my = -100, rx = mx, ry = my, first = true;
+    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (first) { rx = mx; ry = my; first = false; } cur.classList.remove('is-hidden'); }, { passive: true });
     document.addEventListener('pointerleave', () => cur.classList.add('is-hidden'));
     const tick = () => {
       rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
@@ -160,9 +160,9 @@
       row.addEventListener('pointerleave', () => { fp.classList.remove('is-on'); on = false; });
     });
     const tick = () => {
-      const nx = x + (tx - x) * 0.11, ny = y + (ty - y) * 0.11;
+      const nx = x + (tx - x) * 0.085, ny = y + (ty - y) * 0.085;
       vx += ((nx - x) - vx) * 0.2; x = nx; y = ny;
-      if (on || fp.classList.contains('is-on')) fp.style.transform = `translate3d(${x}px,${y}px,0) rotate(${Math.max(-8, Math.min(8, vx * 0.35))}deg)`;
+      if (on || fp.classList.contains('is-on')) fp.style.transform = `translate3d(${x}px,${y}px,0) rotate(${Math.max(-3, Math.min(3, vx * 0.18))}deg)`;
       requestAnimationFrame(tick);
     };
     tick();
@@ -172,15 +172,15 @@
   if (fine && !reduce) {
     $$('.btn, .gal-btn, .c-launch, .brand-mark').forEach(el => {
       el.setAttribute('data-magnetic', '');
-      const strength = el.classList.contains('btn') ? 0.28 : 0.4;
+      const strength = el.classList.contains('btn') ? 0.16 : 0.22;
       el.addEventListener('pointermove', e => {
         const r = el.getBoundingClientRect();
         const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-        el.style.transition = 'transform .25s cubic-bezier(.22,1,.36,1)';
+        el.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
         el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
       });
       el.addEventListener('pointerleave', () => {
-        el.style.transition = 'transform .8s cubic-bezier(.22,1.4,.36,1)';
+        el.style.transition = 'transform 1s cubic-bezier(.16,1,.3,1)';
         el.style.transform = '';
       });
     });

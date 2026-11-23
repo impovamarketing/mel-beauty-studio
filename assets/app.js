@@ -22,19 +22,15 @@
   addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); closeConcierge(); } });
 
   let lastY = scrollY, ticking = false;
-  const parallax = $$('.parallax');
   const steps = $('.steps');
   const onScroll = () => {
     const y = scrollY, open = burger.getAttribute('aria-expanded') === 'true';
     bar.classList.toggle('is-scrolled', y > 10 || open);
     if (!open) bar.classList.toggle('is-hidden', y > 520 && y > lastY + 3);
     if (y < lastY - 3) bar.classList.remove('is-hidden');
-    if (false) {
-      parallax.forEach(img => {
-        const r = img.parentElement.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < innerHeight) img.style.transform = `translate3d(0,${((r.top + r.height / 2 - innerHeight / 2) * -0.06).toFixed(1)}px,0) scale(1.08)`;
-      });
-    }
+    // Handy: Termin-Knopf erst einblenden, wenn der Hero-Button aus dem Blick ist
+    const cBox = document.getElementById('concierge');
+    if (cBox) cBox.classList.toggle('c-away', innerWidth <= 640 && y < innerHeight * 0.6 && !cBox.classList.contains('is-open'));
     if (steps) {
       const r = steps.getBoundingClientRect();
       const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (innerHeight * 0.6)));
@@ -292,7 +288,7 @@
   }
 
   function openConcierge(mode) {
-    box.classList.add('is-open'); panel.hidden = false; launch.setAttribute('aria-expanded', 'true');
+    box.classList.remove('c-away'); box.classList.add('is-open'); panel.hidden = false; launch.setAttribute('aria-expanded', 'true');
     requestAnimationFrame(() => panel.classList.add('is-open'));
     if (innerWidth <= 640) { document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); }
     setMenu(false);

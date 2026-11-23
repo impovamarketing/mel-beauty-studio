@@ -166,14 +166,14 @@ function init() {
     const sy = scrollY; vel = lerp(vel, (sy - lastScroll) / Math.max(dt, 1e-3) / 1000, .1); lastScroll = sy;
 
     mouse.x = lerp(mouse.x, mouse.tx, .05); mouse.y = lerp(mouse.y, mouse.ty, .05);
-    const k = 1 - Math.pow(.0025, dt);           // zeitunabhängiges Nachziehen
+    const k = 1 - Math.pow(.02, dt);           // zeitunabhängiges Nachziehen
     cur.x = lerp(cur.x, target.x, k * .9); cur.y = lerp(cur.y, target.y, k * .9); cur.s = lerp(cur.s, target.s, k * .8);
 
     uniforms.uTime.value = t;
-    uniforms.uAmp.value = lerp(uniforms.uAmp.value, .26 + Math.min(Math.abs(vel) * .35, .22), .08);
+    uniforms.uAmp.value = lerp(uniforms.uAmp.value, .24 + Math.min(Math.abs(vel) * .12, .1), .04);
     uniforms.uMouse.value.set(mouse.x * 1.6, mouse.y * 1.6, 1);
 
-    spin += vel * dt * 2.2;
+    spin += vel * dt * 0.8;
     blob.rotation.y = t * .12 + mouse.x * .35 + spin;
     blob.rotation.x = Math.sin(t * .2) * .15 - mouse.y * .25 + spin * .4;
     blob.position.set(cur.x * viewW, cur.y * viewH + Math.sin(t * .6) * .06, 0);

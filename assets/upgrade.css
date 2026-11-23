@@ -66,10 +66,10 @@ main,.site-footer{position:relative;z-index:1}
 .sc-slide.is-active .sc-text > *:nth-child(3){transition-delay:.16s}
 .sc-slide.is-active .sc-text > *:nth-child(4){transition-delay:.24s}
 .sc-slide.is-active .sc-text > *:nth-child(5){transition-delay:.32s}
-.sc-num{display:block;font:italic 400 clamp(4rem,9vw,8.5rem)/.8 "Cormorant",serif;color:var(--gold);letter-spacing:-.03em}
-.sc-text h3{margin-top:1rem;font:500 clamp(2rem,3.6vw,3.4rem)/1.04 "Cormorant",serif;color:var(--ink)}
+.sc-num{display:block;font:italic 400 clamp(4rem,9vw,8.5rem)/.8 "Cormorant",serif;color:#9C7F48;letter-spacing:-.03em}
+.sc-text h3{margin-top:1.2rem;font:500 clamp(2rem,3.6vw,3.4rem)/1.08 "Cormorant",serif;letter-spacing:-.02em;color:var(--ink)}
 .sc-text p{margin-top:1.1rem;max-width:32rem;font-size:.98rem;line-height:1.75;color:var(--stone)}
-.sc-text .sc-meta{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+.sc-text .sc-meta{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
 .sc-link{display:inline-block;margin-top:1.6rem;font-size:.88rem;font-weight:500;color:var(--ink)}
 .sc-progress{width:100%;display:flex;align-items:center;gap:1.4rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
 .sc-count b{font-weight:600;color:var(--ink)}
@@ -156,7 +156,7 @@ main,.site-footer{position:relative;z-index:1}
 .grade::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:multiply;
   background:radial-gradient(130% 95% at 50% 42%,transparent 58%,rgba(18,38,32,.2) 100%),linear-gradient(180deg,rgba(197,168,111,.07),rgba(246,243,238,0) 60%)}
 .g-item.grade::before{display:none}
-.menu-img figcaption,.ph figcaption{z-index:3}
+.menu-img figcaption{z-index:3}
 .kenburns{animation:kenburns 14s cubic-bezier(.22,1,.36,1) both}
 html.preloading .kenburns{animation-play-state:paused}
 @keyframes kenburns{from{transform:scale(1.08)}to{transform:scale(1)}}
@@ -170,8 +170,6 @@ html.js .hero-visual.reveal-img img{transform:none}
   .hero-visual{position:absolute;top:-1.5rem;left:0;right:calc(-1 * (max(0px,(100vw - 1440px) / 2) + 2.5rem));height:calc(100% + 13rem);aspect-ratio:auto}
   .hero .vlabel{z-index:3;color:var(--cream);mix-blend-mode:difference}
 }
-.studio-visual{position:relative;margin:0;overflow:hidden;aspect-ratio:4/3;max-width:30rem}
-.studio-visual img{object-position:50% 50%}
 
 /* ---------- Showcase: Text links, Foto rechts, Crossfade + Zoom-Shift ---------- */
 @media (min-width:1024px){
@@ -222,23 +220,21 @@ html.preloading,html.preloading body{overflow:hidden}
 @media (min-width:1024px){.studio-ambient{aspect-ratio:4/4.6}}
 .amb-plaster{position:absolute;inset:-10%;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .48  0 0 0 0 .38  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .48  0 0 0 0 .38  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
     radial-gradient(85% 65% at 72% 18%,#F2E9DC 0%,#DFD1BD 55%,#CDBCA4 100%);
   background-size:300px 300px,cover;mix-blend-mode:normal;opacity:1}
 .amb-plaster::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 75% 18%,rgba(255,248,235,.55),transparent 70%)}
 /* weiches Fensterlicht: zwei schräge Lichtbahnen */
-.amb-light{position:absolute;inset:-20%;pointer-events:none;mix-blend-mode:screen;opacity:.85;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,244,222,.95) 36%,rgba(255,244,222,.95) 44%,transparent 50%,transparent 56%,rgba(255,244,222,.7) 60%,rgba(255,244,222,.7) 66%,transparent 72%);
-  filter:blur(14px);animation:ambLight 16s ease-in-out infinite alternate}
+.amb-light{position:absolute;inset:-20%;pointer-events:none;mix-blend-mode:screen;opacity:.8;will-change:transform;background:linear-gradient(115deg,transparent 26%,rgba(255,244,222,.55) 33%,rgba(255,244,222,.9) 38%,rgba(255,244,222,.9) 42%,rgba(255,244,222,.55) 47%,transparent 54%,rgba(255,244,222,.4) 58%,rgba(255,244,222,.7) 62%,rgba(255,244,222,.4) 66%,transparent 72%);animation:ambLight 16s ease-in-out infinite alternate}
 @keyframes ambLight{from{transform:translateX(-3%) rotate(0deg)}to{transform:translateX(3%) rotate(1.5deg)}}
 /* Pflanzenschatten, der sich ganz leicht bewegt */
-.amb-leaves{position:absolute;inset:-6%;width:112%;height:112%;opacity:.34;mix-blend-mode:multiply;transform-origin:85% 0;animation:ambSway 9s ease-in-out infinite alternate}
+.amb-leaves{position:absolute;inset:-6%;width:112%;height:112%;opacity:.34;mix-blend-mode:multiply;will-change:transform;transform-origin:85% 0;animation:ambSway 9s ease-in-out infinite alternate}
 @keyframes ambSway{from{transform:rotate(-1.6deg) translateY(0)}to{transform:rotate(1.8deg) translateY(6px)}}
 /* echtes Foto (sobald vorhanden) legt sich darüber */
 .amb-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0;transition:opacity 1.2s var(--ease);z-index:1}
 .amb-photo.is-loaded{opacity:1}
 .amb-type{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;gap:.8rem}
-.amb-kicker{font-size:.64rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#6F6455}
+.amb-kicker{font-size:.64rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#574F42}
 .amb-title{font:400 clamp(1.9rem,3vw,2.7rem)/1.05 "Cormorant",serif;color:var(--ink)}
 .amb-title em{font-style:italic;color:var(--sage)}
 .studio-ambient:has(.amb-photo.is-loaded) .amb-kicker,.studio-ambient:has(.amb-photo.is-loaded) .amb-title{color:var(--cream)}
