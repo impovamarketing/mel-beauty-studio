@@ -91,11 +91,6 @@
         scrollTrigger: { trigger: '.hero-x', start: 'top top', end: 'bottom top', scrub: 1.2 } });
     });
 
-    /* Galerie-Bilder: leichte Parallaxe innerhalb der Rahmen */
-    $$('.g-item img').forEach(img => {
-      gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: img.closest('figure'), start: 'top bottom', end: 'bottom top', scrub: true } });
-    });
-
     /* Grüne Flächen: Überschrift skaliert sanft auf */
     $$('.section-pine h2').forEach(h => {
       gsap.fromTo(h, { scale: .94, transformOrigin: '0% 100%' }, { scale: 1, ease: 'none', scrollTrigger: { trigger: h, start: 'top bottom', end: 'top 40%', scrub: true } });

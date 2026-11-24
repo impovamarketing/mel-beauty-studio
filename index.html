@@ -52,6 +52,7 @@ tailwind.config = {
 <link rel="stylesheet" href="assets/signature.css">
 <link rel="stylesheet" href="assets/menu.css">
 <link rel="stylesheet" href="assets/philosophie.css">
+<link rel="stylesheet" href="assets/galerie.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -363,20 +364,20 @@ tailwind.config = {
 </section>
 
 <!-- ============ AUS DEM STUDIO (Galerie) ============ -->
-<section class="gal-section py-24 md:py-32 lg:py-40" aria-labelledby="gal-h" data-blob="-0.56 -0.08 0.24">
-  <div class="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
+<section class="gal-x" aria-labelledby="gal-h" data-blob="-0.56 -0.08 0.24">
+  <div class="gal-x__head">
     <div>
-      <p class="eyebrow rv">Aus dem Studio</p>
-      <h2 id="gal-h" class="split mt-6 font-serif text-[2.5rem] leading-[1.08] text-ink md:text-[3.6rem]">Einblicke von Instagram.</h2>
+      <p class="gal-x__eyebrow">Aus dem Studio</p>
+      <h2 id="gal-h" class="gal-x__h2">Einblicke von <em>Instagram</em>.</h2>
     </div>
-    <div class="rv flex items-center gap-4">
-      <span class="gal-count text-[.78rem] tabular-nums tracking-label text-stone"><b class="font-medium text-ink">01</b> / 08</span>
+    <div class="gal-x__controls">
+      <span class="gal-count"><b>01</b> / 08</span>
       <button type="button" class="gal-btn gal-play" aria-pressed="false" aria-label="Slideshow pausieren"><span class="ico-pause" aria-hidden="true"></span><span class="ico-play" aria-hidden="true"></span></button>
       <button type="button" class="gal-btn" data-dir="-1" aria-label="Vorheriges Bild">←</button>
       <button type="button" class="gal-btn" data-dir="1" aria-label="Nächstes Bild">→</button>
     </div>
   </div>
-  <div class="gallery no-scrollbar mt-12" tabindex="0" aria-label="Galerie, horizontal scrollbar">
+  <div class="gallery no-scrollbar" tabindex="0" aria-label="Galerie, horizontal scrollbar">
     <figure class="grade g-item"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption><span>01</span>PhiBrows Microblading</figcaption></figure>
     <figure class="grade g-item tall"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung" loading="lazy"><figcaption><span>02</span>Permanent Make-up Lippen</figcaption></figure>
     <figure class="grade g-item"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung" loading="lazy"><figcaption><span>03</span>Lippen, Ergebnis</figcaption></figure>
@@ -386,7 +387,10 @@ tailwind.config = {
     <figure class="grade g-item"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik" loading="lazy"><figcaption><span>07</span>PhiBrows Pigmente, vegan</figcaption></figure>
     <figure class="grade g-item"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" loading="lazy"><figcaption><span>08</span>Vermessen nach dem Goldenen Schnitt</figcaption></figure>
   </div>
-  <div class="mx-auto mt-8 max-w-[1440px] px-5 md:px-10"><div class="gal-bar"><span></span></div></div>
+  <div class="gal-x__foot">
+    <div class="gal-bar"><span></span></div>
+    <a class="gal-x__link" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Mehr auf Instagram</a>
+  </div>
 </section>
 
 <!-- ============ STUDIO LANDSHUT ============ -->

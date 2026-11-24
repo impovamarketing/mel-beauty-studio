@@ -1,0 +1,49 @@
+/* =========================================================
+   Mel Beauty Studio · Galerie „Einblicke von Instagram“
+   (Section-Rebuild, Schritt 5) – nutzt das Design-System aus nav-hero.css
+   ========================================================= */
+
+.gal-x{--gal-pad:1.5rem;position:relative;z-index:1;padding:6rem 0 5rem;background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-ui);border-top:1px solid var(--border-hairline)}
+
+/* Kopf: Überschrift links, Steuerung rechts */
+.gal-x__head,.gal-x__foot{max-width:1400px;margin:0 auto;padding:0 1.5rem}
+.gal-x__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:2rem}
+.gal-x__eyebrow{margin:0 0 1.25rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold-text)}
+.gal-x__h2{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.4rem,4.2vw,3.9rem);line-height:1.02;letter-spacing:-.02em;color:var(--text-primary)}
+.gal-x__h2 em{font-style:italic;font-weight:300;color:inherit}
+
+.gal-x__controls{display:flex;align-items:center;gap:.6rem}
+.gal-x .gal-count{margin-right:1rem;font-size:11px;font-weight:500;letter-spacing:.2em;font-variant-numeric:tabular-nums;color:rgba(20,38,32,.7)}
+.gal-x .gal-count b{font-weight:500;color:var(--text-primary)}
+.gal-x .gal-btn{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--border-hairline);border-radius:0;background:transparent;color:var(--text-primary);font-family:var(--font-ui);font-size:14px;cursor:pointer;transition:background-color .3s,color .3s,border-color .3s}
+.gal-x .gal-btn:hover{background:var(--text-primary);color:var(--bg-primary);border-color:var(--text-primary)}
+.gal-x .gal-btn:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
+
+/* Bildreihe: läuft bis zum rechten Rand, beginnt an der Inhaltskante */
+.gal-x .gallery{margin-top:3rem;gap:1.5rem;padding-inline:var(--gal-pad);scroll-padding-inline:var(--gal-pad)}
+.gal-x .g-item{width:clamp(250px,28vw,420px);overflow:visible}
+.gal-x .g-item img{display:block;width:100%;aspect-ratio:1;object-fit:cover;opacity:1;filter:none;transform:none;transition:none;background:var(--border-hairline)}
+.gal-x .g-item.tall img{aspect-ratio:3/4}
+.gal-x .g-item:hover img{transform:none}
+.gal-x .g-item figcaption{display:flex;align-items:baseline;gap:.75rem;margin-top:1rem;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;line-height:1.5;color:rgba(20,38,32,.7)}
+.gal-x .g-item.is-active figcaption{color:var(--text-primary)}
+.gal-x .g-item figcaption span{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--accent-gold-text)}
+
+/* Fortschritt + Instagram-Link */
+.gal-x__foot{display:flex;align-items:center;gap:2rem;margin-top:2.5rem}
+.gal-x .gal-bar{flex:1;height:1px;background:var(--border-hairline)}
+.gal-x .gal-bar span{background:var(--text-primary)}
+.gal-x__link{flex:none;padding-bottom:4px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);
+  background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .6s cubic-bezier(.22,1,.36,1)}
+.gal-x__link:hover{background-size:0 1px;background-position:100% 100%}
+.gal-x__link:focus-visible{outline:1px solid var(--text-primary);outline-offset:4px}
+
+@media (min-width:768px){.gal-x{--gal-pad:max(3rem,calc((100vw - 1400px) / 2 + 3rem));padding:8rem 0 6rem}.gal-x__head,.gal-x__foot{padding:0 3rem}}
+@media (min-width:1024px){.gal-x{padding:10rem 0 8rem}.gal-x .gallery{margin-top:4rem}}
+@media (max-width:639px){
+  .gal-x .gal-count{margin-right:auto}
+  .gal-x__controls{width:100%}
+  .gal-x .g-item{width:78vw}
+  .gal-x__foot{flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .gal-x .gal-bar{width:100%;flex:none}
+}
