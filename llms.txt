@@ -78,6 +78,14 @@ Alle Preise in Euro, Stand November 2026. Bei PhiBrows, Powder Brows, Lippen und
 
 Frei von Schwermetallen, Weichmachern und allergieauslösenden Konservierungsstoffen, vegan und tierversuchsfrei. Die Farben werden mit der Zeit gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu kippen. Bezug ausschließlich über das offizielle Phi-System.
 
+## Detailseiten zu den Behandlungen
+
+- [PhiBrows Microblading & Powder Brows in Landshut](https://mel-beauty-studio.vercel.app/phibrows-microblading.html)
+- [Permanent Make-up für Lippen & Lidstrich in Landshut](https://mel-beauty-studio.vercel.app/permanent-make-up-lippen-lidstrich.html)
+- [PhiRemoval in Landshut: Permanent Make-up entfernen ohne Laser](https://mel-beauty-studio.vercel.app/phiremoval.html)
+- [DS V-Line Kollagenfadenlifting in Landshut](https://mel-beauty-studio.vercel.app/ds-v-line.html)
+- [Wimpernlifting & Augenbrauenlifting in Landshut](https://mel-beauty-studio.vercel.app/wimpern-brauen.html)
+
 ## Häufige Fragen
 
 **Ist die Nachbehandlung im Preis enthalten?**

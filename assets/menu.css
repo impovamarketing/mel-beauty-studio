@@ -75,3 +75,7 @@
   .menu-x .mrow{padding:2rem 0}
   .menu-x .mrow .price{font-size:1.5rem}
 }
+
+/* Links zu den Behandlungs-Unterseiten */
+.menu-x__more{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin:2rem 0 0}
+.menu-x__more .sig-x__link{margin-top:0}

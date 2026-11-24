@@ -1,0 +1,93 @@
+/* =========================================================
+   Mel Beauty Studio · Behandlungs-Unterseiten
+   Ruhiges Editorial-Layout im Design-System aus nav-hero.css
+   ========================================================= */
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;color:var(--text-primary);font-family:var(--font-ui);-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.svc a:focus-visible,.svc summary:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
+
+.svc{padding-top:var(--nav-h)}
+.svc__wrap{max-width:1400px;margin:0 auto;padding:0 1.5rem}
+
+/* Brotkrumen */
+.svc-crumbs{padding:1.5rem 0 0}
+.svc-crumbs ol{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none;font-size:12px;color:rgba(20,38,32,.7)}
+.svc-crumbs li + li::before{content:"/";margin-right:.5rem;color:var(--border-hairline)}
+.svc-crumbs a{color:var(--text-primary);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat}
+
+/* Kopf */
+.svc-hero{display:grid;gap:2.5rem;padding:3rem 0 4rem;border-bottom:1px solid var(--border-hairline)}
+.svc-eyebrow{margin:0 0 1.25rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold-text)}
+.svc-h1{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.02em}
+.svc-lead{max-width:36rem;margin:1.75rem 0 0;font-size:16px;line-height:1.75;color:rgba(20,38,32,.85)}
+.svc-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.75rem 0 0;padding:0;list-style:none}
+.svc-chips li{padding:.55rem .85rem;border:1px solid var(--border-hairline);font-size:12px;letter-spacing:.04em}
+.svc-chips b{font-weight:500}
+.svc-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;margin-top:2rem}
+.svc-btn{display:inline-flex;align-items:center;gap:.6rem;padding:15px 22px;background:var(--text-primary);color:var(--bg-primary);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1;text-decoration:none;transition:background-color .3s}
+.svc-btn:hover{background:#24392F}
+.svc-link{padding-bottom:3px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-primary);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat}
+.svc-figure{margin:0}
+.svc-figure img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--border-hairline)}
+.svc-figure figcaption{margin-top:.9rem;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(20,38,32,.7)}
+
+/* Inhaltsblöcke */
+.svc-block{display:grid;gap:1.5rem;padding:4rem 0;border-bottom:1px solid var(--border-hairline)}
+.svc-h2{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,3.2vw,2.9rem);line-height:1.05;letter-spacing:-.015em}
+.svc-text p{max-width:40rem;margin:0 0 1rem;font-size:15px;line-height:1.8;color:rgba(20,38,32,.85)}
+.svc-text ul{max-width:40rem;margin:0 0 1rem;padding-left:1.1rem}
+.svc-text li{font-size:15px;line-height:1.8;color:rgba(20,38,32,.85)}
+.svc-facts{display:grid;gap:0;margin:1.5rem 0 0;max-width:40rem;border-top:1px solid var(--border-hairline)}
+.svc-facts > div{display:grid;gap:.35rem;padding:1rem 0;border-bottom:1px solid var(--border-hairline)}
+.svc-facts dt{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-gold-text)}
+.svc-facts dd{margin:0;font-size:15px;line-height:1.65}
+.svc-note{max-width:40rem;margin:1.5rem 0 0;padding:.2rem 0 .2rem 1.4rem;border-left:1px solid var(--accent-gold)}
+.svc-note p{margin:.5rem 0 0;font-size:14px;line-height:1.75;color:rgba(20,38,32,.8)}
+.svc-note .svc-label{margin:0}
+.svc-label{margin:0 0 .75rem;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-gold-text)}
+
+/* Preise */
+.svc-prices{max-width:40rem;margin:0;padding:0;list-style:none;border-top:1px solid var(--border-hairline)}
+.svc-prices li{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.1rem 0;border-bottom:1px solid var(--border-hairline);font-size:15px}
+.svc-prices span:last-child{flex:none;font-family:var(--font-display);font-size:1.45rem;line-height:1}
+.svc-small{max-width:40rem;margin:1rem 0 0;font-size:13px;line-height:1.7;color:rgba(20,38,32,.75)}
+
+/* Ablauf */
+.svc-steps{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--border-hairline)}
+.svc-steps li{padding:1.4rem 0;border-bottom:1px solid var(--border-hairline)}
+.svc-steps b{display:block;font-family:var(--font-display);font-weight:400;font-size:1.5rem;line-height:1.1}
+.svc-steps span{display:block;margin-top:.4rem;font-size:14px;line-height:1.7;color:rgba(20,38,32,.8)}
+
+/* FAQ */
+.svc-faq details{max-width:44rem;border-bottom:1px solid var(--border-hairline)}
+.svc-faq details:first-of-type{border-top:1px solid var(--border-hairline)}
+.svc-faq summary{position:relative;list-style:none;cursor:pointer;padding:1.4rem 3rem 1.4rem 0;font-family:var(--font-display);font-size:1.4rem;line-height:1.25}
+.svc-faq summary::-webkit-details-marker{display:none}
+.svc-faq summary::before,.svc-faq summary::after{content:"";position:absolute;right:.25rem;top:50%;width:15px;height:1px;background:var(--text-primary);transition:transform .4s}
+.svc-faq summary::after{transform:rotate(90deg)}
+.svc-faq details[open] summary::after{transform:rotate(0)}
+.svc-faq details p{margin:0;padding:0 0 1.5rem;max-width:40rem;font-size:15px;line-height:1.75;color:rgba(20,38,32,.85)}
+
+/* Weitere Behandlungen */
+.svc-more{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--border-hairline)}
+.svc-more a{display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;border-bottom:1px solid var(--border-hairline);color:var(--text-primary);text-decoration:none;font-family:var(--font-display);font-size:1.45rem;line-height:1.2}
+.svc-more a span{font-family:var(--font-ui);font-size:14px}
+.svc-more a:hover{opacity:.7}
+
+@media (min-width:640px){
+  .svc-facts > div{grid-template-columns:12rem 1fr;gap:1.5rem}
+  .svc-steps{grid-template-columns:1fr 1fr;column-gap:2.5rem}
+  .svc-more{grid-template-columns:1fr 1fr;column-gap:2.5rem}
+}
+@media (min-width:768px){.svc__wrap{padding:0 3rem}}
+@media (min-width:1024px){
+  .svc-hero{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;align-items:center;padding:4rem 0 6rem}
+  .svc-hero__text{grid-column:1 / span 6}
+  .svc-figure{grid-column:8 / span 5}
+  .svc-block{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;padding:6rem 0}
+  .svc-block > .svc-h2{grid-column:1 / span 4;align-self:start;position:sticky;top:calc(var(--nav-h) + 2rem)}
+  .svc-block > .svc-body{grid-column:6 / span 7}
+  .svc-steps{grid-template-columns:repeat(4,1fr);column-gap:2rem}
+}
