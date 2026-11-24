@@ -53,6 +53,7 @@ tailwind.config = {
 <link rel="stylesheet" href="assets/menu.css">
 <link rel="stylesheet" href="assets/philosophie.css">
 <link rel="stylesheet" href="assets/galerie.css">
+<link rel="stylesheet" href="assets/studio.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -394,70 +395,51 @@ tailwind.config = {
 </section>
 
 <!-- ============ STUDIO LANDSHUT ============ -->
-<section id="studio" class="scroll-mt-24 border-t border-ink/10 py-24 md:py-32 lg:py-40" data-blob="0.44 -0.3 0.28">
-  <div class="mx-auto grid max-w-[1440px] gap-14 px-5 md:px-10 lg:grid-cols-12">
-    <div class="lg:col-span-5">
-      <p class="eyebrow rv">Studio Landshut</p>
-      <h2 class="split mt-6 font-serif text-[2.5rem] leading-[1.08] text-ink md:text-[3.6rem]">Mitten in der <em>Neustadt.</em></h2>
-      <p class="rv mt-8 max-w-[30rem] text-stone">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Meine Mission: mit hochwertigen und individuellen Behandlungen auf deine Wünsche und Bedürfnisse eingehen.</p>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener" class="rv ulink mt-10 inline-flex items-center gap-3 text-[.9rem] font-medium text-ink">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
-      <!-- ============================================================
-           STUDIO-AMBIENTE
-           Solange keine Innenraum-Fotos vorliegen, zeigt diese Fläche ein
-           Textur-Visual (Licht und Pflanzenschatten auf beigem Kalkputz).
-           ECHTE LADENFOTOS: einfach als  images/studio-interior-1.jpg
-           ablegen (Querformat, mind. 1600 px breit). Das Foto erscheint dann
-           automatisch hier, mit demselben Color-Grading und Ken-Burns-Zoom.
-           ============================================================ -->
-      <figure class="studio-ambient grade reveal-img mt-14" data-speed="0.92">
-        <div class="amb-plaster" aria-hidden="true"></div>
-        <svg class="amb-leaves" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><filter id="leafblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.5"/></filter></defs>
-          <g filter="url(#leafblur)" fill="#3F4A38">
-            <!-- Stiel und gefiederte Blätter, wie der Schatten einer Zimmerpflanze -->
-            <path d="M430 -40 Q330 120 210 330" stroke="#3F4A38" stroke-width="4" fill="none"/>
-            <path d="M395 20 C330 40 270 30 215 5 C275 55 335 70 395 20Z"/>
-            <path d="M372 62 C300 95 240 95 185 70 C245 125 315 130 372 62Z"/>
-            <path d="M348 105 C290 150 225 160 170 145 C230 195 300 190 348 105Z"/>
-            <path d="M320 152 C270 205 210 225 150 215 C210 265 285 250 320 152Z"/>
-            <path d="M405 40 C420 110 410 170 380 230 C420 180 440 110 405 40Z"/>
-            <path d="M385 85 C410 160 395 225 360 280 C405 240 425 160 385 85Z"/>
-            <path d="M360 130 C385 205 370 270 335 330 C380 290 400 210 360 130Z"/>
-            <path d="M330 180 C352 250 338 315 300 370 C345 335 365 255 330 180Z"/>
-            <path d="M292 228 C250 285 200 305 145 300 C200 345 268 332 292 228Z"/>
-          </g>
-        </svg>
-        <div class="amb-light" aria-hidden="true"></div>
-        <img src="images/studio-interior-1.jpg" alt="Innenraum des Mel Beauty Studio in Landshut" class="amb-photo kenburns" loading="lazy" onload="this.classList.add('is-loaded')" onerror="this.remove()">
-        <figcaption class="amb-type">
-          <span class="amb-kicker">Neustadt 439 · Landshut</span>
-          <span class="amb-title">Boutique-Ambiente<br><em>im Herzen</em> von Landshut.</span>
-        </figcaption>
-      </figure>
+<section id="studio" class="studio-x" aria-labelledby="studio-title" data-blob="0.44 -0.3 0.28">
+  <div class="studio-x__wrap">
+    <header class="studio-x__head">
+      <p class="studio-x__eyebrow">Studio Landshut</p>
+      <div class="studio-x__headtext">
+        <h2 id="studio-title" class="studio-x__h2">Mitten in der <em>Neustadt.</em></h2>
+        <p class="studio-x__lead">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Meine Mission: mit hochwertigen und individuellen Behandlungen auf deine Wünsche und Bedürfnisse eingehen.</p>
+        <a class="studio-x__link" href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <figure class="studio-x__photo grade">
+      <img src="images/studio-interior-1.jpg" width="1600" height="1200" alt="Lounge im Mel Beauty Studio mit Sesseln, Glastisch und Bilderwand" loading="lazy">
+      <figcaption>Neustadt 439 · Landshut</figcaption>
+    </figure>
+
+    <dl class="studio-x__info">
+        <div><dt>Adresse</dt><dd>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</dd></div>
+        <div><dt>Kontakt</dt><dd><a class="studio-x__a" href="tel:+491636839277">0163 6839277</a><br><a class="studio-x__a" href="https://wa.me/491636839277" target="_blank" rel="noopener">WhatsApp</a><br><a class="studio-x__a" href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></dd></div>
+        <div><dt>Terminvereinbarung</dt><dd>Per Telefon, WhatsApp oder Direktnachricht auf Instagram.</dd></div>
+        <div><dt>Folgen</dt><dd><a class="studio-x__a" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><br><a class="studio-x__a" href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a></dd></div>
+    </dl>
+
+    <div class="studio-x__flow">
+      <p class="studio-x__eyebrow">Ablauf</p>
+      <ol class="studio-x__steps">
+        <li><span class="studio-x__n">01</span><h3>Termin</h3><p>Per Telefon, WhatsApp oder Instagram-DM.</p></li>
+        <li><span class="studio-x__n">02</span><h3>Beratung</h3><p>Individuell abgestimmt, Brauen vermessen nach dem Goldenen Schnitt.</p></li>
+        <li><span class="studio-x__n">03</span><h3>Behandlung</h3><p>Mit sterilen, personengebundenen Aufsätzen.</p></li>
+        <li><span class="studio-x__n">04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei PhiBrows, Powder Brows, Lippen und Linern im Preis enthalten.</p></li>
+      </ol>
     </div>
 
-    <div class="lg:col-span-7">
-      <dl class="info-grid">
-        <div class="rv"><dt>Adresse</dt><dd>Mel Beauty Studio<br>Neustadt 439<br>84028 Landshut</dd></div>
-        <div class="rv" style="--d:.08s"><dt>Kontakt</dt><dd><a class="ulink" href="tel:+491636839277">0163 6839277</a><br><a class="ulink" href="https://wa.me/491636839277" target="_blank" rel="noopener">WhatsApp</a><br><a class="ulink break-all" href="mailto:mel.studio439@gmail.com">mel.studio439@gmail.com</a></dd></div>
-        <div class="rv" style="--d:.16s"><dt>Terminvereinbarung</dt><dd>Per Telefon, WhatsApp oder Direktnachricht auf Instagram.</dd></div>
-        <div class="rv" style="--d:.24s"><dt>Folgen</dt><dd><a class="ulink" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Instagram</a><br><a class="ulink" href="https://www.facebook.com/melbeautystudio.landshut" target="_blank" rel="noopener">Facebook</a></dd></div>
-      </dl>
-
-      <ol class="steps mt-16">
-        <li class="rv"><span>01</span><h3>Termin</h3><p>Per Telefon, WhatsApp oder Instagram-DM.</p></li>
-        <li class="rv" style="--d:.08s"><span>02</span><h3>Beratung</h3><p>Individuell abgestimmt, Brauen vermessen nach dem Goldenen Schnitt.</p></li>
-        <li class="rv" style="--d:.16s"><span>03</span><h3>Behandlung</h3><p>Mit sterilen, personengebundenen Aufsätzen.</p></li>
-        <li class="rv" style="--d:.24s"><span>04</span><h3>Nachbehandlung</h3><p>Nach 21 Tagen, bei PhiBrows, Powder Brows, Lippen und Linern im Preis enthalten.</p></li>
-      </ol>
-
-      <div class="map-wrap rv mt-16" id="map-wrap">
+    <div class="studio-x__find">
+      <figure class="studio-x__front grade">
+        <img src="images/studio-aussen.jpg" width="1600" height="1200" alt="Eingang des Mel Beauty Studio in der Neustadt 439 mit grünem Schild" loading="lazy">
+        <figcaption>Der Eingang in der Neustadt</figcaption>
+      </figure>
+      <div class="map-wrap studio-x__map" id="map-wrap">
         <div class="map" id="map" role="region" aria-label="Karte: Mel Beauty Studio, Neustadt 439, Landshut"></div>
         <div class="map-consent" id="map-consent">
           <span class="map-pin" aria-hidden="true"><i></i><i></i><b></b></span>
-          <p class="font-serif text-[1.6rem] leading-tight text-ink">Neustadt 439, 84028 Landshut</p>
-          <button type="button" class="btn btn-primary mt-6" id="map-load">Interaktive Karte laden</button>
-          <p class="mt-4 max-w-[26rem] text-[.75rem] leading-relaxed text-stone">Beim Laden werden Kartendaten von OpenStreetMap abgerufen. Dabei wird deine IP-Adresse an diesen Dienst übertragen.</p>
+          <p class="studio-x__addr">Neustadt 439, 84028 Landshut</p>
+          <button type="button" class="studio-x__btn" id="map-load">Interaktive Karte laden</button>
+          <p class="studio-x__note">Beim Laden werden Kartendaten von OpenStreetMap abgerufen. Dabei wird deine IP-Adresse an diesen Dienst übertragen.</p>
         </div>
       </div>
     </div>
