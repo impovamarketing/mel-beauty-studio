@@ -1,4 +1,4 @@
-/* Mel Beauty Studio · Interaktion, Motion und Beauty-Concierge (Vanilla JS) */
+/* Mel Beauty Studio · Interaktion und Motion (Vanilla JS) */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
@@ -19,7 +19,7 @@
   };
   burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
   $$('a', mnav).forEach(a => a.addEventListener('click', () => setMenu(false)));
-  addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); closeConcierge(); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   let lastY = scrollY, ticking = false;
   const steps = $('.steps');
@@ -28,9 +28,9 @@
     bar.classList.toggle('is-scrolled', y > 10 || open);
     if (!open) bar.classList.toggle('is-hidden', y > 520 && y > lastY + 3);
     if (y < lastY - 3) bar.classList.remove('is-hidden');
-    // Handy: Termin-Knopf erst einblenden, wenn der Hero-Button aus dem Blick ist
-    const cBox = document.getElementById('concierge');
-    if (cBox) cBox.classList.toggle('c-away', innerWidth <= 640 && y < innerHeight * 0.6 && !cBox.classList.contains('is-open'));
+    // Handy: WhatsApp-Knopf erst einblenden, wenn der Hero aus dem Blick ist
+    const waBtn = document.getElementById('wa-float');
+    if (waBtn) waBtn.classList.toggle('is-away', innerWidth <= 640 && y < innerHeight * 0.6);
     if (steps) {
       const r = steps.getBoundingClientRect();
       const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (innerHeight * 0.6)));
@@ -173,143 +173,4 @@
     });
   });
 
-  /* =========================================================
-     Beauty-Concierge
-     Regelbasierter Assistent mit Antworten aus den bestätigten
-     Studio-Infos. Anfragen gehen per WhatsApp an Meltem.
-     ========================================================= */
-  const box = $('#concierge'), launch = $('.c-launch', box), panel = $('#c-panel'), log = $('.c-log', box), quick = $('.c-quick', box), form = $('.c-form', box), input = $('#c-input');
-  const state = { picks: [], step: null, when: '', name: '', started: false };
-
-  const TREATS = ['PhiBrows Microblading', 'Powder Brows', 'Lippenschattierung', 'Lidstrich', 'PhiRemoval', 'DS V-Line Kollagenfadenlifting', 'Algenpeeling', 'Microneedling', 'Skin Care', 'Vitaminbehandlung', 'Augenbrauenkorrektur', 'Augenbrauenlifting', 'Wimpernlifting', 'Noch unsicher, Beratung'];
-  const DEFAULT_QUICK = ['Termin anfragen', 'Preise ansehen', 'Anfahrt Landshut', 'Wie lange hält PhiBrows?', 'Altes PMU entfernen'];
-
-  const KB = [
-    { k: ['preis', 'kost', 'teuer', 'euro', '€', 'preise'], a: 'Ein Überblick: PhiBrows Microblading 490 €, Powder Brows 390 €, Lippenschattierung 450 €, Liner 250–350 € (jeweils inkl. Nachbehandlung), Kopfhautpigmentierung 350 €, PhiRemoval Gesicht 149 €, DS V-Line Kollagenfadenlifting 245 €, Algenpeeling 99 €, Microneedling ab 119 €, Skin Care ab 99 €, Wimpernlifting inkl. Färben 90 €. Das ganze Menü steht oben unter „Behandlungen“.', go: '#behandlungen' },
-    { k: ['anfahrt', 'adresse', 'wo ', 'wo?', 'wo ist', 'standort', 'route', 'neustadt', 'finde'], a: 'Das Studio ist in der Landshuter Neustadt: Neustadt 439, 84028 Landshut. <a href="https://www.google.com/maps/search/?api=1&query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut" target="_blank" rel="noopener">Route in Google Maps öffnen</a>.' },
-    { k: ['öffnung', 'offen', 'geöffnet', 'uhrzeit', 'wann habt', 'wann hast'], a: 'Termine vereinbarst du per Telefon (<a href="tel:+491636839277">0163 6839277</a>), WhatsApp oder Direktnachricht auf Instagram. Feste Öffnungszeiten sind hier nicht hinterlegt, Meltem nennt dir gern freie Termine.' },
-    { k: ['wie lange hält', 'haltbar', 'hält', 'halten', 'jahre'], a: 'PhiBrows Microblading hält 2 bis 3 Jahre (je nach Hauttyp, Lebensstil und Pflege), Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen. Auffrischung nach 12 Monaten: PhiBrows 225 €, Brows &amp; Lippen 190 €, Liner 150 €. Ab 18 Monaten oder bei Fremdarbeit gilt der Neupreis.' },
-    { k: ['nachbehandlung', 'nachbehandeln', '21'], a: 'Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten.' },
-    { k: ['entfern', 'removal', 'tattoo', 'altes', 'alte', 'pmu weg', 'korrigier'], a: 'Mit PhiRemoval werden Farbpigmente ohne Lasertechnologie präzise entfernt. Mit hautschonenden Produkten lassen sich fehlerhafte Permanent Make-ups, Microblading oder Tattoos entfernen oder korrigieren. Gesicht 149 €, Körper individuell.' },
-    { k: ['brauenlifting', 'augenbrauenlifting', 'brauen lifting', 'färben'], a: 'Augenbrauenlifting inkl. Färben: Die Härchen werden verstärkt und formbar gemacht, die Form hält mehrere Wochen (Preis auf Anfrage). Wimpernlifting inkl. Färben: Ellebana-Lifting am Ansatz, gefärbt in dunkelbraun oder schwarz, hält 4 bis 6 Wochen, 90 €.' },
-    { k: ['korrektur', 'fadentechnik', 'zupfen', 'goldener schnitt'], a: 'Augenbrauenkorrektur: Vermessung mit dem Goldenen-Schnitt-Messgerät und Formung mit Fadentechnik passend zu deinen Gesichtszügen. Preis auf Anfrage.' },
-    { k: ['phibrows', 'microblading', 'härchen', 'brauen', 'augenbrauen'], a: 'PhiBrows Microblading: Feine, haarförmige Striche in Wuchsrichtung ergänzen fehlende Härchen und verdichten die Brauen optisch, kaum von echten zu unterscheiden. Hält 2–3 Jahre, 490 € inkl. Nachbehandlung nach 21 Tagen.' },
-    { k: ['powder', 'microshading', 'ombr'], a: 'Powder Brows (Microshading): feine, punktuelle Schattierungen statt Härchen, Puder-Effekt mit Ombré-Verlauf. Für alle Hauttypen, ideal bei fettiger Haut oder Mischhaut. 390 € inkl. Nachbehandlung nach 21 Tagen.' },
-    { k: ['lippe', 'lips'], a: 'Lippenschattierung: sanft mit Gloss-Effekt oder als Vollschattierung mit Lipstick-Effekt. Vorgezeichnet, mit feinsten Nadelstichen schattiert, abschließend gepflegt. Hält ca. 2 Jahre, 450 € inkl. Nachbehandlung nach 21 Tagen.' },
-    { k: ['liner', 'lidstrich', 'eyeliner'], a: 'Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €, jeweils inkl. Nachbehandlung nach 21 Tagen.' },
-    { k: ['v-line', 'vline', 'kollagen', 'falten', 'straff'], a: 'DS V-Line Kollagenfadenlifting mit Microneedling: feinere Linien, mehr Elastizität, pralleres Hautbild. Für alle Hauttypen, sichtbar ab der ersten Behandlung, keine Ausfallzeit, wirkt ca. 12 Monate. 245 €.' },
-    { k: ['peeling', 'algae', 'algen', 'schäl'], a: 'Algenpeeling: 100 % biologische Schälkur gegen Akne, verstopfte Poren, Aknenarben und Pigmentflecken. Die Haut schält sich nach 3 bis 7 Tagen, danach ist SPF 50 Pflicht. Nicht bei akuter Rosacea, offenen Wunden oder Couperose. Gesicht 99 €.' },
-    { k: ['needling', 'narben', 'poren', 'dehnungsstreifen'], a: 'Microneedling: Feine Nadeln (0,5–2,5 mm) regen Regeneration und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren. Gesicht 119 €, Gesicht + Hals 139 €.' },
-    { k: ['skin', 'haut', 'akne', 'pflege', 'gesichtsbehandlung', 'facial'], a: 'Skin Care individuell nach Hauttyp: Classic 99 €, Professional 129 €, Akne 139 €.' },
-    { k: ['haar', 'bart', 'vitamin', 'haarausfall', 'kopfhaut'], a: 'Vitaminbehandlung mit PhiHair-Serum und Microneedling aktiviert die Haarfollikel und stärkt geschwächte Bereiche: Kopfhaut 199 €, Bart 139 €, Augenbrauen 99 €, einzelne Stellen 99 €. Für lichte Stellen gibt es außerdem die Kopfhautpigmentierung (350 €).' },
-    { k: ['wimper', 'lash'], a: 'Wimpernlifting inkl. Färben: Die eigenen Wimpern werden mit Ellebana-Lotionen am Ansatz angehoben und dunkelbraun oder schwarz gefärbt. Hält 4 bis 6 Wochen, 90 €. Danach 24 Stunden kein Wasser, Dampf oder Öl im Augenbereich.' },
-    { k: ['hygien', 'steril'], a: 'Alle verwendeten Aufsätze sind steril und personengebunden.' },
-    { k: ['vegan', 'pigment', 'allerg', 'schwermetall'], a: 'Phi-Pigmente sind frei von Schwermetallen, Weichmachern und allergieauslösenden Konservierungsstoffen, vegan und tierversuchsfrei. Die Farben werden gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu kippen.' },
-    { k: ['wer ist', 'meltem', 'erfahrung', 'zertifi', 'ausbildung'], a: 'Meltem Demirci ist Kosmetikerin seit 10 Jahren und zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Algae Peeling.' },
-  ];
-
-  const scrollLog = () => { log.scrollTop = log.scrollHeight; };
-  const add = (html, who = 'bot') => { const m = document.createElement('div'); m.className = 'msg ' + who; m.innerHTML = html; log.appendChild(m); scrollLog(); return m; };
-  const say = (html, delay = 650) => new Promise(res => {
-    if (still) { add(html); return res(); }
-    const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(t); scrollLog();
-    setTimeout(() => { t.remove(); add(html); res(); }, delay);
-  });
-  const chips = list => { quick.innerHTML = ''; list.forEach(l => { const b = document.createElement('button'); b.type = 'button'; b.textContent = l; b.addEventListener('click', () => handle(l, true)); quick.appendChild(b); }); };
-
-  const waLink = text => `${WA}?text=${encodeURIComponent(text)}`;
-  const summary = () => {
-    const parts = ['Hallo Meltem,'];
-    parts.push(`ich interessiere mich für: ${state.picks.join(', ') || 'eine Beratung'}.`);
-    if (state.when) parts.push(`Wunschzeit: ${state.when}.`);
-    if (state.name) parts.push(`Viele Grüße, ${state.name}`);
-    parts.push('(Anfrage über die Website)');
-    return parts.join('\n');
-  };
-
-  async function startTermin() {
-    state.step = 'treat';
-    if (state.picks.length) return askWhen();
-    await say('Sehr gern. Welche Behandlung interessiert dich? Du kannst auch mehrere nacheinander antippen.');
-    chips(TREATS);
-  }
-  async function askWhen() {
-    state.step = 'when';
-    await say(`Notiert: <b>${esc(state.picks.join(', '))}</b>. Wann passt es dir ungefähr?`);
-    chips(['Vormittags', 'Nachmittags', 'Samstag', 'Flexibel']);
-  }
-  async function askName() {
-    state.step = 'name';
-    await say('Wie darf Meltem dich ansprechen? Schreib deinen Vornamen unten ins Feld, oder überspring den Schritt.');
-    chips(['Überspringen']); input.focus();
-  }
-  async function finish() {
-    state.step = null;
-    const text = summary();
-    await say(`Deine Anfrage ist vorbereitet:<br><br><i>${esc(text).replace(/\n/g, '<br>')}</i><br><a class="wa" href="${waLink(text)}" target="_blank" rel="noopener">Per WhatsApp senden</a>`, 900);
-    await say('Meltem meldet sich dann persönlich bei dir. Lieber anrufen? <a href="tel:+491636839277">0163 6839277</a>', 500);
-    chips(['Neue Anfrage', 'Preise ansehen', 'Anfahrt Landshut']);
-  }
-
-  async function handle(raw, fromChip = false) {
-    const text = raw.trim(); if (!text) return;
-    add(esc(text), 'me'); quick.innerHTML = '';
-    const low = text.toLowerCase();
-
-    if (state.step === 'treat' && fromChip) {
-      if (!state.picks.includes(text)) state.picks.push(text);
-      return askWhen();
-    }
-    if (state.step === 'when') { state.when = text; return askName(); }
-    if (state.step === 'name') { if (low !== 'überspringen') state.name = text.slice(0, 40); return finish(); }
-
-    if (/termin|buchen|anfrage|neue anfrage/.test(low)) { if (low === 'neue anfrage') { state.picks = []; state.when = ''; state.name = ''; } return startTermin(); }
-    if (low === 'anfahrt landshut') return answer(KB[1]);
-    if (low === 'altes pmu entfernen') return answer(KB[5]);
-
-    const hit = KB.find(e => e.k.some(k => low.includes(k)));
-    if (hit) return answer(hit);
-    await say(`Das beantwortet dir Meltem am besten persönlich. <a class="wa" href="${waLink('Hallo Meltem, ich habe eine Frage: ' + text)}" target="_blank" rel="noopener">Frage per WhatsApp senden</a>`);
-    chips(DEFAULT_QUICK);
-  }
-  async function answer(e) {
-    await say(e.a);
-    if (e.go) { const t = $(e.go); t && setTimeout(() => t.scrollIntoView({ behavior: still ? 'auto' : 'smooth' }), 300); }
-    chips(['Termin anfragen', ...DEFAULT_QUICK.filter(q => q !== 'Termin anfragen').slice(0, 3)]);
-  }
-
-  function openConcierge(mode) {
-    box.classList.remove('c-away'); box.classList.add('is-open'); panel.hidden = false; launch.setAttribute('aria-expanded', 'true');
-    requestAnimationFrame(() => panel.classList.add('is-open'));
-    if (innerWidth <= 640) { document.body.style.overflow = 'hidden'; if (window.lenis) window.lenis.stop(); }
-    setMenu(false);
-    if (!state.started) {
-      state.started = true;
-      say('Willkommen im Mel Beauty Studio. Ich bin der digitale Concierge und helfe dir bei Fragen zu Behandlungen oder bereite deine Terminanfrage an Meltem vor.', 400)
-        .then(() => mode === 'termin' ? startTermin() : chips(DEFAULT_QUICK));
-    } else if (mode === 'termin') startTermin();
-    else if (mode === 'picked') askWhen();
-    if (innerWidth > 640) setTimeout(() => input.focus({ preventScroll: true }), 500);
-  }
-  function closeConcierge() {
-    if (!box.classList.contains('is-open')) return;
-    panel.classList.remove('is-open'); launch.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-    if (window.lenis) window.lenis.start();
-    setTimeout(() => { panel.hidden = true; box.classList.remove('is-open'); launch.focus({ preventScroll: true }); }, 380);
-  }
-  launch.addEventListener('click', () => openConcierge());
-  $('.c-x', box).addEventListener('click', closeConcierge);
-  $$('[data-concierge]').forEach(b => b.addEventListener('click', () => openConcierge(b.dataset.concierge)));
-  form.addEventListener('submit', e => { e.preventDefault(); const v = input.value; input.value = ''; handle(v); });
-
-  /* „Auswählen“ im Behandlungs-Menü */
-  $$('.pick').forEach(b => b.addEventListener('click', () => {
-    const name = b.dataset.pick;
-    if (!state.picks.includes(name)) state.picks.push(name);
-    b.classList.add('is-picked'); b.textContent = 'Ausgewählt ✓';
-    const wasStarted = state.started;
-    if (!wasStarted) { openConcierge('termin'); return; }
-    openConcierge();
-    add(esc(name), 'me'); askWhen();
-  }));
 })();

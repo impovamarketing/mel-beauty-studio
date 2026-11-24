@@ -70,7 +70,7 @@ tailwind.config = {
 <link rel="stylesheet" href="assets/studio.css">
 <link rel="stylesheet" href="assets/faq.css">
 <link rel="stylesheet" href="assets/footer.css">
-<link rel="stylesheet" href="assets/concierge.css">
+<link rel="stylesheet" href="assets/whatsapp.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -623,7 +623,7 @@ tailwind.config = {
       <a href="#studio" data-spy>Landshut</a>
     </nav>
     <div class="nav-x__right">
-      <button type="button" class="nav-x__cta" data-concierge="termin">Termin buchen</button>
+      <a class="nav-x__cta" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20im%20Mel%20Beauty%20Studio%20vereinbaren." target="_blank" rel="noopener">Termin buchen</a>
       <button type="button" id="burger" class="nav-x__burger" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span><span></span></button>
     </div>
   </div>
@@ -647,10 +647,10 @@ tailwind.config = {
 <section class="hero-x" aria-labelledby="hero-title">
   <div class="hero-x__wrap">
     <div class="hero-x__text">
-      <p class="hero-x__eyebrow">Boutique Kosmetik · Landshut</p>
-      <h1 id="hero-title" class="hero-x__title">Zeitlose Ästhetik &amp; <em>sichtbare</em> Hautgesundheit.</h1>
+      <p class="hero-x__eyebrow">Meltem Demirci · Neustadt 439, Landshut</p>
+      <h1 id="hero-title" class="hero-x__title">Permanent Make&#8209;up &amp; Kosmetik in Landshut.</h1>
       <span class="hero-x__rule" aria-hidden="true"></span>
-      <p class="hero-x__sub">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen im Mittelpunkt.</p>
+      <p class="hero-x__sub">Meltem Demirci ist zertifizierte PhiBrows Artist und arbeitet mit DS V-Line und Algae Peeling. In ihrem Studio in der Landshuter Neustadt nimmt sie sich für jede Behandlung Zeit, von der Beratung bis zur Nachbehandlung.</p>
       <a href="#behandlungen" class="hero-x__link">Behandlungen ansehen</a>
     </div>
     <div class="hero-x__media">
@@ -658,9 +658,9 @@ tailwind.config = {
       <figure class="hero-x__main" data-hero-parallax="-30">
         <img src="images/studio-empfang.jpg" width="1200" height="1600" alt="Empfang im Mel Beauty Studio in der Landshuter Neustadt" fetchpriority="high">
       </figure>
-      <!-- Detailbild: Close-up aus der Studio-Lounge, quadratisch -->
+      <!-- Detailbild: Meltem Demirci, quadratisch -->
       <figure class="hero-x__detail" data-hero-parallax="20">
-        <img src="images/studio-rosen-detail.jpg" width="900" height="900" alt="Rosen auf dem Glastisch in der Studio-Lounge" loading="eager">
+        <img src="images/mel-portrait.jpg" width="1254" height="1254" alt="Meltem Demirci im Mel Beauty Studio in Landshut" loading="eager">
       </figure>
     </div>
   </div>
@@ -684,8 +684,7 @@ tailwind.config = {
 <section id="signature" class="sig-x" aria-labelledby="sig-title">
   <div class="sig-x__wrap">
     <header class="sig-x__head">
-      <p class="sig-x__eyebrow">Signature-Behandlungen</p>
-      <h2 id="sig-title" class="sig-x__h2">Vier Behandlungen, <em>ein</em> Anspruch.</h2>
+      <h2 id="sig-title" class="sig-x__h2">Meltems Schwerpunkte</h2>
     </header>
     <div class="sig-x__grid">
       <div class="sig-x__media" aria-hidden="true">
@@ -702,7 +701,6 @@ tailwind.config = {
       <div class="sig-x__list">
       <article class="sig-x__item is-active" data-i="0">
         <figure class="sig-x__mobile grade"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
-        <span class="sig-x__num">01</span>
         <h3 class="sig-x__title">PhiBrows Microblading</h3>
         <p class="sig-x__text">Feine, haarförmige Striche in Wuchsrichtung ergänzen fehlende Härchen und verdichten die Brauen optisch, kaum von echten zu unterscheiden.</p>
         <p class="sig-x__meta">Hält 2–3 Jahre · 490 € inkl. Nachbehandlung nach 21 Tagen</p>
@@ -710,7 +708,6 @@ tailwind.config = {
       </article>
       <article class="sig-x__item" data-i="1">
         <figure class="sig-x__mobile grade"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippenschattierung (Permanent Make-up) von Mel Beauty Studio, Ergebnis" loading="lazy"></figure>
-        <span class="sig-x__num">02</span>
         <h3 class="sig-x__title">Lippenschattierung</h3>
         <p class="sig-x__text">Sanfte Schattierung mit Gloss-Effekt oder Vollschattierung mit Lipstick-Effekt: vorgezeichnet, mit feinsten Nadelstichen schattiert und abschließend gepflegt.</p>
         <p class="sig-x__meta">Hält ca. 2 Jahre · 450 € inkl. Nachbehandlung nach 21 Tagen</p>
@@ -718,7 +715,6 @@ tailwind.config = {
       </article>
       <article class="sig-x__item" data-i="2">
         <figure class="sig-x__mobile grade"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval ohne Laser: Entfernung von Permanent Make-up vor und nach der ersten Behandlung" loading="lazy"></figure>
-        <span class="sig-x__num">03</span>
         <h3 class="sig-x__title">PhiRemoval</h3>
         <p class="sig-x__text">Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert.</p>
         <p class="sig-x__meta">Gesicht 149 € · Körper individuell</p>
@@ -726,7 +722,6 @@ tailwind.config = {
       </article>
       <article class="sig-x__item" data-i="3">
         <figure class="sig-x__mobile grade"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfadenlifting im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
-        <span class="sig-x__num">04</span>
         <h3 class="sig-x__title">DS V-Line Kollagenfadenlifting</h3>
         <p class="sig-x__text">Feinste Kollagenfäden, kombiniert mit Microneedling: feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, ohne Ausfallzeit.</p>
         <p class="sig-x__meta">Wirkt ca. 12 Monate · 245 €</p>
@@ -741,9 +736,9 @@ tailwind.config = {
 <section id="behandlungen" class="menu-x" aria-labelledby="menu-title" data-blob="0.54 0.42 0.22">
   <div class="menu-x__wrap">
     <header class="menu-x__head">
-      <p class="menu-x__eyebrow">Behandlungs-Menü</p>
+      <p class="menu-x__eyebrow">Preise, Stand 11/2026</p>
       <div class="menu-x__headtext">
-        <h2 id="menu-title" class="menu-x__h2">Behandlungen &amp; Preise, <em>klar</em> auf einen Blick.</h2>
+        <h2 id="menu-title" class="menu-x__h2">Behandlungen &amp; Preise</h2>
         <p class="menu-x__lead">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
       </div>
     </header>
@@ -776,11 +771,11 @@ tailwind.config = {
         <!-- Permanent Make-up -->
         <div class="panel" role="tabpanel" id="p-brows" aria-labelledby="t-brows">
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/phibrows-ergebnisse.jpg"><div><h3>PhiBrows Microblading</h3><p>Feine, haarförmige Striche werden in Wuchsrichtung in die oberste Hautschicht gezeichnet. Fehlende Härchen werden ergänzt, die Brauen optisch verdichtet, kaum von echten zu unterscheiden.</p><span class="meta">Natürlicher Härchen-Effekt · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
-            <li class="mrow" data-preview="images/brauen-haerchentechnik.jpg"><div><h3>Powder Brows</h3><p>Microshading: Statt Härchen setzt eine feine Pigmentier-Nadel winzige, punktuelle Schattierungen. Für alle Hauttypen, ideal bei fettiger Haut oder Mischhaut.</p><span class="meta">Puder-Effekt mit Ombré-Verlauf · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
-            <li class="mrow" data-preview="images/lippen-ergebnis.jpg"><div><h3>Lippenschattierung</h3><p>Vorzeichnen, Schattieren mit feinsten Nadelstichen, Abschlusspflege. Zwei Techniken: sanfte Schattierung (Gloss-Effekt, einfach frischer) oder Vollschattierung (Lipstick-Effekt).</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">450 €</span><button class="pick" data-pick="Lippenschattierung">Auswählen</button></li>
-            <li class="mrow" data-preview="images/brauen-natuerlich.jpg"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
-            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Haarsimulation für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel. Bei längerem Haar wirkt es voller, bei Glatze oder sehr kurzem Haar wie nachwachsende Stoppeln.</p><span class="meta">Sofort sichtbar · nicht-operativ · mehrjährig</span></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
+            <li class="mrow" data-preview="images/phibrows-ergebnisse.jpg"><div><h3>PhiBrows Microblading</h3><p>Feine, haarförmige Striche werden in Wuchsrichtung in die oberste Hautschicht gezeichnet. Fehlende Härchen werden ergänzt, die Brauen optisch verdichtet, kaum von echten zu unterscheiden.</p><span class="meta">Natürlicher Härchen-Effekt · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">490 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20PhiBrows%20Microblading." target="_blank" rel="noopener" aria-label="PhiBrows Microblading per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow" data-preview="images/brauen-haerchentechnik.jpg"><div><h3>Powder Brows</h3><p>Microshading: Statt Härchen setzt eine feine Pigmentier-Nadel winzige, punktuelle Schattierungen. Für alle Hauttypen, ideal bei fettiger Haut oder Mischhaut.</p><span class="meta">Puder-Effekt mit Ombré-Verlauf · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">390 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Powder%20Brows." target="_blank" rel="noopener" aria-label="Powder Brows per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow" data-preview="images/lippen-ergebnis.jpg"><div><h3>Lippenschattierung</h3><p>Vorzeichnen, Schattieren mit feinsten Nadelstichen, Abschlusspflege. Zwei Techniken: sanfte Schattierung (Gloss-Effekt, einfach frischer) oder Vollschattierung (Lipstick-Effekt).</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">450 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Lippenschattierung." target="_blank" rel="noopener" aria-label="Lippenschattierung per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow" data-preview="images/brauen-natuerlich.jpg"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Lidstrich%20%28Eyeliner%2C%20Babyliner%20oder%20Dipliner%29." target="_blank" rel="noopener" aria-label="Lidstrich (Eyeliner, Babyliner oder Dipliner) per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Haarsimulation für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel. Bei längerem Haar wirkt es voller, bei Glatze oder sehr kurzem Haar wie nachwachsende Stoppeln.</p><span class="meta">Sofort sichtbar · nicht-operativ · mehrjährig</span></div><span class="price">350 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Kopfhautpigmentierung." target="_blank" rel="noopener" aria-label="Kopfhautpigmentierung per WhatsApp anfragen">Anfragen</a></li>
           </ul>
           <div class="pigment-note">
             <p class="menu-x__label">Phi-Pigmente</p>
@@ -798,37 +793,37 @@ tailwind.config = {
         <!-- Gesicht & Haut -->
         <div class="panel" role="tabpanel" id="p-skin" aria-labelledby="t-skin" hidden>
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/ds-v-line-vorher-nachher.jpg"><div><h3>DS V-Line Kollagenfadenlifting</h3><p>Feinste Kollagenfäden werden eingearbeitet, kombiniert mit Microneedling für mehr Wirkstoffaufnahme und Straffung. Feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, keine Ausfallzeit.</p><span class="meta">Alle Hauttypen · wirkt ca. 12 Monate</span></div><span class="price">245 €</span><button class="pick" data-pick="DS V-Line Kollagenfadenlifting">Auswählen</button></li>
-            <li class="mrow"><div><h3>Algenpeeling</h3><p>100 % biologische Schälkur aus Mikroalgen, Kräutern, Vitaminen und Mineralstoffen. Gezielt gegen Akne, verstopfte Poren, Aknenarben und Pigmentflecken. Die Haut schält sich nach 3–7 Tagen.</p><span class="meta">Danach SPF 50 Pflicht · nicht bei Rosacea, Couperose oder offenen Wunden</span></div><span class="price">99 €</span><button class="pick" data-pick="Algenpeeling">Auswählen</button></li>
-            <li class="mrow"><div><h3>Microneedling</h3><p>Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren.</p><span class="meta">Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell</span></div><span class="price">ab 119 €</span><button class="pick" data-pick="Microneedling">Auswählen</button></li>
-            <li class="mrow"><div><h3>Skin Care</h3><p>Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut.</p><span class="meta">Classic 99 € · Professional 129 € · Akne 139 €</span></div><span class="price">ab 99 €</span><button class="pick" data-pick="Skin Care">Auswählen</button></li>
+            <li class="mrow" data-preview="images/ds-v-line-vorher-nachher.jpg"><div><h3>DS V-Line Kollagenfadenlifting</h3><p>Feinste Kollagenfäden werden eingearbeitet, kombiniert mit Microneedling für mehr Wirkstoffaufnahme und Straffung. Feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, keine Ausfallzeit.</p><span class="meta">Alle Hauttypen · wirkt ca. 12 Monate</span></div><span class="price">245 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20DS%20V-Line%20Kollagenfadenlifting." target="_blank" rel="noopener" aria-label="DS V-Line Kollagenfadenlifting per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Algenpeeling</h3><p>100 % biologische Schälkur aus Mikroalgen, Kräutern, Vitaminen und Mineralstoffen. Gezielt gegen Akne, verstopfte Poren, Aknenarben und Pigmentflecken. Die Haut schält sich nach 3–7 Tagen.</p><span class="meta">Danach SPF 50 Pflicht · nicht bei Rosacea, Couperose oder offenen Wunden</span></div><span class="price">99 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Algenpeeling." target="_blank" rel="noopener" aria-label="Algenpeeling per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Microneedling</h3><p>Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren.</p><span class="meta">Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell</span></div><span class="price">ab 119 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Microneedling." target="_blank" rel="noopener" aria-label="Microneedling per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Skin Care</h3><p>Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut.</p><span class="meta">Classic 99 € · Professional 129 € · Akne 139 €</span></div><span class="price">ab 99 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Skin%20Care." target="_blank" rel="noopener" aria-label="Skin Care per WhatsApp anfragen">Anfragen</a></li>
           </ul>
         </div>
 
         <!-- Brauen & Wimpern -->
         <div class="panel" role="tabpanel" id="p-lashes" aria-labelledby="t-lashes" hidden>
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/brauen-fadentechnik.jpg"><div><h3>Augenbrauenkorrektur mit Fadentechnik</h3><p>Vermessung mit dem Goldenen-Schnitt-Messgerät, Formung mit Fadentechnik passend zu deinen Gesichtszügen.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
-            <li class="mrow"><div><h3>Augenbrauenlifting inkl. Färben</h3><p>Die Härchen werden verstärkt und formbar gemacht, die Form hält mehrere Wochen und lässt sich leicht stylen.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenlifting inkl. Färben">Auswählen</button></li>
-            <li class="mrow"><div><h3>Wimpernlifting inkl. Färben</h3><p>Die eigenen Wimpern werden mit Silikonpads und Ellebana-Lotionen am Ansatz angehoben und dunkelbraun oder schwarz gefärbt. Schwung, Länge und Farbe ohne Mascara.</p><span class="meta">Hält 4–6 Wochen · 24 h danach kein Wasser, Dampf oder Öl</span></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting inkl. Färben">Auswählen</button></li>
+            <li class="mrow" data-preview="images/brauen-fadentechnik.jpg"><div><h3>Augenbrauenkorrektur mit Fadentechnik</h3><p>Vermessung mit dem Goldenen-Schnitt-Messgerät, Formung mit Fadentechnik passend zu deinen Gesichtszügen.</p></div><span class="price">Preis auf Anfrage</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Augenbrauenkorrektur." target="_blank" rel="noopener" aria-label="Augenbrauenkorrektur per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Augenbrauenlifting inkl. Färben</h3><p>Die Härchen werden verstärkt und formbar gemacht, die Form hält mehrere Wochen und lässt sich leicht stylen.</p></div><span class="price">Preis auf Anfrage</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Augenbrauenlifting%20inkl.%20F%C3%A4rben." target="_blank" rel="noopener" aria-label="Augenbrauenlifting inkl. Färben per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Wimpernlifting inkl. Färben</h3><p>Die eigenen Wimpern werden mit Silikonpads und Ellebana-Lotionen am Ansatz angehoben und dunkelbraun oder schwarz gefärbt. Schwung, Länge und Farbe ohne Mascara.</p><span class="meta">Hält 4–6 Wochen · 24 h danach kein Wasser, Dampf oder Öl</span></div><span class="price">90 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Wimpernlifting%20inkl.%20F%C3%A4rben." target="_blank" rel="noopener" aria-label="Wimpernlifting inkl. Färben per WhatsApp anfragen">Anfragen</a></li>
           </ul>
         </div>
 
         <!-- Haar & Vitamin -->
         <div class="panel" role="tabpanel" id="p-hair" aria-labelledby="t-hair" hidden>
           <ul class="menu-list">
-            <li class="mrow"><div><h3>Vitaminbehandlung Kopfhaut</h3><p>PhiHair-Serum mit Microneedling aktiviert die Haarfollikel, fördert das Haarwachstum und stärkt geschwächte Bereiche.</p></div><span class="price">199 €</span><button class="pick" data-pick="Vitaminbehandlung Kopfhaut">Auswählen</button></li>
-            <li class="mrow"><div><h3>Vitaminbehandlung Bart</h3><p>Stärkt und revitalisiert lichte oder ausgefallene Stellen im Bart.</p></div><span class="price">139 €</span><button class="pick" data-pick="Vitaminbehandlung Bart">Auswählen</button></li>
-            <li class="mrow"><div><h3>Vitaminbehandlung Augenbrauen</h3><p>Für geschwächte Brauen, die wieder kräftiger werden sollen.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung Augenbrauen">Auswählen</button></li>
-            <li class="mrow"><div><h3>Einzelne Stellen</h3><p>Zum Beispiel Bart, Geheimratsecken oder Scheitel.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung einzelne Stellen">Auswählen</button></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Kopfhaut</h3><p>PhiHair-Serum mit Microneedling aktiviert die Haarfollikel, fördert das Haarwachstum und stärkt geschwächte Bereiche.</p></div><span class="price">199 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Vitaminbehandlung%20Kopfhaut." target="_blank" rel="noopener" aria-label="Vitaminbehandlung Kopfhaut per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Bart</h3><p>Stärkt und revitalisiert lichte oder ausgefallene Stellen im Bart.</p></div><span class="price">139 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Vitaminbehandlung%20Bart." target="_blank" rel="noopener" aria-label="Vitaminbehandlung Bart per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Augenbrauen</h3><p>Für geschwächte Brauen, die wieder kräftiger werden sollen.</p></div><span class="price">99 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Vitaminbehandlung%20Augenbrauen." target="_blank" rel="noopener" aria-label="Vitaminbehandlung Augenbrauen per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>Einzelne Stellen</h3><p>Zum Beispiel Bart, Geheimratsecken oder Scheitel.</p></div><span class="price">99 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20Vitaminbehandlung%20einzelne%20Stellen." target="_blank" rel="noopener" aria-label="Vitaminbehandlung einzelne Stellen per WhatsApp anfragen">Anfragen</a></li>
           </ul>
         </div>
 
         <!-- PhiRemoval -->
         <div class="panel" role="tabpanel" id="p-removal" aria-labelledby="t-removal" hidden>
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/phiremoval-vorher-nachher.jpg"><div><h3>PhiRemoval Gesicht</h3><p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
-            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
+            <li class="mrow" data-preview="images/phiremoval-vorher-nachher.jpg"><div><h3>PhiRemoval Gesicht</h3><p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20PhiRemoval%20Gesicht." target="_blank" rel="noopener" aria-label="PhiRemoval Gesicht per WhatsApp anfragen">Anfragen</a></li>
+            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><a class="pick" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20interessiere%20mich%20f%C3%BCr%3A%20PhiRemoval%20K%C3%B6rper%20%2F%20kleines%20Tattoo." target="_blank" rel="noopener" aria-label="PhiRemoval Körper / kleines Tattoo per WhatsApp anfragen">Anfragen</a></li>
           </ul>
         </div>
       </div>
@@ -841,8 +836,8 @@ tailwind.config = {
   <div class="philo-x__wrap">
     <div class="philo-x__grid">
       <div class="philo-x__media">
-        <figure class="philo-x__main grade"><img src="images/mel-portrait.jpg" width="1254" height="1254" alt="Meltem Demirci im Mel Beauty Studio" loading="lazy"></figure>
-        <figure class="philo-x__detail grade"><img src="images/studio-behandlungsraum.jpg" width="1600" height="1200" alt="Behandlungsraum im Mel Beauty Studio" loading="lazy"></figure>
+        <figure class="philo-x__main grade"><img src="images/studio-behandlungsraum.jpg" width="1600" height="1200" alt="Behandlungsraum im Mel Beauty Studio mit Behandlungsliege, Ringlicht und Phi-Gerät" loading="lazy"></figure>
+        <figure class="philo-x__detail grade"><img src="images/studio-rosen-detail.jpg" width="900" height="900" alt="Rosen auf dem Glastisch in der Studio-Lounge" loading="lazy"></figure>
       </div>
       <div class="philo-x__text">
         <h2 class="philo-x__eyebrow">Philosophie</h2>
@@ -851,10 +846,10 @@ tailwind.config = {
           <footer>Meltem Demirci</footer>
         </blockquote>
         <ul class="philo-x__list">
-          <li class="philo-x__item"><span class="philo-x__n">01</span><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line und Algae Peeling. Nur Originalprodukte: Phi-Pigmente direkt über das offizielle Phi-System, DS V-Line nur nach Academy-Schulung erhältlich.</p></li>
-          <li class="philo-x__item"><span class="philo-x__n">02</span><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></li>
-          <li class="philo-x__item"><span class="philo-x__n">03</span><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></li>
-          <li class="philo-x__item"><span class="philo-x__n">04</span><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></li>
+          <li class="philo-x__item"><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line und Algae Peeling. Nur Originalprodukte: Phi-Pigmente direkt über das offizielle Phi-System, DS V-Line nur nach Academy-Schulung erhältlich.</p></li>
+          <li class="philo-x__item"><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></li>
+          <li class="philo-x__item"><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></li>
+          <li class="philo-x__item"><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></li>
         </ul>
         <p class="philo-x__label">Zertifizierungen</p>
         <ul class="philo-x__certs">
@@ -882,8 +877,7 @@ tailwind.config = {
         <figure class="gal-x__slide grade" data-i="7" aria-hidden="true"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" loading="lazy" draggable="false"></figure>
       </div>
       <div class="gal-x__side">
-        <p class="gal-x__eyebrow">Aus dem Studio</p>
-        <h2 id="gal-h" class="gal-x__h2">Einblicke von <em>Instagram</em>.</h2>
+        <h2 id="gal-h" class="gal-x__h2">Ergebnisse aus dem Studio</h2>
         <div class="gal-x__now">
           <p class="gal-x__count"><b>01</b> / 08</p>
           <p class="gal-x__cap" aria-live="polite">PhiBrows Microblading</p>
@@ -916,7 +910,7 @@ tailwind.config = {
     <header class="studio-x__head">
       <p class="studio-x__eyebrow">Studio Landshut</p>
       <div class="studio-x__headtext">
-        <h2 id="studio-title" class="studio-x__h2">Mitten in der <em>Neustadt.</em></h2>
+        <h2 id="studio-title" class="studio-x__h2">Mitten in der Neustadt</h2>
         <p class="studio-x__lead">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Meine Mission: mit hochwertigen und individuellen Behandlungen auf deine Wünsche und Bedürfnisse eingehen.</p>
         <p class="studio-x__lead">Das Studio liegt zentral in der Landshuter Neustadt, nur wenige Schritte von der Altstadt entfernt. Aus Ergolding, Altdorf, Essenbach, Kumhausen und dem gesamten Landkreis Landshut bist du schnell bei uns.</p>
         <p class="studio-x__lead">Parken: Ganz in der Nähe liegen die Tiefgarage Zentrum (Badstraße), das Parkhaus an der Wittstraße und der große Parkplatz Grieserwiese an der Isar.</p>
@@ -968,9 +962,8 @@ tailwind.config = {
 <section id="fragen" class="faq-x" aria-labelledby="faq-title" data-blob="-0.56 -0.42 0.24">
   <div class="faq-x__wrap">
     <div class="faq-x__head">
-      <p class="faq-x__eyebrow">Häufige Fragen</p>
-      <h2 id="faq-title" class="faq-x__h2">Gut zu <em>wissen.</em></h2>
-      <p class="faq-x__lead">Noch etwas offen? Der Concierge unten rechts hilft weiter, oder schreib direkt per WhatsApp.</p>
+      <h2 id="faq-title" class="faq-x__h2">Häufige Fragen</h2>
+      <p class="faq-x__lead">Noch etwas offen? Schreib Meltem einfach <a href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20habe%20eine%20Frage%3A%20" target="_blank" rel="noopener">per WhatsApp</a> oder ruf an: <a href="tel:+491636839277">0163 6839277</a>.</p>
     </div>
     <div class="faq-x__list">
       <details class="faq"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
@@ -988,12 +981,11 @@ tailwind.config = {
 <section class="cta-x" aria-labelledby="cta-title" data-blob="0 0.6 0.2">
   <div class="cta-x__wrap">
     <div class="cta-x__text">
-      <p class="cta-x__eyebrow">Termin</p>
-      <h2 id="cta-title" class="cta-x__h2">Bereit für <em>deinen</em> Termin?</h2>
+      <h2 id="cta-title" class="cta-x__h2">Termin bei Meltem anfragen</h2>
     </div>
     <div class="cta-x__actions">
-      <button type="button" class="cta-x__btn" data-concierge="termin">Termin anfragen <span aria-hidden="true">→</span></button>
-      <a class="cta-x__link" href="https://wa.me/491636839277" target="_blank" rel="noopener">oder direkt per WhatsApp schreiben</a>
+      <a class="cta-x__btn" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20im%20Mel%20Beauty%20Studio%20vereinbaren." target="_blank" rel="noopener">Per WhatsApp anfragen <span aria-hidden="true">→</span></a>
+      <a class="cta-x__link" href="tel:+491636839277">oder anrufen: 0163 6839277</a>
     </div>
   </div>
 </section>
@@ -1032,32 +1024,10 @@ tailwind.config = {
   </div>
 </footer>
 
-<!-- ============ BEAUTY-CONCIERGE ============ -->
-<div id="concierge" class="concierge">
-  <button type="button" class="c-launch" aria-expanded="false" aria-controls="c-panel">
-    <span class="c-dot" aria-hidden="true"></span>
-    <span class="c-launch-text">Concierge</span>
-  </button>
-  <section id="c-panel" class="c-panel" role="dialog" aria-label="Beauty-Concierge" data-lenis-prevent hidden>
-    <header class="c-head">
-      <div class="flex items-center gap-3">
-        <img src="images/mel-portrait.jpg" alt="" class="h-10 w-10 rounded-full object-cover object-top" width="40" height="40">
-        <div>
-          <p class="font-serif text-[1.3rem] leading-none text-cream">Beauty-Concierge</p>
-          <p class="mt-1 text-[.68rem] text-cream/70">Automatischer Assistent · Antwort von Meltem per WhatsApp</p>
-        </div>
-      </div>
-      <button type="button" class="c-x" aria-label="Concierge schließen">×</button>
-    </header>
-    <div class="c-log" aria-live="polite"></div>
-    <div class="c-quick"></div>
-    <form class="c-form" autocomplete="off">
-      <label for="c-input" class="sr-only">Nachricht</label>
-      <input id="c-input" type="text" placeholder="Frage stellen …" maxlength="300">
-      <button type="submit" aria-label="Senden">→</button>
-    </form>
-  </section>
-</div>
+<!-- ============ WHATSAPP-KNOPF ============ -->
+<a id="wa-float" class="wa-float" href="https://wa.me/491636839277?text=Hallo%20Meltem%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20im%20Mel%20Beauty%20Studio%20vereinbaren." target="_blank" rel="noopener" aria-label="Termin per WhatsApp anfragen">
+  <span class="wa-float__dot" aria-hidden="true"></span><span>WhatsApp</span>
+</a>
 
 <script src="assets/motion.js" defer></script>
 <script type="module" src="assets/scene.js"></script>
