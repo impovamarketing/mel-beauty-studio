@@ -1,0 +1,54 @@
+/* =========================================================
+   Mel Beauty Studio · Beauty-Concierge
+   (Section-Rebuild, Schritt 9) – Aussehen im Design-System aus nav-hero.css,
+   Logik und Markup unverändert (assets/app.js)
+   ========================================================= */
+
+#concierge{font-family:var(--font-ui);color:var(--text-primary)}
+
+/* Startknopf: eckig wie „Termin buchen“ */
+#concierge .c-launch{gap:.75rem;padding:15px 20px;border-radius:0;background:var(--text-primary);color:var(--bg-primary);font-family:var(--font-ui);font-size:11px;font-weight:500;letter-spacing:.2em;box-shadow:0 18px 40px -20px rgba(20,38,32,.55);transition:background-color .3s}
+#concierge .c-launch:hover{transform:none;background:#24392F}
+#concierge .c-launch:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
+#concierge .c-dot{width:6px;height:6px;background:var(--accent-gold)}
+
+/* Fenster */
+#concierge .c-panel{border:1px solid var(--border-hairline);border-radius:0;background:var(--bg-primary);box-shadow:0 40px 80px -36px rgba(20,38,32,.45)}
+#concierge .c-head{padding:1rem 1.1rem;background:var(--text-primary);border-bottom:1px solid var(--text-primary)}
+#concierge .c-head img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+#concierge .c-head p:first-child{font-family:var(--font-display);font-weight:300;font-size:1.4rem;line-height:1;color:var(--bg-primary)}
+#concierge .c-head p + p{margin-top:.35rem;font-size:11px;line-height:1.4;color:rgba(244,241,234,.74)}
+#concierge .c-x{width:36px;height:36px;color:var(--bg-primary);font-family:var(--font-ui);font-weight:300;font-size:1.5rem;opacity:.85}
+#concierge .c-x:hover{opacity:1;transform:none}
+#concierge .c-x:focus-visible{outline:1px solid var(--bg-primary);outline-offset:2px}
+
+/* Nachrichten */
+#concierge .c-log{gap:.75rem;padding:1.25rem 1.1rem}
+#concierge .msg{max-width:88%;padding:.85rem 1rem;font-size:14px;line-height:1.65}
+#concierge .msg.bot{background:#FBFAF6;color:var(--text-primary);border:1px solid var(--border-hairline);border-left:1px solid var(--accent-gold)}
+#concierge .msg.me{background:var(--text-primary);color:var(--bg-primary)}
+#concierge .msg .wa{margin-top:.8rem;padding:.7rem 1rem;background:var(--text-primary);color:var(--bg-primary);font-size:11px;font-weight:500;letter-spacing:.18em}
+#concierge .typing{background:#FBFAF6;border:1px solid var(--border-hairline)}
+#concierge .typing i{background:rgba(20,38,32,.55)}
+
+/* Schnellantworten */
+#concierge .c-quick{gap:.5rem;padding:0 1.1rem 1rem}
+#concierge .c-quick button{padding:.6rem .85rem;border:1px solid var(--border-hairline);border-radius:0;background:transparent;color:var(--text-primary);font-family:var(--font-ui);font-size:12px;cursor:pointer}
+#concierge .c-quick button:hover{background:var(--text-primary);color:var(--bg-primary);border-color:var(--text-primary)}
+#concierge .c-quick button:focus-visible{outline:1px solid var(--text-primary);outline-offset:2px}
+
+/* Eingabe: 16px, damit iOS beim Antippen nicht hineinzoomt */
+#concierge .c-form{border-top:1px solid var(--border-hairline);background:#FBFAF6}
+#concierge .c-form input{padding:1rem 1.1rem;font-family:var(--font-ui);font-size:16px;color:var(--text-primary)}
+#concierge .c-form input::placeholder{color:rgba(20,38,32,.55)}
+#concierge .c-form button{width:56px;color:var(--text-primary);font-size:1.1rem;cursor:pointer}
+#concierge .c-form button:hover{background:var(--text-primary);color:var(--bg-primary)}
+#concierge .c-form:focus-within{box-shadow:inset 0 0 0 1px var(--text-primary)}
+
+/* Handy: eckiger „✦ Termin“-Knopf statt Pille */
+@media (max-width:640px){
+  #concierge .c-launch{height:48px;padding:0 1.1rem;border-radius:0}
+  #concierge .c-launch::after{font-family:var(--font-ui);font-size:11px;font-weight:500;color:var(--bg-primary)}
+  #concierge .c-launch::before{color:var(--accent-gold)}
+  #concierge .c-panel{border-left:0;border-right:0}
+}
