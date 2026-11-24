@@ -369,31 +369,44 @@ tailwind.config = {
 
 <!-- ============ AUS DEM STUDIO (Galerie) ============ -->
 <section class="gal-x" aria-labelledby="gal-h" data-blob="-0.56 -0.08 0.24">
-  <div class="gal-x__head">
-    <div>
-      <p class="gal-x__eyebrow">Aus dem Studio</p>
-      <h2 id="gal-h" class="gal-x__h2">Einblicke von <em>Instagram</em>.</h2>
+  <div class="gal-x__wrap">
+    <div class="gal-x__show">
+      <div class="gal-x__stage" role="region" aria-roledescription="Slideshow" aria-label="Arbeiten von Mel">
+        <figure class="gal-x__slide grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="1" aria-hidden="true"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="2" aria-hidden="true"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="3" aria-hidden="true"><img src="images/brauen-fadentechnik.jpg" width="1000" height="1000" alt="Augenbrauenkorrektur mit Fadentechnik" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="4" aria-hidden="true"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vorher und nachher" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="5" aria-hidden="true"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line vorher und nachher" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="6" aria-hidden="true"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="7" aria-hidden="true"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" loading="lazy" draggable="false"></figure>
+      </div>
+      <div class="gal-x__side">
+        <p class="gal-x__eyebrow">Aus dem Studio</p>
+        <h2 id="gal-h" class="gal-x__h2">Einblicke von <em>Instagram</em>.</h2>
+        <div class="gal-x__now">
+          <p class="gal-x__count"><b>01</b> / 08</p>
+          <p class="gal-x__cap" aria-live="polite">PhiBrows Microblading</p>
+        </div>
+        <div class="gal-x__progress" aria-hidden="true"><span></span></div>
+        <div class="gal-x__controls">
+          <button type="button" class="gal-btn gal-play" aria-pressed="false" aria-label="Slideshow pausieren"><span class="ico-pause" aria-hidden="true"></span><span class="ico-play" aria-hidden="true"></span></button>
+          <button type="button" class="gal-btn" data-dir="-1" aria-label="Vorheriges Bild">←</button>
+          <button type="button" class="gal-btn" data-dir="1" aria-label="Nächstes Bild">→</button>
+        </div>
+        <ul class="gal-x__thumbs">
+          <li><button type="button" class="gal-x__thumb is-active" data-i="0" data-cap="PhiBrows Microblading" aria-label="Bild 01: PhiBrows Microblading" aria-current="true"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="1" data-cap="Permanent Make-up Lippen" aria-label="Bild 02: Permanent Make-up Lippen"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="2" data-cap="Lippen, Ergebnis" aria-label="Bild 03: Lippen, Ergebnis"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="3" data-cap="Augenbrauenkorrektur mit Fadentechnik" aria-label="Bild 04: Augenbrauenkorrektur mit Fadentechnik"><img src="images/brauen-fadentechnik.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="4" data-cap="PhiRemoval, nach der 1. Behandlung" aria-label="Bild 05: PhiRemoval, nach der 1. Behandlung"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="5" data-cap="DS V-Line Kollagenfäden" aria-label="Bild 06: DS V-Line Kollagenfäden"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="6" data-cap="PhiBrows Pigmente, vegan" aria-label="Bild 07: PhiBrows Pigmente, vegan"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="" loading="lazy" draggable="false"></button></li>
+          <li><button type="button" class="gal-x__thumb" data-i="7" data-cap="Vermessen nach dem Goldenen Schnitt" aria-label="Bild 08: Vermessen nach dem Goldenen Schnitt"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="" loading="lazy" draggable="false"></button></li>
+        </ul>
+        <a class="gal-x__link" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Mehr auf Instagram</a>
+      </div>
     </div>
-    <div class="gal-x__controls">
-      <span class="gal-count"><b>01</b> / 08</span>
-      <button type="button" class="gal-btn gal-play" aria-pressed="false" aria-label="Slideshow pausieren"><span class="ico-pause" aria-hidden="true"></span><span class="ico-play" aria-hidden="true"></span></button>
-      <button type="button" class="gal-btn" data-dir="-1" aria-label="Vorheriges Bild">←</button>
-      <button type="button" class="gal-btn" data-dir="1" aria-label="Nächstes Bild">→</button>
-    </div>
-  </div>
-  <div class="gallery no-scrollbar" tabindex="0" aria-label="Galerie, horizontal scrollbar">
-    <figure class="grade g-item"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption><span>01</span>PhiBrows Microblading</figcaption></figure>
-    <figure class="grade g-item tall"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung" loading="lazy"><figcaption><span>02</span>Permanent Make-up Lippen</figcaption></figure>
-    <figure class="grade g-item"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung" loading="lazy"><figcaption><span>03</span>Lippen, Ergebnis</figcaption></figure>
-    <figure class="grade g-item"><img src="images/brauen-fadentechnik.jpg" width="1000" height="1000" alt="Augenbrauenkorrektur mit Fadentechnik" loading="lazy"><figcaption><span>04</span>Augenbrauenkorrektur mit Fadentechnik</figcaption></figure>
-    <figure class="grade g-item"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vorher und nachher" loading="lazy"><figcaption><span>05</span>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
-    <figure class="grade g-item"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line vorher und nachher" loading="lazy"><figcaption><span>06</span>DS V-Line Kollagenfäden</figcaption></figure>
-    <figure class="grade g-item"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik" loading="lazy"><figcaption><span>07</span>PhiBrows Pigmente, vegan</figcaption></figure>
-    <figure class="grade g-item"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" loading="lazy"><figcaption><span>08</span>Vermessen nach dem Goldenen Schnitt</figcaption></figure>
-  </div>
-  <div class="gal-x__foot">
-    <div class="gal-bar"><span></span></div>
-    <a class="gal-x__link" href="https://www.instagram.com/melbeautystudio.landshut/" target="_blank" rel="noopener">Mehr auf Instagram</a>
   </div>
 </section>
 

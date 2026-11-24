@@ -1,49 +1,66 @@
 /* =========================================================
-   Mel Beauty Studio · Galerie „Einblicke von Instagram“
-   (Section-Rebuild, Schritt 5) – nutzt das Design-System aus nav-hero.css
+   Mel Beauty Studio · Galerie „Einblicke von Instagram“ als Slideshow
+   Großes Bild blendet alle 3,5 s zum nächsten; Vorschaubilder zum direkten Wechsel.
+   Nutzt das Design-System aus nav-hero.css
    ========================================================= */
 
-.gal-x{--gal-pad:1.5rem;position:relative;z-index:1;padding:6rem 0 5rem;background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font-ui);border-top:1px solid var(--border-hairline)}
+.gal-x{position:relative;z-index:1;background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font-ui);border-top:1px solid var(--border-hairline)}
+.gal-x__wrap{max-width:1400px;margin:0 auto;padding:6rem 1.5rem 5rem}
+.gal-x__show{display:grid;gap:2.5rem}
 
-/* Kopf: Überschrift links, Steuerung rechts */
-.gal-x__head,.gal-x__foot{max-width:1400px;margin:0 auto;padding:0 1.5rem}
-.gal-x__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:2rem}
+/* Bühne: Bilder liegen übereinander und blenden weich über */
+.gal-x__stage{position:relative;aspect-ratio:1;overflow:hidden;background:var(--border-hairline);touch-action:pan-y;user-select:none;cursor:grab}
+.gal-x__stage:active{cursor:grabbing}
+.gal-x__slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1s ease}
+.gal-x__slide.is-active{opacity:1}
+.gal-x__slide img{display:block;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none}
+
+/* Seite: Überschrift, aktuelles Bild, Fortschritt, Steuerung, Vorschaubilder */
+.gal-x__side{display:flex;flex-direction:column}
 .gal-x__eyebrow{margin:0 0 1.25rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold-text)}
-.gal-x__h2{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.4rem,4.2vw,3.9rem);line-height:1.02;letter-spacing:-.02em;color:var(--text-primary)}
+.gal-x__h2{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.4rem,4.2vw,3.9rem);line-height:1.02;letter-spacing:-.02em}
 .gal-x__h2 em{font-style:italic;font-weight:300;color:inherit}
 
-.gal-x__controls{display:flex;align-items:center;gap:.6rem}
-.gal-x .gal-count{margin-right:1rem;font-size:11px;font-weight:500;letter-spacing:.2em;font-variant-numeric:tabular-nums;color:rgba(20,38,32,.7)}
-.gal-x .gal-count b{font-weight:500;color:var(--text-primary)}
+.gal-x__now{display:flex;align-items:baseline;gap:1.25rem;margin-top:2.5rem}
+.gal-x__count{flex:none;margin:0;font-size:11px;font-weight:500;letter-spacing:.2em;font-variant-numeric:tabular-nums;color:rgba(20,38,32,.7)}
+.gal-x__count b{font-weight:500;color:var(--text-primary)}
+.gal-x__cap{margin:0;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:1.6rem;line-height:1.2}
+
+.gal-x__progress{height:1px;margin-top:1.25rem;background:var(--border-hairline);overflow:hidden}
+.gal-x__progress span{display:block;height:100%;background:var(--text-primary);transform:scaleX(0);transform-origin:0 50%}
+
+.gal-x__controls{display:flex;gap:.6rem;margin-top:1.5rem}
 .gal-x .gal-btn{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--border-hairline);border-radius:0;background:transparent;color:var(--text-primary);font-family:var(--font-ui);font-size:14px;cursor:pointer;transition:background-color .3s,color .3s,border-color .3s}
 .gal-x .gal-btn:hover{background:var(--text-primary);color:var(--bg-primary);border-color:var(--text-primary)}
 .gal-x .gal-btn:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
 
-/* Bildreihe: läuft bis zum rechten Rand, beginnt an der Inhaltskante */
-.gal-x .gallery{margin-top:3rem;gap:1.5rem;padding-inline:var(--gal-pad);scroll-padding-inline:var(--gal-pad)}
-.gal-x .g-item{width:clamp(250px,28vw,420px);overflow:visible}
-.gal-x .g-item img{display:block;width:100%;aspect-ratio:1;object-fit:cover;opacity:1;filter:none;transform:none;transition:none;background:var(--border-hairline)}
-.gal-x .g-item.tall img{aspect-ratio:3/4}
-.gal-x .g-item:hover img{transform:none}
-.gal-x .g-item figcaption{display:flex;align-items:baseline;gap:.75rem;margin-top:1rem;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;line-height:1.5;color:rgba(20,38,32,.7)}
-.gal-x .g-item.is-active figcaption{color:var(--text-primary)}
-.gal-x .g-item figcaption span{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--accent-gold-text)}
+.gal-x__thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:2rem 0 0;padding:0;list-style:none}
+.gal-x__thumb{display:block;width:100%;aspect-ratio:1;padding:0;border:0;background:var(--border-hairline);cursor:pointer;opacity:.55;transition:opacity .4s}
+.gal-x__thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.gal-x__thumb:hover{opacity:.85}
+.gal-x__thumb.is-active{opacity:1;box-shadow:0 0 0 1px var(--text-primary)}
+.gal-x__thumb:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
 
-/* Fortschritt + Instagram-Link */
-.gal-x__foot{display:flex;align-items:center;gap:2rem;margin-top:2.5rem}
-.gal-x .gal-bar{flex:1;height:1px;background:var(--border-hairline)}
-.gal-x .gal-bar span{background:var(--text-primary)}
-.gal-x__link{flex:none;padding-bottom:4px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);
+.gal-x__link{align-self:flex-start;margin-top:2rem;padding-bottom:4px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);
   background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .6s cubic-bezier(.22,1,.36,1)}
 .gal-x__link:hover{background-size:0 1px;background-position:100% 100%}
 .gal-x__link:focus-visible{outline:1px solid var(--text-primary);outline-offset:4px}
 
-@media (min-width:768px){.gal-x{--gal-pad:max(3rem,calc((100vw - 1400px) / 2 + 3rem));padding:8rem 0 6rem}.gal-x__head,.gal-x__foot{padding:0 3rem}}
-@media (min-width:1024px){.gal-x{padding:10rem 0 8rem}.gal-x .gallery{margin-top:4rem}}
-@media (max-width:639px){
-  .gal-x .gal-count{margin-right:auto}
-  .gal-x__controls{width:100%}
-  .gal-x .g-item{width:78vw}
-  .gal-x__foot{flex-direction:column;align-items:flex-start;gap:1.5rem}
-  .gal-x .gal-bar{width:100%;flex:none}
+/* Handy & Tablet: Überschrift oben, dann Bild, darunter Steuerung und Vorschaubilder */
+@media (max-width:1023px){
+  .gal-x__show{gap:1.25rem}
+  .gal-x__side{display:contents}
+  .gal-x__eyebrow{order:-3;margin-bottom:0}
+  .gal-x__h2{order:-2;margin-bottom:1rem}
+  .gal-x__now,.gal-x__progress,.gal-x__controls,.gal-x__thumbs,.gal-x__link{margin-top:0}
+  .gal-x__link{margin-top:.75rem}
+  .gal-x__thumbs{grid-template-columns:repeat(8,minmax(0,1fr));gap:.4rem}
 }
+@media (min-width:768px){.gal-x__wrap{padding:8rem 3rem 6rem}}
+@media (min-width:1024px){
+  .gal-x__wrap{padding:10rem 3rem 8rem}
+  .gal-x__show{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;align-items:center}
+  .gal-x__stage{grid-column:1 / span 7}
+  .gal-x__side{grid-column:9 / span 4}
+}
+@media (prefers-reduced-motion:reduce){.gal-x__slide,.gal-x__thumb{transition:none}}

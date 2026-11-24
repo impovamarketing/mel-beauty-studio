@@ -105,68 +105,57 @@
   moveInk(tabs[0]);
   window.melSelectTab = name => { const t = tabs.find(x => x.dataset.tab === name); if (t) selectTab(t); };
 
-  /* ---------- Galerie mit Slideshow ---------- */
-  const gal = $('.gallery');
-  if (gal) {
-    const items = $$('.g-item', gal), n = items.length, count = $('.gal-count b'), fill = $('.gal-bar span'), toggle = $('.gal-play');
-    const DELAY = 3500;           // Wechsel alle 3,5 Sekunden
-    let pos = 0, programmatic = 0;
+  /* ---------- Galerie: Slideshow, wechselt alle 3,5 Sekunden ----------
+     Läuft weiter, auch wenn die Maus darüber steht. Pausiert nur per Button,
+     außerhalb des Sichtbereichs, in einem Hintergrund-Tab und bei "Bewegung reduzieren". */
+  const show = $('.gal-x__show');
+  if (show) {
+    const slides = $$('.gal-x__slide', show), thumbs = $$('.gal-x__thumb', show), n = slides.length;
+    const count = $('.gal-x__count b', show), cap = $('.gal-x__cap', show), fill = $('.gal-x__progress span', show);
+    const toggle = $('.gal-play', show), stage = $('.gal-x__stage', show);
+    const DELAY = 3500;
+    let pos = 0, elapsed = 0, last = 0, paused = still, visible = false;
 
-    // Aktives Bild hervorheben, Zähler und Fortschritt setzen
-    const setActive = i => {
-      pos = (i + n) % n;
-      items.forEach((it, k) => it.classList.toggle('is-active', k === pos));
+    const go = i => {
+      pos = (i + n) % n; elapsed = 0;
+      slides.forEach((s, k) => { s.classList.toggle('is-active', k === pos); s.toggleAttribute('aria-hidden', k !== pos); });
+      thumbs.forEach((t, k) => { t.classList.toggle('is-active', k === pos); t.toggleAttribute('aria-current', k === pos); });
       count.textContent = String(pos + 1).padStart(2, '0');
-      fill.style.transform = 'scaleX(' + ((pos + 1) / n) + ')';
+      cap.textContent = thumbs[pos].dataset.cap;
+      fill.style.transform = 'scaleX(0)';
+      const next = slides[(pos + 1) % n].querySelector('img'); if (next.loading === 'lazy') next.loading = 'eager';
     };
-    const goTo = i => {
-      setActive(i);
-      const pad = parseFloat(getComputedStyle(gal).paddingLeft);
-      const max = gal.scrollWidth - gal.clientWidth;
-      programmatic = Date.now() + 900;
-      gal.scrollTo({ left: Math.min(max, items[pos].offsetLeft - pad), behavior: still ? 'auto' : 'smooth' });
+    const tick = t => {
+      const dt = last ? t - last : 0; last = t;
+      if (!paused && visible && !document.hidden) {
+        elapsed += dt;
+        fill.style.transform = 'scaleX(' + Math.min(1, elapsed / DELAY) + ')';
+        if (elapsed >= DELAY) go(pos + 1);
+      }
+      requestAnimationFrame(tick);
     };
-    // Bei manuellem Scrollen das Bild am linken Rand als aktiv nehmen
-    gal.addEventListener('scroll', () => requestAnimationFrame(() => {
-      if (Date.now() < programmatic) return;
-      const left = gal.getBoundingClientRect().left + parseFloat(getComputedStyle(gal).paddingLeft);
-      let idx = 0, best = Infinity;
-      items.forEach((it, k) => { const d = Math.abs(it.getBoundingClientRect().left - left); if (d < best) { best = d; idx = k; } });
-      if (idx !== pos) setActive(idx);
-    }), { passive: true });
-
-    /* Automatik: pausiert bei Hover, Fokus, Berührung, außerhalb des Sichtbereichs,
-       in einem Hintergrund-Tab, per Pause-Button und bei "Bewegung reduzieren". */
-    let timer = null, paused = still, hover = false, visible = false, holdUntil = 0;
-    const canRun = () => !paused && !hover && visible && !document.hidden && Date.now() > holdUntil && !gal.contains(document.activeElement);
-    const schedule = () => { clearTimeout(timer); timer = setTimeout(() => { if (canRun()) goTo(pos + 1); schedule(); }, DELAY); };
-    const hold = () => { holdUntil = Date.now() + 6000; schedule(); };
     const setPaused = p => {
       paused = p;
       toggle.setAttribute('aria-pressed', p);
       toggle.setAttribute('aria-label', p ? 'Slideshow starten' : 'Slideshow pausieren');
       toggle.classList.toggle('is-paused', p);
-      schedule();
     };
     toggle.addEventListener('click', () => setPaused(!paused));
-    gal.addEventListener('mouseenter', () => { hover = true; });
-    gal.addEventListener('mouseleave', () => { hover = false; schedule(); });
-    gal.addEventListener('touchstart', hold, { passive: true });
-    gal.addEventListener('wheel', hold, { passive: true });
-    new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.35 }).observe(gal);
-    document.addEventListener('visibilitychange', schedule);
-    $$('.gal-btn[data-dir]').forEach(b => b.addEventListener('click', () => { goTo(pos + Number(b.dataset.dir)); hold(); }));
+    $$('.gal-btn[data-dir]', show).forEach(b => b.addEventListener('click', () => go(pos + Number(b.dataset.dir))));
+    thumbs.forEach(t => t.addEventListener('click', () => go(Number(t.dataset.i))));
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 }).observe(stage);
 
-    // Ziehen mit der Maus
-    let down = false, sx = 0, sl = 0, moved = false;
-    gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; hold(); down = true; moved = false; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('is-drag'); });
-    addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 3) moved = true; gal.scrollLeft = sl - dx; });
-    addEventListener('pointerup', () => { if (!down) return; down = false; gal.classList.remove('is-drag'); });
-    gal.addEventListener('click', e => { if (moved) e.preventDefault(); }, true);
-    $$('img', gal).forEach(i => i.draggable = false);
+    // Wischen auf dem Handy, Ziehen mit der Maus
+    let sx = null;
+    stage.addEventListener('pointerdown', e => { sx = e.clientX; });
+    stage.addEventListener('pointerup', e => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) go(pos + (dx < 0 ? 1 : -1)); });
+    stage.addEventListener('pointercancel', () => { sx = null; });
+    // Pfeiltasten, wenn die Slideshow fokussiert ist
+    show.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(pos + 1); else if (e.key === 'ArrowLeft') go(pos - 1); });
 
-    setActive(0);
+    go(0);
     setPaused(paused);
+    requestAnimationFrame(tick);
   }
 
   /* ---------- FAQ weich animieren ---------- */
