@@ -54,6 +54,7 @@ tailwind.config = {
 <link rel="stylesheet" href="assets/philosophie.css">
 <link rel="stylesheet" href="assets/galerie.css">
 <link rel="stylesheet" href="assets/studio.css">
+<link rel="stylesheet" href="assets/faq.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -447,21 +448,21 @@ tailwind.config = {
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="fragen" class="scroll-mt-24 py-24 md:py-32 lg:py-40" data-blob="-0.56 -0.42 0.24">
-  <div class="mx-auto grid max-w-[1440px] gap-12 px-5 md:px-10 lg:grid-cols-12">
-    <div class="lg:col-span-4">
-      <p class="eyebrow rv">Häufige Fragen</p>
-      <h2 class="split mt-6 font-serif text-[2.4rem] leading-[1.08] text-ink md:text-[3.2rem]">Gut zu wissen.</h2>
-      <p class="rv mt-6 text-stone">Noch etwas offen? Der Concierge unten rechts hilft weiter, oder schreib direkt per WhatsApp.</p>
+<section id="fragen" class="faq-x" aria-labelledby="faq-title" data-blob="-0.56 -0.42 0.24">
+  <div class="faq-x__wrap">
+    <div class="faq-x__head">
+      <p class="faq-x__eyebrow">Häufige Fragen</p>
+      <h2 id="faq-title" class="faq-x__h2">Gut zu <em>wissen.</em></h2>
+      <p class="faq-x__lead">Noch etwas offen? Der Concierge unten rechts hilft weiter, oder schreib direkt per WhatsApp.</p>
     </div>
-    <div class="lg:col-span-8">
-      <details class="faq rv"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
-      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis.</p></div></details>
-      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows zeichnet einzelne Härchen für einen natürlichen Härchen-Effekt. Powder Brows setzen feine Schattierungen für einen Puder-Effekt mit Ombré-Verlauf und eignen sich besonders bei fettiger Haut oder Mischhaut. Was zu dir passt, klärt Meltem in der Beratung.</p></div></details>
-      <details class="faq rv"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval werden fehlerhafte Permanent Make-ups, Microblading oder Tattoos ohne Laser entfernt oder korrigiert. Für das Nacharbeiten von Fremdarbeiten gilt der Neupreis.</p></div></details>
-      <details class="faq rv"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Phi-Pigmente kombinieren organische und synthetische Komponenten: Die Farben werden gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu verblassen. Vegan und tierversuchsfrei.</p></div></details>
-      <details class="faq rv"><summary>Was muss ich nach dem Algenpeeling beachten?</summary><div class="faq-body"><p>Direkt danach fühlt sich die Haut wie nach einem Sonnenbrand an, nach 3 bis 7 Tagen schält sie sich. In den Wochen danach ist SPF 50 Pflicht. Nicht geeignet bei akuter Rosacea, offenen Wunden oder Couperose.</p></div></details>
-      <details class="faq rv"><summary>Was gilt nach dem Wimpernlifting?</summary><div class="faq-body"><p>24 Stunden kein Wasserkontakt, keine Dampfbäder und keine ölhaltigen Produkte im Augenbereich. Der Effekt hält 4 bis 6 Wochen.</p></div></details>
+    <div class="faq-x__list">
+      <details class="faq"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
+      <details class="faq"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis.</p></div></details>
+      <details class="faq"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows zeichnet einzelne Härchen für einen natürlichen Härchen-Effekt. Powder Brows setzen feine Schattierungen für einen Puder-Effekt mit Ombré-Verlauf und eignen sich besonders bei fettiger Haut oder Mischhaut. Was zu dir passt, klärt Meltem in der Beratung.</p></div></details>
+      <details class="faq"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval werden fehlerhafte Permanent Make-ups, Microblading oder Tattoos ohne Laser entfernt oder korrigiert. Für das Nacharbeiten von Fremdarbeiten gilt der Neupreis.</p></div></details>
+      <details class="faq"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Phi-Pigmente kombinieren organische und synthetische Komponenten: Die Farben werden gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu verblassen. Vegan und tierversuchsfrei.</p></div></details>
+      <details class="faq"><summary>Was muss ich nach dem Algenpeeling beachten?</summary><div class="faq-body"><p>Direkt danach fühlt sich die Haut wie nach einem Sonnenbrand an, nach 3 bis 7 Tagen schält sie sich. In den Wochen danach ist SPF 50 Pflicht. Nicht geeignet bei akuter Rosacea, offenen Wunden oder Couperose.</p></div></details>
+      <details class="faq"><summary>Was gilt nach dem Wimpernlifting?</summary><div class="faq-body"><p>24 Stunden kein Wasserkontakt, keine Dampfbäder und keine ölhaltigen Produkte im Augenbereich. Der Effekt hält 4 bis 6 Wochen.</p></div></details>
     </div>
   </div>
 </section>
