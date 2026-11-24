@@ -1,0 +1,40 @@
+/* =========================================================
+   Mel Beauty Studio · Impressum & Datenschutz
+   Eigenständige Unterseiten im Design-System aus nav-hero.css
+   ========================================================= */
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;color:var(--text-primary);font-family:var(--font-ui);-webkit-font-smoothing:antialiased}
+
+/* Kopfzeile: Marke + Rückweg */
+.legal-top{border-bottom:1px solid var(--border-hairline)}
+.legal-top__in{max-width:1400px;height:var(--nav-h);margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.legal-top__brand{font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--text-primary);text-decoration:none}
+.legal-top__back{display:inline-block;padding:12px 18px;background:var(--text-primary);color:var(--bg-primary);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1;text-decoration:none;white-space:nowrap}
+.legal-top__back:hover{background:#24392F}
+.legal-top a:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
+
+/* Inhalt */
+.legal{max-width:1400px;margin:0 auto;padding:4.5rem 1.5rem 6rem}
+.legal__eyebrow{margin:0 0 1.25rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold-text)}
+.legal__h1{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;letter-spacing:-.02em}
+.legal__body{max-width:44rem;margin-top:3.5rem}
+.legal__body h2{margin:3rem 0 0;padding-top:1.5rem;border-top:1px solid var(--border-hairline);font-family:var(--font-display);font-weight:400;font-size:1.65rem;line-height:1.2}
+.legal__body h2:first-child{margin-top:0}
+.legal__body h3{margin:1.75rem 0 0;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.legal__body p,.legal__body li{font-size:15px;line-height:1.75;color:rgba(20,38,32,.85)}
+.legal__body p{margin:.75rem 0 0}
+.legal__body ul{margin:.75rem 0 0;padding-left:1.1rem}
+.legal__body a{color:var(--text-primary);text-underline-offset:3px;text-decoration-thickness:1px}
+.legal__body a:focus-visible{outline:1px solid var(--text-primary);outline-offset:3px}
+.legal__stand{margin-top:3rem!important;font-size:13px!important;color:rgba(20,38,32,.7)!important}
+
+/* Platzhalter: deutlich sichtbar, bis Mel die Angabe bestätigt */
+.todo{padding:.1rem .4rem;background:#F3E3B8;color:#5A4410;font-weight:500}
+
+@media (min-width:768px){.legal-top__in{padding:0 3rem}.legal{padding:6rem 3rem 8rem}}
+@media (min-width:1024px){
+  .legal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;padding:8rem 3rem 10rem}
+  .legal__head{grid-column:1 / span 4;align-self:start;position:sticky;top:3rem}
+  .legal__body{grid-column:6 / span 7;margin-top:0}
+}
