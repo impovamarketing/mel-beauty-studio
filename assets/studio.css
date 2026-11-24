@@ -42,7 +42,7 @@
 
 /* Eingang + Karte */
 .studio-x__find{display:grid;gap:3rem;margin-top:5rem}
-.studio-x .studio-x__map{height:auto;min-height:380px;border:1px solid var(--border-hairline);background:#EBE6DB}
+.studio-x .studio-x__map{height:auto;min-height:380px;border:1px solid var(--border-hairline);background:var(--bg-secondary)}
 .studio-x .map-consent{padding:2rem}
 .studio-x .map-pin b{background:var(--accent-gold)}
 .studio-x .map-pin i{border-color:var(--accent-gold)}

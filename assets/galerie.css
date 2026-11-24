@@ -3,7 +3,7 @@
    (Section-Rebuild, Schritt 5) – nutzt das Design-System aus nav-hero.css
    ========================================================= */
 
-.gal-x{--gal-pad:1.5rem;position:relative;z-index:1;padding:6rem 0 5rem;background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-ui);border-top:1px solid var(--border-hairline)}
+.gal-x{--gal-pad:1.5rem;position:relative;z-index:1;padding:6rem 0 5rem;background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font-ui);border-top:1px solid var(--border-hairline)}
 
 /* Kopf: Überschrift links, Steuerung rechts */
 .gal-x__head,.gal-x__foot{max-width:1400px;margin:0 auto;padding:0 1.5rem}

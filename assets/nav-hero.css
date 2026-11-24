@@ -12,11 +12,13 @@
 @font-face{font-family:"Inter";src:url(../fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 
 :root{
-  --bg-primary:#F4F1EA;        /* Warmes Papier-Beige */
+  --bg-primary:#EFE5D7;        /* Studio-Beige: warmes Creme der Wände bei Mel */
+  --bg-secondary:#E7DBCA;      /* Sand: etwas tiefere Fläche für Wechsel zwischen Sektionen */
+  --bg-paper:#F7F1E8;          /* Hellstes Beige: Chat-Blasen, Eingabefelder */
   --text-primary:#142620;      /* Tiefes Tannengrün */
-  --border-hairline:#D8D2C5;   /* 1px Linien */
+  --border-hairline:#D3C6B3;   /* 1px Linien */
   --accent-gold:#B89758;       /* Mattes Messing (Linien, Deko) */
-  --accent-gold-text:#85693A;  /* Messing für kleine Schrift: 4,6:1 auf --bg-primary */
+  --accent-gold-text:#755C30;  /* Messing für kleine Schrift: 5,1:1 auf Beige, 4,6:1 auf Sand */
   --font-display:"Cormorant Garamond",Georgia,serif;
   --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --nav-h:76px;
