@@ -50,6 +50,8 @@ tailwind.config = {
 <link rel="stylesheet" href="assets/upgrade.css">
 <link rel="stylesheet" href="assets/nav-hero.css">
 <link rel="stylesheet" href="assets/signature.css">
+<link rel="stylesheet" href="assets/menu.css">
+<link rel="stylesheet" href="assets/philosophie.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -231,18 +233,18 @@ tailwind.config = {
 </section>
 
 <!-- ============ BEHANDLUNGS-MENÜ ============ -->
-<section id="behandlungen" class="scroll-mt-24 py-24 md:py-32 lg:py-40" data-blob="0.54 0.42 0.22">
-  <div class="mx-auto max-w-[1440px] px-5 md:px-10">
-    <div class="grid gap-8 lg:grid-cols-12">
-      <p class="eyebrow rv lg:col-span-3">Behandlungs-Menü</p>
-      <div class="lg:col-span-9">
-        <h2 class="split font-serif text-[2.5rem] leading-[1.08] text-ink md:text-[3.8rem]">Behandlungen &amp; Preise, <em>klar</em> auf einen Blick.</h2>
-        <p class="rv mt-6 max-w-[34rem] text-stone">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
+<section id="behandlungen" class="menu-x" aria-labelledby="menu-title" data-blob="0.54 0.42 0.22">
+  <div class="menu-x__wrap">
+    <header class="menu-x__head">
+      <p class="menu-x__eyebrow">Behandlungs-Menü</p>
+      <div class="menu-x__headtext">
+        <h2 id="menu-title" class="menu-x__h2">Behandlungen &amp; Preise, <em>klar</em> auf einen Blick.</h2>
+        <p class="menu-x__lead">Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen im Preis enthalten. Wähle aus, was dich interessiert, und frag direkt an.</p>
       </div>
-    </div>
+    </header>
 
     <!-- Filter-Tabs -->
-    <div class="rv mt-16 border-b border-ink/10">
+    <div class="menu-x__tabbar">
       <div class="tabs no-scrollbar" role="tablist" aria-label="Behandlungskategorien">
         <button role="tab" aria-selected="true" aria-controls="p-brows" id="t-brows" data-tab="brows">Permanent Make-up</button>
         <button role="tab" aria-selected="false" aria-controls="p-skin" id="t-skin" data-tab="skin" tabindex="-1">Gesicht &amp; Haut</button>
@@ -253,10 +255,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <div class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
+    <div class="menu-x__grid">
       <!-- Wechselndes Bild zur Kategorie -->
-      <div class="lg:col-span-4">
-        <div class="menu-visual grade lg:sticky lg:top-28">
+      <div class="menu-x__media">
+        <div class="menu-visual grade">
           <figure class="menu-img is-on" data-for="brows"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption>PhiBrows Microblading, Härchentechnik</figcaption></figure>
           <figure class="menu-img" data-for="removal"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
           <figure class="menu-img" data-for="skin"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"><figcaption>DS V-Line Kollagenfäden, vorher / nachher</figcaption></figure>
@@ -265,7 +267,7 @@ tailwind.config = {
         </div>
       </div>
 
-      <div class="lg:col-span-8">
+      <div class="menu-x__panels">
         <!-- Permanent Make-up -->
         <div class="panel" role="tabpanel" id="p-brows" aria-labelledby="t-brows">
           <ul class="menu-list">
@@ -275,16 +277,16 @@ tailwind.config = {
             <li class="mrow" data-preview="images/brauen-natuerlich.jpg"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
             <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Haarsimulation für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel. Bei längerem Haar wirkt es voller, bei Glatze oder sehr kurzem Haar wie nachwachsende Stoppeln.</p><span class="meta">Sofort sichtbar · nicht-operativ · mehrjährig</span></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
           </ul>
-          <div class="pigment-note mt-10">
-            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone">Phi-Pigmente</p>
+          <div class="pigment-note">
+            <p class="menu-x__label">Phi-Pigmente</p>
             <p>Frei von Schwermetallen, Weichmachern und allergieauslösenden Konservierungsstoffen, vegan und tierversuchsfrei. Die Farben werden mit der Zeit gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu kippen. Bezug ausschließlich über das offizielle Phi-System.</p>
           </div>
-          <div class="mt-10 grid gap-x-10 gap-y-2 border-t border-ink/10 pt-6 text-[.86rem] text-stone sm:grid-cols-2">
-            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone sm:col-span-2">Auffrischung nach 12 Monaten</p>
-            <p class="flex justify-between gap-4"><span>PhiBrows</span><span class="text-ink">225 €</span></p>
-            <p class="flex justify-between gap-4"><span>Brows &amp; Lippen</span><span class="text-ink">190 €</span></p>
-            <p class="flex justify-between gap-4"><span>Eyeliner, Babyliner, Dipliner</span><span class="text-ink">150 €</span></p>
-            <p class="flex justify-between gap-4"><span>Ab 18 Monaten oder Fremdarbeit</span><span class="text-ink">Neupreis</span></p>
+          <div class="menu-x__refresh">
+            <p class="menu-x__label">Auffrischung nach 12 Monaten</p>
+            <p class="menu-x__rp"><span>PhiBrows</span><span class="menu-x__rpv">225 €</span></p>
+            <p class="menu-x__rp"><span>Brows &amp; Lippen</span><span class="menu-x__rpv">190 €</span></p>
+            <p class="menu-x__rp"><span>Eyeliner, Babyliner, Dipliner</span><span class="menu-x__rpv">150 €</span></p>
+            <p class="menu-x__rp"><span>Ab 18 Monaten oder Fremdarbeit</span><span class="menu-x__rpv">Neupreis</span></p>
           </div>
         </div>
 
@@ -329,34 +331,32 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ============ PHILOSOPHIE ============ -->
-<section id="philosophie" class="section-pine scroll-mt-24 pb-24 pt-24 md:pb-32 lg:pb-40 lg:pt-28" data-blob="0.42 -0.42 0.2">
-  <div class="mx-auto max-w-[1440px] px-5 md:px-10">
-    <div class="grid gap-14 lg:grid-cols-12">
-      <div class="lg:col-span-5 lg:order-2">
-        <figure class="bridge-img grade relative aspect-[4/5] w-full overflow-hidden" data-speed="1.12">
-          <img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Augenbrauen im Detail" class="h-full w-full object-cover" loading="lazy" data-zoom>
-        </figure>
+<!-- ============ PHILOSOPHIE (dunkelgrüne Fläche, Porträt von Meltem) ============ -->
+<section id="philosophie" class="philo-x" aria-labelledby="philo-title" data-blob="0.42 -0.42 0.2">
+  <div class="philo-x__wrap">
+    <div class="philo-x__grid">
+      <div class="philo-x__media">
+        <figure class="philo-x__main grade"><img src="images/mel-portrait.jpg" width="1254" height="1254" alt="Meltem Demirci im Mel Beauty Studio" loading="lazy"></figure>
+        <figure class="philo-x__detail grade"><img src="images/studio-behandlungsraum.jpg" width="1600" height="1200" alt="Behandlungsraum im Mel Beauty Studio" loading="lazy"></figure>
       </div>
-      <div class="lg:col-span-6 lg:order-1 lg:pr-10">
-        <p class="eyebrow rv">Philosophie</p>
-        <blockquote class="mt-8">
-          <p class="split font-serif text-[2.2rem] leading-[1.12] text-ink md:text-[3.3rem]">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
-          <footer class="rv mt-6 text-[.8rem] uppercase tracking-label text-stone">Meltem Demirci</footer>
+      <div class="philo-x__text">
+        <p class="philo-x__eyebrow">Philosophie</p>
+        <blockquote class="philo-x__quote">
+          <p id="philo-title">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
+          <footer>Meltem Demirci</footer>
         </blockquote>
-
-        <ul class="principles mt-16">
-          <li class="rv"><span class="n">01</span><div><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line und Algae Peeling. Nur Originalprodukte: Phi-Pigmente direkt über das offizielle Phi-System, DS V-Line nur nach Academy-Schulung erhältlich.</p></div></li>
-          <li class="rv"><span class="n">02</span><div><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></div></li>
-          <li class="rv"><span class="n">03</span><div><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></div></li>
-          <li class="rv"><span class="n">04</span><div><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></div></li>
+        <ul class="philo-x__list">
+          <li class="philo-x__item"><span class="philo-x__n">01</span><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line und Algae Peeling. Nur Originalprodukte: Phi-Pigmente direkt über das offizielle Phi-System, DS V-Line nur nach Academy-Schulung erhältlich.</p></li>
+          <li class="philo-x__item"><span class="philo-x__n">02</span><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></li>
+          <li class="philo-x__item"><span class="philo-x__n">03</span><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></li>
+          <li class="philo-x__item"><span class="philo-x__n">04</span><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></li>
         </ul>
-
-        <div class="rv mt-14 flex flex-wrap items-center gap-4">
-          <img src="images/zert-phibrows-artist.jpg" width="400" height="400" alt="Zertifikat PhiBrows Artist Meltem Demirci" class="cert" loading="lazy">
-          <img src="images/zert-ds-v-line.jpg" width="400" height="400" alt="Zertifikat DS V-Line Meltem Demirci" class="cert" loading="lazy">
-          <img src="images/zert-allgae.jpg" width="400" height="400" alt="Zertifikat Algae Peeling Meltem Demirci" class="cert" loading="lazy">
-        </div>
+        <p class="philo-x__label">Zertifizierungen</p>
+        <ul class="philo-x__certs">
+          <li><img src="images/zert-phibrows-artist.jpg" width="600" height="600" alt="Zertifikat PhiBrows Artist Meltem Demirci" loading="lazy"><span>PhiBrows Artist</span></li>
+          <li><img src="images/zert-ds-v-line.jpg" width="600" height="600" alt="Zertifikat DS V-Line Meltem Demirci" loading="lazy"><span>DS V-Line</span></li>
+          <li><img src="images/zert-allgae.jpg" width="600" height="600" alt="Zertifikat Algae Peeling Meltem Demirci" loading="lazy"><span>Algae Peeling</span></li>
+        </ul>
       </div>
     </div>
   </div>

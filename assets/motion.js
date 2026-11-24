@@ -92,7 +92,7 @@
     });
 
     /* Galerie-Bilder: leichte Parallaxe innerhalb der Rahmen */
-    $$('.g-item img, .menu-img img').forEach(img => {
+    $$('.g-item img').forEach(img => {
       gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: img.closest('figure'), start: 'top bottom', end: 'bottom top', scrub: true } });
     });
 

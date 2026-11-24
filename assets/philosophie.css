@@ -1,0 +1,54 @@
+/* =========================================================
+   Mel Beauty Studio · Philosophie
+   (Section-Rebuild, Schritt 4) – dunkelgrüne Fläche im Design-System aus nav-hero.css
+   ========================================================= */
+
+.philo-x{--on-dark:#F4F1EA;--on-dark-muted:rgba(244,241,234,.74);--hair-dark:rgba(244,241,234,.16);
+  position:relative;z-index:1;scroll-margin-top:var(--nav-h);background:var(--text-primary);color:var(--on-dark);font-family:var(--font-ui)}
+.philo-x ::selection{background:var(--accent-gold);color:var(--text-primary)}
+.philo-x__wrap{max-width:1400px;margin:0 auto;padding:6rem 1.5rem 5rem}
+
+/* Bilder: Porträt groß, Behandlungsraum klein versetzt (wie im Hero) */
+.philo-x__media{position:relative;margin:0 0 4.5rem;padding-bottom:3rem}
+.philo-x__main{margin:0;width:82%;aspect-ratio:4/5;overflow:hidden;background:rgba(244,241,234,.08)}
+.philo-x__detail{position:absolute;right:0;bottom:0;margin:0;width:44%;aspect-ratio:1;overflow:hidden;background:rgba(244,241,234,.08);outline:8px solid var(--text-primary)}
+.philo-x__main img,.philo-x__detail img{display:block;width:100%;height:100%;object-fit:cover}
+.philo-x__main img{object-position:50% 38%}
+.philo-x__detail img{object-position:38% 50%}
+
+/* Text */
+.philo-x__eyebrow,.philo-x__label{margin:0 0 1.25rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold)}
+.philo-x__quote{margin:0}
+.philo-x__quote p{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(2.1rem,3.6vw,3.4rem);line-height:1.08;letter-spacing:-.02em;color:var(--on-dark)}
+.philo-x__quote em{font-style:italic;font-weight:300;color:var(--accent-gold)}
+.philo-x__quote footer{margin-top:1.5rem;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-muted)}
+
+/* Grundsätze: 2 × 2, durch Haarlinien getrennt */
+.philo-x__list{display:grid;margin:3.5rem 0 0;padding:0;list-style:none;border-top:1px solid var(--hair-dark)}
+.philo-x__item{padding:1.75rem 0;border-bottom:1px solid var(--hair-dark)}
+.philo-x__n{display:block;font-family:var(--font-display);font-style:italic;font-weight:300;font-size:1.5rem;line-height:1;color:var(--accent-gold)}
+.philo-x__item h3{margin:.7rem 0 0;font-family:var(--font-display);font-weight:300;font-size:1.75rem;line-height:1.1;color:var(--on-dark)}
+.philo-x__item p{margin:.6rem 0 0;max-width:30rem;font-size:14px;line-height:1.75;color:var(--on-dark-muted)}
+
+/* Zertifikate: kleine weiße Kacheln mit Bezeichnung */
+.philo-x__label{margin-top:3rem}
+.philo-x__certs{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;margin:0;padding:0;list-style:none}
+.philo-x__certs li{display:flex;align-items:center;gap:.85rem}
+.philo-x__certs img{width:64px;height:64px;object-fit:contain;background:#fff;padding:4px}
+.philo-x__certs span{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark)}
+
+@media (min-width:640px){
+  .philo-x__list{grid-template-columns:1fr 1fr;column-gap:2.5rem}
+}
+@media (min-width:768px){
+  .philo-x__wrap{padding:8rem 3rem 7rem}
+  .philo-x__media{max-width:34rem}
+}
+/* Desktop: Text links, Bilder rechts */
+@media (min-width:1024px){
+  .philo-x__wrap{padding:10rem 3rem 9rem}
+  .philo-x__grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;align-items:start}
+  .philo-x__text{grid-column:1 / span 6;grid-row:1}
+  .philo-x__media{grid-column:8 / span 5;grid-row:1;max-width:none;margin:0;position:sticky;top:calc(var(--nav-h) + 3rem)}
+  .philo-x__list{margin-top:4.5rem}
+}
