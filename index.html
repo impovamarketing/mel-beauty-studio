@@ -3,16 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mel Beauty Studio Landshut | PhiBrows, Permanent Make-up &amp; Hautbehandlungen</title>
-<meta name="description" content="Mel Beauty Studio in der Landshuter Neustadt: PhiBrows Microblading, Permanent Make-up, PhiRemoval, DS V-Line Kollagen, Microneedling und Skin Care. Persönlich von Meltem Demirci.">
+<title>Mel Beauty Studio Landshut | Microblading &amp; PMU</title>
+<meta name="description" content="PhiBrows Microblading, Permanent Make-up, PhiRemoval &amp; Hautbehandlungen in der Landshuter Neustadt. Für Landshut, Ergolding, Essenbach &amp; Altdorf.">
 <script>document.documentElement.classList.add('js');
 /* Sicherung: Falls Skripte nicht laden, Inhalte nach 6 s trotzdem zeigen */
 setTimeout(function(){document.documentElement.classList.add('rv-safe')},6000);</script>
-<meta property="og:title" content="Mel Beauty Studio · Landshut">
-<meta property="og:description" content="PhiBrows, Permanent Make-up, PhiRemoval und ästhetische Hautbehandlungen in der Landshuter Neustadt.">
+<!-- TODO Domain: Sobald die finale Domain verbunden ist, https://mel-beauty-studio.vercel.app hier, in den
+     strukturierten Daten, in robots.txt, sitemap.xml und llms.txt ersetzen. -->
+<link rel="canonical" href="https://mel-beauty-studio.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Mel Beauty Studio">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg">
+<meta property="og:url" content="https://mel-beauty-studio.vercel.app/">
+<meta property="og:title" content="Mel Beauty Studio Landshut | Microblading &amp; PMU">
+<meta property="og:description" content="PhiBrows Microblading, Permanent Make-up, PhiRemoval &amp; Hautbehandlungen in der Landshuter Neustadt. Für Landshut, Ergolding, Essenbach &amp; Altdorf.">
+<meta property="og:image" content="https://mel-beauty-studio.vercel.app/images/studio-empfang.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1600">
+<meta property="og:image:alt" content="Empfang im Mel Beauty Studio in der Landshuter Neustadt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="DE-BY">
+<meta name="geo.placename" content="Landshut">
+<meta name="geo.position" content="48.53793;12.15409">
+<meta name="ICBM" content="48.53793, 12.15409">
 <meta name="theme-color" content="#EFE5D7">
 <link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -64,42 +78,528 @@ tailwind.config = {
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 
+<!-- Strukturierte Daten: automatisch aus Menü, Preisen und FAQ der Seite erzeugt -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BeautySalon",
-      "@id": "https://mel-beauty-studio.vercel.app/#studio",
-      "name": "Mel Beauty Studio",
+      "@type": "WebSite",
+      "@id": "https://mel-beauty-studio.vercel.app/#website",
       "url": "https://mel-beauty-studio.vercel.app/",
-      "telephone": "+49-163-6839277",
-      "email": "mel.studio439@gmail.com",
-      "image": "https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg",
-      "founder": {"@type": "Person", "name": "Meltem Demirci"},
-      "sameAs": ["https://www.instagram.com/melbeautystudio.landshut/", "https://www.facebook.com/melbeautystudio.landshut"],
-      "priceRange": "€€",
-      "address": {"@type": "PostalAddress", "streetAddress": "Neustadt 439", "postalCode": "84028", "addressLocality": "Landshut", "addressRegion": "Bayern", "addressCountry": "DE"},
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Behandlungen",
-        "itemListElement": [
-          {"@type": "Offer", "price": "490", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiBrows Microblading inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "390", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Powder Brows inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "450", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Lippenschattierung inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "149", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiRemoval Gesicht"}},
-          {"@type": "Offer", "price": "245", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "DS V-Line Kollagenfadenlifting"}},
-          {"@type": "Offer", "price": "119", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Microneedling Gesicht"}},
-          {"@type": "Offer", "price": "90", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Wimpernlifting inkl. Färben"}}
-        ]
+      "name": "Mel Beauty Studio",
+      "inLanguage": "de-DE",
+      "publisher": {
+        "@id": "https://mel-beauty-studio.vercel.app/#salon"
       }
     },
     {
+      "@type": "BeautySalon",
+      "@id": "https://mel-beauty-studio.vercel.app/#salon",
+      "name": "Mel Beauty Studio",
+      "url": "https://mel-beauty-studio.vercel.app/",
+      "description": "Boutique-Kosmetikstudio in der Landshuter Neustadt für PhiBrows Microblading, Permanent Make-up, PhiRemoval ohne Laser, DS V-Line Kollagenfäden, Microneedling, Skin Care, Wimpern- und Brauenbehandlungen sowie Vitaminbehandlungen für Kopfhaut und Bart.",
+      "image": [
+        "https://mel-beauty-studio.vercel.app/images/studio-empfang.jpg",
+        "https://mel-beauty-studio.vercel.app/images/studio-interior-1.jpg",
+        "https://mel-beauty-studio.vercel.app/images/studio-aussen.jpg",
+        "https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg"
+      ],
+      "logo": "https://mel-beauty-studio.vercel.app/images/logo-mel.jpg",
+      "telephone": "+49 163 6839277",
+      "email": "mel.studio439@gmail.com",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "founder": {
+        "@type": "Person",
+        "name": "Meltem Demirci",
+        "jobTitle": "Kosmetikerin"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Neustadt 439",
+        "postalCode": "84028",
+        "addressLocality": "Landshut",
+        "addressRegion": "Bayern",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.53793,
+        "longitude": 12.15409
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Landshut",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.5442,
+            "longitude": 12.1469
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Landshut Neustadt",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.5364,
+            "longitude": 12.1508
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Landshut Altstadt / Innenstadt"
+        },
+        {
+          "@type": "City",
+          "name": "Ergolding"
+        },
+        {
+          "@type": "City",
+          "name": "Altdorf"
+        },
+        {
+          "@type": "City",
+          "name": "Essenbach"
+        },
+        {
+          "@type": "City",
+          "name": "Kumhausen"
+        },
+        {
+          "@type": "City",
+          "name": "Tiefenbach"
+        },
+        {
+          "@type": "City",
+          "name": "Vilsbiburg"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Landkreis Landshut"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Niederbayern"
+        }
+      ],
+      "knowsAbout": [
+        "PhiBrows Microblading",
+        "Powder Brows",
+        "Permanent Make-up",
+        "Lippenpigmentierung",
+        "PhiRemoval",
+        "DS V-Line Kollagenfäden",
+        "Algenpeeling",
+        "Microneedling",
+        "Wimpernlifting",
+        "Kopfhautpigmentierung"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "PhiBrows Artist"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "DS V-Line"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Algae Peeling"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/melbeautystudio.landshut/",
+        "https://www.facebook.com/melbeautystudio.landshut"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Behandlungen & Preise",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Permanent Make-up",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PhiBrows Microblading",
+                  "description": "Feine, haarförmige Striche werden in Wuchsrichtung in die oberste Hautschicht gezeichnet. Fehlende Härchen werden ergänzt, die Brauen optisch verdichtet, kaum von echten zu unterscheiden. (Natürlicher Härchen-Effekt · inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "490"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Powder Brows",
+                  "description": "Microshading: Statt Härchen setzt eine feine Pigmentier-Nadel winzige, punktuelle Schattierungen. Für alle Hauttypen, ideal bei fettiger Haut oder Mischhaut. (Puder-Effekt mit Ombré-Verlauf · inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "390"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Lippenschattierung",
+                  "description": "Vorzeichnen, Schattieren mit feinsten Nadelstichen, Abschlusspflege. Zwei Techniken: sanfte Schattierung (Gloss-Effekt, einfach frischer) oder Vollschattierung (Lipstick-Effekt). (Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "450"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Eyeliner (Permanent Make-up)",
+                  "description": "Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €. (inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "350"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Babyliner (Permanent Make-up)",
+                  "description": "Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €. (inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "300"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dipliner (Permanent Make-up)",
+                  "description": "Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €. (inkl. Nachbehandlung nach 21 Tagen)"
+                },
+                "priceCurrency": "EUR",
+                "price": "250"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Kopfhautpigmentierung",
+                  "description": "Haarsimulation für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel. Bei längerem Haar wirkt es voller, bei Glatze oder sehr kurzem Haar wie nachwachsende Stoppeln. (Sofort sichtbar · nicht-operativ · mehrjährig)"
+                },
+                "priceCurrency": "EUR",
+                "price": "350"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Gesicht & Haut",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "DS V-Line Kollagenfadenlifting",
+                  "description": "Feinste Kollagenfäden werden eingearbeitet, kombiniert mit Microneedling für mehr Wirkstoffaufnahme und Straffung. Feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, keine Ausfallzeit. (Alle Hauttypen · wirkt ca. 12 Monate)"
+                },
+                "priceCurrency": "EUR",
+                "price": "245"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Algenpeeling",
+                  "description": "100 % biologische Schälkur aus Mikroalgen, Kräutern, Vitaminen und Mineralstoffen. Gezielt gegen Akne, verstopfte Poren, Aknenarben und Pigmentflecken. Die Haut schält sich nach 3–7 Tagen. (Danach SPF 50 Pflicht · nicht bei Rosacea, Couperose oder offenen Wunden)"
+                },
+                "priceCurrency": "EUR",
+                "price": "99"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Microneedling Gesicht",
+                  "description": "Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren. (Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell)"
+                },
+                "priceCurrency": "EUR",
+                "price": "119"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Microneedling Gesicht + Hals",
+                  "description": "Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren. (Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell)"
+                },
+                "priceCurrency": "EUR",
+                "price": "139"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Microneedling Körper",
+                  "description": "Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren. (Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell)"
+                },
+                "description": "Preis individuell"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Skin Care Classic",
+                  "description": "Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut. (Classic 99 € · Professional 129 € · Akne 139 €)"
+                },
+                "priceCurrency": "EUR",
+                "price": "99"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Skin Care Professional",
+                  "description": "Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut. (Classic 99 € · Professional 129 € · Akne 139 €)"
+                },
+                "priceCurrency": "EUR",
+                "price": "129"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Skin Care Akne",
+                  "description": "Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut. (Classic 99 € · Professional 129 € · Akne 139 €)"
+                },
+                "priceCurrency": "EUR",
+                "price": "139"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Brauen & Wimpern",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Augenbrauenkorrektur mit Fadentechnik",
+                  "description": "Vermessung mit dem Goldenen-Schnitt-Messgerät, Formung mit Fadentechnik passend zu deinen Gesichtszügen."
+                },
+                "description": "Preis auf Anfrage"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Augenbrauenlifting inkl. Färben",
+                  "description": "Die Härchen werden verstärkt und formbar gemacht, die Form hält mehrere Wochen und lässt sich leicht stylen."
+                },
+                "description": "Preis auf Anfrage"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Wimpernlifting inkl. Färben",
+                  "description": "Die eigenen Wimpern werden mit Silikonpads und Ellebana-Lotionen am Ansatz angehoben und dunkelbraun oder schwarz gefärbt. Schwung, Länge und Farbe ohne Mascara. (Hält 4–6 Wochen · 24 h danach kein Wasser, Dampf oder Öl)"
+                },
+                "priceCurrency": "EUR",
+                "price": "90"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Haar & Vitamin",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Vitaminbehandlung Kopfhaut",
+                  "description": "PhiHair-Serum mit Microneedling aktiviert die Haarfollikel, fördert das Haarwachstum und stärkt geschwächte Bereiche."
+                },
+                "priceCurrency": "EUR",
+                "price": "199"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Vitaminbehandlung Bart",
+                  "description": "Stärkt und revitalisiert lichte oder ausgefallene Stellen im Bart."
+                },
+                "priceCurrency": "EUR",
+                "price": "139"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Vitaminbehandlung Augenbrauen",
+                  "description": "Für geschwächte Brauen, die wieder kräftiger werden sollen."
+                },
+                "priceCurrency": "EUR",
+                "price": "99"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Vitaminbehandlung einzelne Stellen",
+                  "description": "Zum Beispiel Bart, Geheimratsecken oder Scheitel."
+                },
+                "priceCurrency": "EUR",
+                "price": "99"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "PhiRemoval",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PhiRemoval Gesicht",
+                  "description": "Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung. (ohne Laser)"
+                },
+                "priceCurrency": "EUR",
+                "price": "149"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PhiRemoval Körper",
+                  "description": "Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden. (ohne Laser)"
+                },
+                "description": "individuell"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Auffrischung nach 12 Monaten",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Auffrischung PhiBrows",
+                  "description": "Auffrischung von Permanent Make-up nach 12 Monaten"
+                },
+                "priceCurrency": "EUR",
+                "price": "225"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Auffrischung Brows & Lippen",
+                  "description": "Auffrischung von Permanent Make-up nach 12 Monaten"
+                },
+                "priceCurrency": "EUR",
+                "price": "190"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Auffrischung Eyeliner, Babyliner, Dipliner",
+                  "description": "Auffrischung von Permanent Make-up nach 12 Monaten"
+                },
+                "priceCurrency": "EUR",
+                "price": "150"
+              }
+            ]
+          }
+        ]
+      },
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Neustadt, Landshut Innenstadt",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.5364,
+          "longitude": 12.1508
+        }
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Parken in der Nähe: Tiefgarage Zentrum (Badstraße), Parkhaus Wittstraße, Parkplatz Grieserwiese",
+          "value": true
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://mel-beauty-studio.vercel.app/#faq",
       "mainEntity": [
-        {"@type": "Question", "name": "Ist die Nachbehandlung im Preis enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits im Preis enthalten."}},
-        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen."}},
-        {"@type": "Question", "name": "Kann altes Permanent Make-up entfernt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Mit PhiRemoval lassen sich Permanent Make-up, Microblading oder kleine Tattoos sanft und ohne Laser entfernen."}}
+        {
+          "@type": "Question",
+          "name": "Ist die Nachbehandlung im Preis enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange hält das Ergebnis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PhiBrows oder Powder Brows, was passt zu mir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PhiBrows zeichnet einzelne Härchen für einen natürlichen Härchen-Effekt. Powder Brows setzen feine Schattierungen für einen Puder-Effekt mit Ombré-Verlauf und eignen sich besonders bei fettiger Haut oder Mischhaut. Was zu dir passt, klärt Meltem in der Beratung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann altes Permanent Make-up entfernt werden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Mit PhiRemoval werden fehlerhafte Permanent Make-ups, Microblading oder Tattoos ohne Laser entfernt oder korrigiert. Für das Nacharbeiten von Fremdarbeiten gilt der Neupreis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Verändert sich die Farbe der Brauen mit der Zeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Phi-Pigmente kombinieren organische und synthetische Komponenten: Die Farben werden gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu verblassen. Vegan und tierversuchsfrei."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was muss ich nach dem Algenpeeling beachten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Direkt danach fühlt sich die Haut wie nach einem Sonnenbrand an, nach 3 bis 7 Tagen schält sie sich. In den Wochen danach ist SPF 50 Pflicht. Nicht geeignet bei akuter Rosacea, offenen Wunden oder Couperose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt nach dem Wimpernlifting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "24 Stunden kein Wasserkontakt, keine Dampfbäder und keine ölhaltigen Produkte im Augenbereich. Der Effekt hält 4 bis 6 Wochen."
+          }
+        }
       ]
     }
   ]
@@ -191,17 +691,17 @@ tailwind.config = {
       <div class="sig-x__media" aria-hidden="true">
         <div class="sig-x__sticky">
           <div class="sig-x__frames">
-        <figure class="sig-x__frame grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"></figure>
-        <figure class="sig-x__frame grade" data-i="1"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Permanent Make-up Lippen, Ergebnis" loading="lazy"></figure>
-        <figure class="sig-x__frame grade" data-i="2"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"></figure>
-        <figure class="sig-x__frame grade" data-i="3"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"></figure>
+        <figure class="sig-x__frame grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="1"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippenschattierung (Permanent Make-up) von Mel Beauty Studio, Ergebnis" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="2"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval ohne Laser: Entfernung von Permanent Make-up vor und nach der ersten Behandlung" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="3"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfadenlifting im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
           </div>
           <p class="sig-x__caption"><span class="sig-x__count">01</span> / 04 · <span class="sig-x__name">PhiBrows Microblading</span></p>
         </div>
       </div>
       <div class="sig-x__list">
       <article class="sig-x__item is-active" data-i="0">
-        <figure class="sig-x__mobile grade"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <figure class="sig-x__mobile grade"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
         <span class="sig-x__num">01</span>
         <h3 class="sig-x__title">PhiBrows Microblading</h3>
         <p class="sig-x__text">Feine, haarförmige Striche in Wuchsrichtung ergänzen fehlende Härchen und verdichten die Brauen optisch, kaum von echten zu unterscheiden.</p>
@@ -209,7 +709,7 @@ tailwind.config = {
         <a href="#behandlungen" class="sig-x__link" data-open-tab="brows">Im Menü ansehen</a>
       </article>
       <article class="sig-x__item" data-i="1">
-        <figure class="sig-x__mobile grade"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <figure class="sig-x__mobile grade"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippenschattierung (Permanent Make-up) von Mel Beauty Studio, Ergebnis" loading="lazy"></figure>
         <span class="sig-x__num">02</span>
         <h3 class="sig-x__title">Lippenschattierung</h3>
         <p class="sig-x__text">Sanfte Schattierung mit Gloss-Effekt oder Vollschattierung mit Lipstick-Effekt: vorgezeichnet, mit feinsten Nadelstichen schattiert und abschließend gepflegt.</p>
@@ -217,7 +717,7 @@ tailwind.config = {
         <a href="#behandlungen" class="sig-x__link" data-open-tab="brows">Im Menü ansehen</a>
       </article>
       <article class="sig-x__item" data-i="2">
-        <figure class="sig-x__mobile grade"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <figure class="sig-x__mobile grade"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval ohne Laser: Entfernung von Permanent Make-up vor und nach der ersten Behandlung" loading="lazy"></figure>
         <span class="sig-x__num">03</span>
         <h3 class="sig-x__title">PhiRemoval</h3>
         <p class="sig-x__text">Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert.</p>
@@ -225,7 +725,7 @@ tailwind.config = {
         <a href="#behandlungen" class="sig-x__link" data-open-tab="removal">Im Menü ansehen</a>
       </article>
       <article class="sig-x__item" data-i="3">
-        <figure class="sig-x__mobile grade"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <figure class="sig-x__mobile grade"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfadenlifting im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"></figure>
         <span class="sig-x__num">04</span>
         <h3 class="sig-x__title">DS V-Line Kollagenfadenlifting</h3>
         <p class="sig-x__text">Feinste Kollagenfäden, kombiniert mit Microneedling: feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, ohne Ausfallzeit.</p>
@@ -264,11 +764,11 @@ tailwind.config = {
       <!-- Wechselndes Bild zur Kategorie -->
       <div class="menu-x__media">
         <div class="menu-visual grade">
-          <figure class="menu-img is-on" data-for="brows"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"><figcaption>PhiBrows Microblading, Härchentechnik</figcaption></figure>
-          <figure class="menu-img" data-for="removal"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
-          <figure class="menu-img" data-for="skin"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"><figcaption>DS V-Line Kollagenfäden, vorher / nachher</figcaption></figure>
-          <figure class="menu-img" data-for="hair"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Augenbrauen in feiner Härchenzeichnung" loading="lazy"><figcaption>Haar, Bart &amp; Brauen</figcaption></figure>
-          <figure class="menu-img" data-for="lashes"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Brauen und Wimpern" loading="lazy"><figcaption>Brauen &amp; Wimpern</figcaption></figure>
+          <figure class="menu-img is-on" data-for="brows"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"><figcaption>PhiBrows Microblading, Härchentechnik</figcaption></figure>
+          <figure class="menu-img" data-for="removal"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval ohne Laser: Entfernung von Permanent Make-up vor und nach der ersten Behandlung" loading="lazy"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
+          <figure class="menu-img" data-for="skin"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfadenlifting im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy"><figcaption>DS V-Line Kollagenfäden, vorher / nachher</figcaption></figure>
+          <figure class="menu-img" data-for="hair"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Augenbrauen in feiner Härchenzeichnung nach Vitaminbehandlung und PhiBrows" loading="lazy"><figcaption>Haar, Bart &amp; Brauen</figcaption></figure>
+          <figure class="menu-img" data-for="lashes"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Brauen und geliftete Wimpern" loading="lazy"><figcaption>Brauen &amp; Wimpern</figcaption></figure>
         </div>
       </div>
 
@@ -345,7 +845,7 @@ tailwind.config = {
         <figure class="philo-x__detail grade"><img src="images/studio-behandlungsraum.jpg" width="1600" height="1200" alt="Behandlungsraum im Mel Beauty Studio" loading="lazy"></figure>
       </div>
       <div class="philo-x__text">
-        <p class="philo-x__eyebrow">Philosophie</p>
+        <h2 class="philo-x__eyebrow">Philosophie</h2>
         <blockquote class="philo-x__quote">
           <p id="philo-title">„Meine Vision: die <em>natürliche</em> Schönheit unterstreichen und mehr Wohlbefinden schenken.“</p>
           <footer>Meltem Demirci</footer>
@@ -372,13 +872,13 @@ tailwind.config = {
   <div class="gal-x__wrap">
     <div class="gal-x__show">
       <div class="gal-x__stage" role="region" aria-roledescription="Slideshow" aria-label="Arbeiten von Mel">
-        <figure class="gal-x__slide grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" draggable="false"></figure>
-        <figure class="gal-x__slide grade" data-i="1" aria-hidden="true"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung" loading="lazy" draggable="false"></figure>
-        <figure class="gal-x__slide grade" data-i="2" aria-hidden="true"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading im Mel Beauty Studio Landshut, vorher und nachher" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="1" aria-hidden="true"><img src="images/lippen-pigmentierung.jpg" width="1000" height="1333" alt="Lippenpigmentierung mit Phi-Pigmenten im Mel Beauty Studio" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="2" aria-hidden="true"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Lippen nach der Pigmentierung, Ergebnis bei Mel Beauty Studio Landshut" loading="lazy" draggable="false"></figure>
         <figure class="gal-x__slide grade" data-i="3" aria-hidden="true"><img src="images/brauen-fadentechnik.jpg" width="1000" height="1000" alt="Augenbrauenkorrektur mit Fadentechnik" loading="lazy" draggable="false"></figure>
-        <figure class="gal-x__slide grade" data-i="4" aria-hidden="true"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vorher und nachher" loading="lazy" draggable="false"></figure>
-        <figure class="gal-x__slide grade" data-i="5" aria-hidden="true"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line vorher und nachher" loading="lazy" draggable="false"></figure>
-        <figure class="gal-x__slide grade" data-i="6" aria-hidden="true"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="4" aria-hidden="true"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vorher und nachher, Korrektur von Permanent Make-up ohne Laser" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="5" aria-hidden="true"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy" draggable="false"></figure>
+        <figure class="gal-x__slide grade" data-i="6" aria-hidden="true"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Brauen in Härchentechnik mit veganen PhiBrows-Pigmenten" loading="lazy" draggable="false"></figure>
         <figure class="gal-x__slide grade" data-i="7" aria-hidden="true"><img src="images/brauen-vermessung.jpg" width="1100" height="1100" alt="Brauen werden nach dem Goldenen Schnitt vermessen" loading="lazy" draggable="false"></figure>
       </div>
       <div class="gal-x__side">
@@ -418,6 +918,8 @@ tailwind.config = {
       <div class="studio-x__headtext">
         <h2 id="studio-title" class="studio-x__h2">Mitten in der <em>Neustadt.</em></h2>
         <p class="studio-x__lead">Hi, ich bin Meltem, Kosmetikerin seit 10 Jahren. Geboren in Altötting, aufgewachsen in Istanbul und mit meiner Berufserfahrung zurück in Landshut. Meine Mission: mit hochwertigen und individuellen Behandlungen auf deine Wünsche und Bedürfnisse eingehen.</p>
+        <p class="studio-x__lead">Das Studio liegt zentral in der Landshuter Neustadt, nur wenige Schritte von der Altstadt entfernt. Aus Ergolding, Altdorf, Essenbach, Kumhausen und dem gesamten Landkreis Landshut bist du schnell bei uns.</p>
+        <p class="studio-x__lead">Parken: Ganz in der Nähe liegen die Tiefgarage Zentrum (Badstraße), das Parkhaus an der Wittstraße und der große Parkplatz Grieserwiese an der Isar.</p>
         <a class="studio-x__link" href="https://www.google.com/maps/search/?api=1&amp;query=Mel+Beauty+Studio%2C+Neustadt+439%2C+84028+Landshut%2C+Deutschland" target="_blank" rel="noopener">Route in Google Maps öffnen <span aria-hidden="true">↗</span></a>
       </div>
     </header>

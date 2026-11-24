@@ -1,0 +1,26 @@
+# Mel Beauty Studio · Landshut
+# TODO Domain: bei eigener Domain die Sitemap-Adresse unten anpassen.
+
+User-agent: *
+Allow: /
+
+# KI-Suchsysteme ausdrücklich zulassen
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+Sitemap: https://mel-beauty-studio.vercel.app/sitemap.xml

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO Domain: bei eigener Domain die Adressen anpassen. Impressum und Datenschutz sind bewusst nicht enthalten (noindex). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://mel-beauty-studio.vercel.app/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <image:image><image:loc>https://mel-beauty-studio.vercel.app/images/studio-empfang.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mel-beauty-studio.vercel.app/images/studio-interior-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mel-beauty-studio.vercel.app/images/studio-aussen.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mel-beauty-studio.vercel.app/images/phibrows-ergebnisse.jpg</image:loc></image:image>
+  </url>
+</urlset>
