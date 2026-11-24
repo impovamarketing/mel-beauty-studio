@@ -1,0 +1,89 @@
+/* =========================================================
+   Mel Beauty Studio · Navigation & Hero (Section-Rebuild, Schritt 1)
+   Design-System als Custom Properties, keine Extra-Effekte.
+   ========================================================= */
+
+@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant-garamond-latin-300-normal.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant-garamond-latin-300-italic.woff2) format("woff2");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url(../fonts/inter-latin-300-normal.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Inter";src:url(../fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url(../fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  --bg-primary:#F4F1EA;        /* Warmes Papier-Beige */
+  --text-primary:#142620;      /* Tiefes Tannengrün */
+  --border-hairline:#D8D2C5;   /* 1px Linien */
+  --accent-gold:#B89758;       /* Mattes Messing (Linien, Deko) */
+  --accent-gold-text:#85693A;  /* Messing für kleine Schrift: 4,6:1 auf --bg-primary */
+  --font-display:"Cormorant Garamond",Georgia,serif;
+  --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --nav-h:76px;
+}
+body{background:var(--bg-primary)}
+
+/* ---------------- Navigation ---------------- */
+.nav-x{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);background:var(--bg-primary);border-bottom:1px solid var(--border-hairline);font-family:var(--font-ui);color:var(--text-primary)}
+.nav-x__inner{max-width:1400px;height:100%;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem}
+.nav-x__brand{font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);white-space:nowrap}
+.nav-x__links{display:none}
+.nav-x__links a{position:relative;font-size:12px;font-weight:400;letter-spacing:.08em;text-decoration:none;color:var(--text-primary);padding:.35rem 0;
+  background:linear-gradient(currentColor,currentColor) 100% 100%/0 1px no-repeat;transition:background-size .5s cubic-bezier(.22,1,.36,1)}
+.nav-x__links a:hover,.nav-x__links a.is-active{background-size:100% 1px;background-position:0 100%}
+.nav-x__right{display:flex;align-items:center;justify-content:flex-end;gap:.5rem}
+.nav-x__cta{border-radius:0;padding:10px 20px;background:var(--text-primary);color:var(--bg-primary);font-family:var(--font-ui);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1;white-space:nowrap;transition:background-color .3s}
+.nav-x__cta:hover{background:#1F3A31}
+.nav-x__cta:focus-visible,.nav-x__brand:focus-visible,.nav-x__links a:focus-visible,.hero-x__link:focus-visible{outline:1px solid var(--text-primary);outline-offset:4px}
+.nav-x__burger{position:relative;width:36px;height:36px;display:grid;place-items:center}
+.nav-x__burger span{position:absolute;left:9px;right:9px;height:1px;background:var(--text-primary);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.nav-x__burger span:first-child{transform:translateY(-3.5px)}
+.nav-x__burger span:last-child{transform:translateY(3.5px)}
+.nav-x__burger[aria-expanded="true"] span:first-child{transform:rotate(45deg)}
+.nav-x__burger[aria-expanded="true"] span:last-child{transform:rotate(-45deg)}
+.mnav{background:var(--bg-primary)}
+.mnav nav a{color:var(--text-primary)!important;font-family:var(--font-display)!important;font-weight:300!important;border-color:var(--border-hairline)!important}
+
+/* Schmale Handys: Brand und Button etwas kompakter, damit alles in eine Zeile passt */
+@media (max-width:639px){
+  .nav-x__brand{font-size:10px;letter-spacing:.18em}
+  .nav-x__cta{padding:10px 14px;font-size:10px;letter-spacing:.14em}
+}
+@media (min-width:768px){
+  .nav-x__inner{padding:0 3rem;grid-template-columns:1fr auto 1fr}
+  .nav-x__links{display:flex;gap:2.5rem;justify-content:center}
+  .nav-x__burger{display:none}
+}
+
+/* ---------------- Hero ---------------- */
+.hero-x{position:relative;background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-ui)}
+.hero-x__wrap{max-width:1400px;margin:0 auto;padding:7rem 1.5rem 5rem}
+.hero-x__eyebrow{margin:0 0 1.5rem;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-gold-text)}
+.hero-x__title{margin:0;font-family:var(--font-display);font-weight:300;font-size:clamp(3rem,5.5vw,5.4rem);line-height:.98;letter-spacing:-.02em;color:var(--text-primary);text-wrap:balance}
+.hero-x__title em{font-style:italic;font-weight:300;color:inherit}
+.hero-x__rule{display:block;width:4rem;height:1px;margin:2rem 0;background:var(--border-hairline)}
+.hero-x__sub{max-width:28rem;margin:0;font-size:15px;font-weight:400;line-height:1.75;color:rgba(20,38,32,.8)}
+.hero-x__link{display:inline-block;margin-top:2rem;padding-bottom:4px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);
+  background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .6s cubic-bezier(.22,1,.36,1)}
+.hero-x__link:hover{background-size:0 1px;background-position:100% 100%}
+
+.hero-x__media{position:relative;margin-top:3.5rem}
+.hero-x__main{position:relative;margin:0 0 0 auto;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:0;background:var(--border-hairline)}
+.hero-x__main img,.hero-x__detail img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-x__detail{position:relative;z-index:10;margin:-6rem 0 0;width:10rem;aspect-ratio:1;overflow:hidden;border-radius:0;border:8px solid var(--bg-primary);background:var(--border-hairline)}
+
+@media (min-width:768px){
+  .hero-x__wrap{padding:9rem 3rem 5rem}
+  .hero-x__main{width:85%}
+  .hero-x__detail{width:12rem}
+}
+@media (min-width:1024px){
+  .hero-x__wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;align-items:end}
+  .hero-x__text{grid-column:span 6 / span 6;padding-bottom:1rem}
+  .hero-x__media{grid-column:span 6 / span 6;margin-top:0}
+}
+/* Handy: Detailbild kleiner, Hauptbild nicht zu hoch */
+@media (max-width:767px){
+  .hero-x__main{width:88%}
+  .hero-x__detail{width:8.5rem;margin-top:-4.5rem;border-width:6px}
+}

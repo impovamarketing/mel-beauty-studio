@@ -13,9 +13,10 @@ setTimeout(function(){document.documentElement.classList.add('rv-safe')},6000);<
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://mel-beauty-studio.vercel.app/images/mel-portrait.jpg">
-<meta name="theme-color" content="#F6F3EE">
+<meta name="theme-color" content="#F4F1EA">
 <link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Tailwind CSS via CDN, mit eigener Studio-Palette -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -47,6 +48,8 @@ tailwind.config = {
 </script>
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/upgrade.css">
+<link rel="stylesheet" href="assets/nav-hero.css">
+<link rel="stylesheet" href="assets/signature.css">
 <!-- Eigene Logik zuerst, damit sie nicht auf externe Bibliotheken wartet -->
 <script src="assets/app.js" defer></script>
 <!-- Motion: GSAP + ScrollTrigger, Lenis Smooth-Scroll -->
@@ -76,11 +79,11 @@ tailwind.config = {
         "itemListElement": [
           {"@type": "Offer", "price": "490", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiBrows Microblading inkl. Nachbehandlung"}},
           {"@type": "Offer", "price": "390", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Powder Brows inkl. Nachbehandlung"}},
-          {"@type": "Offer", "price": "450", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Permanent Make-up Lippen inkl. Nachbehandlung"}},
+          {"@type": "Offer", "price": "450", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Lippenschattierung inkl. Nachbehandlung"}},
           {"@type": "Offer", "price": "149", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "PhiRemoval Gesicht"}},
-          {"@type": "Offer", "price": "245", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "DS V-Line Kollagen"}},
+          {"@type": "Offer", "price": "245", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "DS V-Line Kollagenfadenlifting"}},
           {"@type": "Offer", "price": "119", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Microneedling Gesicht"}},
-          {"@type": "Offer", "price": "90", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Wimpernlifting"}}
+          {"@type": "Offer", "price": "90", "priceCurrency": "EUR", "itemOffered": {"@type": "Service", "name": "Wimpernlifting inkl. Färben"}}
         ]
       }
     },
@@ -88,7 +91,7 @@ tailwind.config = {
       "@type": "FAQPage",
       "mainEntity": [
         {"@type": "Question", "name": "Ist die Nachbehandlung im Preis enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits im Preis enthalten."}},
-        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre."}},
+        {"@type": "Question", "name": "Wie lange hält das Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen."}},
         {"@type": "Question", "name": "Kann altes Permanent Make-up entfernt werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Mit PhiRemoval lassen sich Permanent Make-up, Microblading oder kleine Tattoos sanft und ohne Laser entfernen."}}
       ]
     }
@@ -97,55 +100,35 @@ tailwind.config = {
 </script>
 </head>
 
-<body class="bg-cream text-ink font-sans antialiased">
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="pl-inner"><span class="pl-mark">M</span><span class="pl-word">Mel Beauty Studio</span><span class="pl-line"><i></i></span><span class="pl-sub">Landshut</span></div>
-</div>
-<script>
-/* Cinematic-Preloader: einmal pro Sitzung, entfällt bei "Bewegung reduzieren" */
-(function(){var d=document.documentElement,p=document.getElementById("preloader");
- var skip=matchMedia("(prefers-reduced-motion: reduce)").matches||sessionStorage.getItem("mel-pl");
- function done(){d.classList.remove("preloading");p.classList.add("is-done");setTimeout(function(){p.remove()},1300);try{sessionStorage.setItem("mel-pl","1")}catch(e){}document.dispatchEvent(new Event("mel:ready"));}
- if(skip){p.remove();return;}
- d.classList.add("preloading");var t0=Date.now();
- function finish(){setTimeout(done,Math.max(0,1500-(Date.now()-t0)));}
- if(document.readyState==="complete")finish();else{addEventListener("load",finish);setTimeout(done,3500);}
-})();
-</script>
+<body class="text-ink font-sans antialiased">
 <a href="#main" class="skip">Zum Inhalt springen</a>
 <div class="grain" aria-hidden="true"></div>
 <canvas id="scene" aria-hidden="true"></canvas>
 <div class="float-preview grade" aria-hidden="true"><img alt="" src="images/phibrows-ergebnisse.jpg"></div>
-<div class="cursor" aria-hidden="true"><span class="cursor-ring"><em class="cursor-label"></em></span><span class="cursor-dot"></span></div>
 
 <!-- ============ NAVIGATION ============ -->
-<header id="top-bar" class="topbar fixed inset-x-0 top-0 z-50">
-  <div class="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
-    <a href="#" class="brand group" aria-label="Mel Beauty Studio, zum Seitenanfang">
-      <span class="brand-mark">M</span>
-      <span class="hidden sm:block text-[.68rem] font-semibold tracking-label text-ink">MEL BEAUTY STUDIO <span class="text-gold">·</span> LANDSHUT</span>
-    </a>
-    <nav class="hidden lg:flex items-center gap-10 text-[.86rem] text-stone" aria-label="Hauptnavigation">
-      <a href="#behandlungen" class="ulink" data-spy>Behandlungen</a>
-      <a href="#philosophie" class="ulink" data-spy>Philosophie</a>
-      <a href="#studio" class="ulink" data-spy>Studio Landshut</a>
+<header id="top-bar" class="nav-x">
+  <div class="nav-x__inner">
+    <a href="#" class="nav-x__brand" aria-label="Mel Beauty Studio, zum Seitenanfang">Mel Beauty Studio</a>
+    <nav class="nav-x__links" aria-label="Hauptnavigation">
+      <a href="#behandlungen" data-spy>Behandlungen</a>
+      <a href="#philosophie" data-spy>Philosophie</a>
+      <a href="#studio" data-spy>Landshut</a>
     </nav>
-    <div class="flex items-center gap-3">
-      <a href="tel:+491636839277" class="hidden xl:inline text-[.86rem] text-stone ulink">0163 6839277</a>
-      <button type="button" class="btn btn-primary hidden sm:inline-flex" data-concierge="termin">Termin anfragen</button>
-      <button type="button" id="burger" class="burger lg:hidden" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span><span></span></button>
+    <div class="nav-x__right">
+      <button type="button" class="nav-x__cta" data-concierge="termin">Termin buchen</button>
+      <button type="button" id="burger" class="nav-x__burger" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span><span></span></button>
     </div>
   </div>
   <!-- Mobiles Menü -->
-  <div id="mnav" class="mnav lg:hidden" hidden>
+  <div id="mnav" class="mnav" hidden>
     <nav class="flex flex-col px-6 pt-4" aria-label="Mobile Navigation">
       <a href="#behandlungen">Behandlungen</a>
       <a href="#philosophie">Philosophie</a>
-      <a href="#studio">Studio Landshut</a>
+      <a href="#studio">Landshut</a>
       <a href="#fragen">Häufige Fragen</a>
     </nav>
     <div class="mt-auto space-y-3 px-6 pb-10">
-      <button type="button" class="btn btn-primary w-full" data-concierge="termin">Termin anfragen</button>
       <a href="tel:+491636839277" class="btn btn-line w-full">0163 6839277 anrufen</a>
     </div>
   </div>
@@ -153,95 +136,96 @@ tailwind.config = {
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section class="hero relative pt-[76px]" data-blob="0.16 0.02 0.62">
-  <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-10 md:px-10 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16">
-    <div class="lg:col-span-6 lg:pt-10 flex flex-col">
-      <p class="eyebrow rv">Permanent Make-up &amp; Kosmetik · Landshuter Neustadt</p>
-      <h1 class="split mt-7 font-serif text-[2.9rem] leading-[1.08] tracking-[-.02em] text-ink sm:text-[4rem] lg:text-[5.4rem]">Natürliche Schönheit, <em>sorgfältig</em> unterstrichen.</h1>
-      <p class="rv mt-8 max-w-[34rem] text-[1.05rem] leading-[1.75] text-stone" style="--d:.35s">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen im Mittelpunkt.</p>
-      <div class="rv mt-10 flex flex-wrap items-center gap-6" style="--d:.45s">
-        <button type="button" class="btn btn-primary" data-concierge="termin">Termin anfragen <span class="arrow" aria-hidden="true">→</span></button>
-        <a href="#behandlungen" class="ulink text-[.9rem] font-medium text-ink">Behandlungen entdecken</a>
-      </div>
-      <dl class="rv mt-14 grid grid-cols-3 gap-6 border-t border-ink/10 pt-7 text-[.8rem] text-stone lg:mt-20" style="--d:.55s">
-        <div><dt class="font-serif text-[2.1rem] leading-none text-ink"><span data-count="10">10</span></dt><dd class="mt-2">Jahre als Kosmetikerin</dd></div>
-        <div><dt class="font-serif text-[2.1rem] leading-none text-ink">2–3</dt><dd class="mt-2">Jahre hält PhiBrows</dd></div>
-        <div><dt class="font-serif text-[2.1rem] leading-none text-ink"><span data-count="21">21</span></dt><dd class="mt-2">Tage bis zur inkl. Nachbehandlung</dd></div>
-      </dl>
+<!-- ============ HERO (Editorial-Grid) ============ -->
+<section class="hero-x" aria-labelledby="hero-title">
+  <div class="hero-x__wrap">
+    <div class="hero-x__text">
+      <p class="hero-x__eyebrow">Boutique Kosmetik · Landshut</p>
+      <h1 id="hero-title" class="hero-x__title">Zeitlose Ästhetik &amp; <em>sichtbare</em> Hautgesundheit.</h1>
+      <span class="hero-x__rule" aria-hidden="true"></span>
+      <p class="hero-x__sub">PhiBrows Microblading, Permanent Make-up und ästhetische Hautbehandlungen in Landshut. Qualität, Hygiene, individuelle Beratung und natürliche Ergebnisse stehen im Mittelpunkt.</p>
+      <a href="#behandlungen" class="hero-x__link">Behandlungen ansehen</a>
     </div>
-
-    <div class="relative lg:col-span-6">
-      <figure class="hero-visual grade reveal-img" data-speed="0.82">
-        <img src="images/mel-portrait.jpg" width="1100" height="1100" alt="Meltem Demirci im Mel Beauty Studio in Landshut" class="kenburns h-full w-full object-cover" fetchpriority="high">
+    <div class="hero-x__media">
+      <!-- Hauptbild: echtes Studiofoto, Hochformat 3:4 (1200 × 1600), kein Beschnitt nötig -->
+      <figure class="hero-x__main" data-hero-parallax="-30">
+        <img src="images/studio-empfang.jpg" width="1200" height="1600" alt="Empfang im Mel Beauty Studio in der Landshuter Neustadt" fetchpriority="high">
       </figure>
-            <p class="vlabel hidden lg:block" aria-hidden="true">Meltem Demirci · PhiBrows Artist</p>
+      <!-- Detailbild: Close-up aus der Studio-Lounge, quadratisch -->
+      <figure class="hero-x__detail" data-hero-parallax="20">
+        <img src="images/studio-rosen-detail.jpg" width="900" height="900" alt="Rosen auf dem Glastisch in der Studio-Lounge" loading="eager">
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- Laufband mit Behandlungen aus der Instagram-Bio -->
-<div class="marquee border-y border-ink/10" aria-hidden="true">
-  <div class="marquee-track font-serif text-[1.6rem] italic text-ink/80">
-    <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
-    <span>PhiBrows</span><i>✦</i><span>PhiRemoval</span><i>✦</i><span>Permanent Make-up</span><i>✦</i><span>DS V-Line</span><i>✦</i><span>Algae Peeling</span><i>✦</i><span>Microneedling</span><i>✦</i><span>Hautpflege</span><i>✦</i><span>Haarwurzelaktivierung</span><i>✦</i>
-  </div>
+<!-- ============ LEISTUNGSLEISTE (statisch, aus der Instagram-Bio) ============ -->
+<div class="strip-x" role="note" aria-label="Leistungen im Überblick">
+  <ul class="strip-x__list">
+    <li>PhiBrows</li>
+    <li>PhiRemoval</li>
+    <li>Permanent Make-up</li>
+    <li>DS V-Line</li>
+    <li>Algae Peeling</li>
+    <li>Microneedling</li>
+    <li>Hautpflege</li>
+    <li>Haarwurzelaktivierung</li>
+  </ul>
 </div>
 
-
-<!-- ============ SIGNATURE-SHOWCASE (Sticky, Überblendung beim Scrollen) ============ -->
-<section id="signature" class="showcase" data-blob="-0.54 -0.4 0.26" aria-labelledby="sc-h">
-  <div class="sc-pin">
-    <div class="sc-head mx-auto max-w-[1440px] px-5 md:px-10">
-      <p class="eyebrow rv">Signature-Behandlungen</p>
-      <h2 id="sc-h" class="split mt-5 font-serif text-[2.3rem] leading-[1.08] text-ink md:text-[3.2rem]">Vier Behandlungen, <em>ein</em> Anspruch.</h2>
-    </div>
-    <div class="sc-stage mx-auto max-w-[1440px] px-5 md:px-10">
-      <article class="sc-slide is-active" data-i="0">
-        <figure class="sc-img grade"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"></figure>
-        <div class="sc-text">
-          <span class="sc-num">01</span>
-          <h3>PhiBrows Microblading</h3>
-          <p>Natürlicher 3D-Augenbraueneffekt durch eine präzise Zeichentechnik: Fehlende oder ausgefallene Härchen werden ergänzt, blasse Brauen optisch verdichtet.</p>
-          <p class="sc-meta">Hält 2–3 Jahre · 490 € inkl. Nachbehandlung nach 21 Tagen</p>
-          <a href="#behandlungen" class="ulink sc-link" data-open-tab="brows">Im Menü ansehen →</a>
+<!-- ============ SIGNATURE-SHOWCASE (ruhig: Bild links bleibt stehen, Texte rechts scrollen) ============ -->
+<section id="signature" class="sig-x" aria-labelledby="sig-title">
+  <div class="sig-x__wrap">
+    <header class="sig-x__head">
+      <p class="sig-x__eyebrow">Signature-Behandlungen</p>
+      <h2 id="sig-title" class="sig-x__h2">Vier Behandlungen, <em>ein</em> Anspruch.</h2>
+    </header>
+    <div class="sig-x__grid">
+      <div class="sig-x__media" aria-hidden="true">
+        <div class="sig-x__sticky">
+          <div class="sig-x__frames">
+        <figure class="sig-x__frame grade is-active" data-i="0"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="PhiBrows Microblading vorher und nachher" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="1"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Permanent Make-up Lippen, Ergebnis" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="2"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"></figure>
+        <figure class="sig-x__frame grade" data-i="3"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"></figure>
+          </div>
+          <p class="sig-x__caption"><span class="sig-x__count">01</span> / 04 · <span class="sig-x__name">PhiBrows Microblading</span></p>
         </div>
+      </div>
+      <div class="sig-x__list">
+      <article class="sig-x__item is-active" data-i="0">
+        <figure class="sig-x__mobile grade"><img src="images/phibrows-ergebnisse.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <span class="sig-x__num">01</span>
+        <h3 class="sig-x__title">PhiBrows Microblading</h3>
+        <p class="sig-x__text">Feine, haarförmige Striche in Wuchsrichtung ergänzen fehlende Härchen und verdichten die Brauen optisch, kaum von echten zu unterscheiden.</p>
+        <p class="sig-x__meta">Hält 2–3 Jahre · 490 € inkl. Nachbehandlung nach 21 Tagen</p>
+        <a href="#behandlungen" class="sig-x__link" data-open-tab="brows">Im Menü ansehen</a>
       </article>
-      <article class="sc-slide" data-i="1">
-        <figure class="sc-img grade"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="Permanent Make-up Lippen, Ergebnis" loading="lazy"></figure>
-        <div class="sc-text">
-          <span class="sc-num">02</span>
-          <h3>Permanent Make-up Lippen</h3>
-          <p>Blasse Lippenfarben werden intensiviert, asymmetrische oder formlose Lippen erhalten eine harmonische, natürliche Kontur. Mit organischen Pigmenten.</p>
-          <p class="sc-meta">Hält ca. 2 Jahre · 450 € inkl. Nachbehandlung nach 21 Tagen</p>
-          <a href="#behandlungen" class="ulink sc-link" data-open-tab="brows">Im Menü ansehen →</a>
-        </div>
+      <article class="sig-x__item" data-i="1">
+        <figure class="sig-x__mobile grade"><img src="images/lippen-ergebnis.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <span class="sig-x__num">02</span>
+        <h3 class="sig-x__title">Lippenschattierung</h3>
+        <p class="sig-x__text">Sanfte Schattierung mit Gloss-Effekt oder Vollschattierung mit Lipstick-Effekt: vorgezeichnet, mit feinsten Nadelstichen schattiert und abschließend gepflegt.</p>
+        <p class="sig-x__meta">Hält ca. 2 Jahre · 450 € inkl. Nachbehandlung nach 21 Tagen</p>
+        <a href="#behandlungen" class="sig-x__link" data-open-tab="brows">Im Menü ansehen</a>
       </article>
-      <article class="sc-slide" data-i="2">
-        <figure class="sc-img grade"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"></figure>
-        <div class="sc-text">
-          <span class="sc-num">03</span>
-          <h3>PhiRemoval</h3>
-          <p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert.</p>
-          <p class="sc-meta">Gesicht 149 € · Körper individuell</p>
-          <a href="#behandlungen" class="ulink sc-link" data-open-tab="removal">Im Menü ansehen →</a>
-        </div>
+      <article class="sig-x__item" data-i="2">
+        <figure class="sig-x__mobile grade"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <span class="sig-x__num">03</span>
+        <h3 class="sig-x__title">PhiRemoval</h3>
+        <p class="sig-x__text">Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert.</p>
+        <p class="sig-x__meta">Gesicht 149 € · Körper individuell</p>
+        <a href="#behandlungen" class="sig-x__link" data-open-tab="removal">Im Menü ansehen</a>
       </article>
-      <article class="sc-slide" data-i="3">
-        <figure class="sc-img grade"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"></figure>
-        <div class="sc-text">
-          <span class="sc-num">04</span>
-          <h3>DS V-Line Kollagen</h3>
-          <p>Natürliche Kollagenfäden straffen die Haut sanft und reduzieren Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p>
-          <p class="sc-meta">245 €</p>
-          <a href="#behandlungen" class="ulink sc-link" data-open-tab="skin">Im Menü ansehen →</a>
-        </div>
+      <article class="sig-x__item" data-i="3">
+        <figure class="sig-x__mobile grade"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="" loading="lazy"></figure>
+        <span class="sig-x__num">04</span>
+        <h3 class="sig-x__title">DS V-Line Kollagenfadenlifting</h3>
+        <p class="sig-x__text">Feinste Kollagenfäden, kombiniert mit Microneedling: feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, ohne Ausfallzeit.</p>
+        <p class="sig-x__meta">Wirkt ca. 12 Monate · 245 €</p>
+        <a href="#behandlungen" class="sig-x__link" data-open-tab="skin">Im Menü ansehen</a>
       </article>
-    </div>
-    <div class="sc-progress mx-auto max-w-[1440px] px-5 md:px-10" aria-hidden="true">
-      <span class="sc-count"><b>01</b> / 04</span>
-      <span class="sc-bar"><i></i></span>
-      <span class="sc-hint">Scrollen</span>
+      </div>
     </div>
   </div>
 </section>
@@ -260,11 +244,11 @@ tailwind.config = {
     <!-- Filter-Tabs -->
     <div class="rv mt-16 border-b border-ink/10">
       <div class="tabs no-scrollbar" role="tablist" aria-label="Behandlungskategorien">
-        <button role="tab" aria-selected="true" aria-controls="p-brows" id="t-brows" data-tab="brows">Brows &amp; Permanent Make-up</button>
-        <button role="tab" aria-selected="false" aria-controls="p-removal" id="t-removal" data-tab="removal" tabindex="-1">PhiRemoval</button>
-        <button role="tab" aria-selected="false" aria-controls="p-skin" id="t-skin" data-tab="skin" tabindex="-1">Haut &amp; Anti-Aging</button>
+        <button role="tab" aria-selected="true" aria-controls="p-brows" id="t-brows" data-tab="brows">Permanent Make-up</button>
+        <button role="tab" aria-selected="false" aria-controls="p-skin" id="t-skin" data-tab="skin" tabindex="-1">Gesicht &amp; Haut</button>
+        <button role="tab" aria-selected="false" aria-controls="p-lashes" id="t-lashes" data-tab="lashes" tabindex="-1">Brauen &amp; Wimpern</button>
         <button role="tab" aria-selected="false" aria-controls="p-hair" id="t-hair" data-tab="hair" tabindex="-1">Haar &amp; Vitamin</button>
-        <button role="tab" aria-selected="false" aria-controls="p-lashes" id="t-lashes" data-tab="lashes" tabindex="-1">Lashes</button>
+        <button role="tab" aria-selected="false" aria-controls="p-removal" id="t-removal" data-tab="removal" tabindex="-1">PhiRemoval</button>
         <span class="tab-ink" aria-hidden="true"></span>
       </div>
     </div>
@@ -277,21 +261,24 @@ tailwind.config = {
           <figure class="menu-img" data-for="removal"><img src="images/phiremoval-vorher-nachher.jpg" width="1000" height="1000" alt="PhiRemoval vor und nach der ersten Behandlung" loading="lazy"><figcaption>PhiRemoval, nach der 1. Behandlung</figcaption></figure>
           <figure class="menu-img" data-for="skin"><img src="images/ds-v-line-vorher-nachher.jpg" width="1000" height="1000" alt="DS V-Line Kollagenfäden vorher und nachher" loading="lazy"><figcaption>DS V-Line Kollagenfäden, vorher / nachher</figcaption></figure>
           <figure class="menu-img" data-for="hair"><img src="images/brauen-haerchentechnik.jpg" width="1000" height="1000" alt="Augenbrauen in feiner Härchenzeichnung" loading="lazy"><figcaption>Haar, Bart &amp; Brauen</figcaption></figure>
-          <figure class="menu-img" data-for="lashes"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Brauen und Wimpern" loading="lazy"><figcaption>Natürlicher Blick</figcaption></figure>
+          <figure class="menu-img" data-for="lashes"><img src="images/brauen-natuerlich.jpg" width="1000" height="1328" alt="Natürliche Brauen und Wimpern" loading="lazy"><figcaption>Brauen &amp; Wimpern</figcaption></figure>
         </div>
       </div>
 
       <div class="lg:col-span-8">
-        <!-- Brows & PMU -->
+        <!-- Permanent Make-up -->
         <div class="panel" role="tabpanel" id="p-brows" aria-labelledby="t-brows">
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/phibrows-ergebnisse.jpg"><div><h3>PhiBrows Microblading</h3><p>Natürlicher 3D-Augenbraueneffekt durch eine präzise Zeichentechnik: Fehlende oder ausgefallene Härchen werden ergänzt, blasse Brauen optisch verdichtet. Vegane PhiBrows Pigmente ohne Farbveränderung, alle Aufsätze steril und personengebunden.</p><span class="meta">Hält 2–3 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
-            <li class="mrow" data-preview="images/brauen-haerchentechnik.jpg"><div><h3>Powder Brows</h3><p>Pigmentierung der Augenbrauen.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
-            <li class="mrow" data-preview="images/lippen-ergebnis.jpg"><div><h3>Permanent Make-up Lippen</h3><p>Blasse Lippenfarben werden intensiviert, asymmetrische oder formlose Lippen erhalten eine harmonische, natürliche Kontur. Mit organischen Pigmenten.</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">450 €</span><button class="pick" data-pick="Permanent Make-up Lippen">Auswählen</button></li>
-            <li class="mrow" data-preview="images/brauen-natuerlich.jpg"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Pigmentierung zur Betonung des Wimpernkranzes. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
-            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Professionelle Kopfhautpigmentierung zur Verdichtung einzelner Stellen, z.&nbsp;B. Geheimratsecken, Haaransatz oder Scheitel.</p></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
-            <li class="mrow" data-preview="images/brauen-fadentechnik.jpg"><div><h3>Augenbrauenkorrektur</h3><p>Mit Fadentechnik und Vermessung nach dem Goldenen Schnitt.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
+            <li class="mrow" data-preview="images/phibrows-ergebnisse.jpg"><div><h3>PhiBrows Microblading</h3><p>Feine, haarförmige Striche werden in Wuchsrichtung in die oberste Hautschicht gezeichnet. Fehlende Härchen werden ergänzt, die Brauen optisch verdichtet, kaum von echten zu unterscheiden.</p><span class="meta">Natürlicher Härchen-Effekt · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">490 €</span><button class="pick" data-pick="PhiBrows Microblading">Auswählen</button></li>
+            <li class="mrow" data-preview="images/brauen-haerchentechnik.jpg"><div><h3>Powder Brows</h3><p>Microshading: Statt Härchen setzt eine feine Pigmentier-Nadel winzige, punktuelle Schattierungen. Für alle Hauttypen, ideal bei fettiger Haut oder Mischhaut.</p><span class="meta">Puder-Effekt mit Ombré-Verlauf · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">390 €</span><button class="pick" data-pick="Powder Brows">Auswählen</button></li>
+            <li class="mrow" data-preview="images/lippen-ergebnis.jpg"><div><h3>Lippenschattierung</h3><p>Vorzeichnen, Schattieren mit feinsten Nadelstichen, Abschlusspflege. Zwei Techniken: sanfte Schattierung (Gloss-Effekt, einfach frischer) oder Vollschattierung (Lipstick-Effekt).</p><span class="meta">Hält ca. 2 Jahre · inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">450 €</span><button class="pick" data-pick="Lippenschattierung">Auswählen</button></li>
+            <li class="mrow" data-preview="images/brauen-natuerlich.jpg"><div><h3>Eyeliner · Babyliner · Dipliner</h3><p>Permanenter Lidstrich am Oberlid: Für Jahre Ruhe beim Schminken. Eyeliner 350 €, Babyliner 300 €, Dipliner 250 €.</p><span class="meta">inkl. Nachbehandlung nach 21 Tagen</span></div><span class="price">250–350 €</span><button class="pick" data-pick="Lidstrich (Eyeliner, Babyliner oder Dipliner)">Auswählen</button></li>
+            <li class="mrow"><div><h3>Kopfhautpigmentierung</h3><p>Haarsimulation für einzelne Stellen wie Geheimratsecken, Haaransatz oder Scheitel. Bei längerem Haar wirkt es voller, bei Glatze oder sehr kurzem Haar wie nachwachsende Stoppeln.</p><span class="meta">Sofort sichtbar · nicht-operativ · mehrjährig</span></div><span class="price">350 €</span><button class="pick" data-pick="Kopfhautpigmentierung">Auswählen</button></li>
           </ul>
+          <div class="pigment-note mt-10">
+            <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone">Phi-Pigmente</p>
+            <p>Frei von Schwermetallen, Weichmachern und allergieauslösenden Konservierungsstoffen, vegan und tierversuchsfrei. Die Farben werden mit der Zeit gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu kippen. Bezug ausschließlich über das offizielle Phi-System.</p>
+          </div>
           <div class="mt-10 grid gap-x-10 gap-y-2 border-t border-ink/10 pt-6 text-[.86rem] text-stone sm:grid-cols-2">
             <p class="mb-2 text-[.68rem] font-semibold uppercase tracking-label text-stone sm:col-span-2">Auffrischung nach 12 Monaten</p>
             <p class="flex justify-between gap-4"><span>PhiBrows</span><span class="text-ink">225 €</span></p>
@@ -301,38 +288,40 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- PhiRemoval -->
-        <div class="panel" role="tabpanel" id="p-removal" aria-labelledby="t-removal" hidden>
+        <!-- Gesicht & Haut -->
+        <div class="panel" role="tabpanel" id="p-skin" aria-labelledby="t-skin" hidden>
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/phiremoval-vorher-nachher.jpg"><div><h3>PhiRemoval Gesicht</h3><p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
-            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
+            <li class="mrow" data-preview="images/ds-v-line-vorher-nachher.jpg"><div><h3>DS V-Line Kollagenfadenlifting</h3><p>Feinste Kollagenfäden werden eingearbeitet, kombiniert mit Microneedling für mehr Wirkstoffaufnahme und Straffung. Feinere Linien, mehr Elastizität, pralleres Hautbild. Sichtbar ab der ersten Behandlung, keine Ausfallzeit.</p><span class="meta">Alle Hauttypen · wirkt ca. 12 Monate</span></div><span class="price">245 €</span><button class="pick" data-pick="DS V-Line Kollagenfadenlifting">Auswählen</button></li>
+            <li class="mrow"><div><h3>Algenpeeling</h3><p>100 % biologische Schälkur aus Mikroalgen, Kräutern, Vitaminen und Mineralstoffen. Gezielt gegen Akne, verstopfte Poren, Aknenarben und Pigmentflecken. Die Haut schält sich nach 3–7 Tagen.</p><span class="meta">Danach SPF 50 Pflicht · nicht bei Rosacea, Couperose oder offenen Wunden</span></div><span class="price">99 €</span><button class="pick" data-pick="Algenpeeling">Auswählen</button></li>
+            <li class="mrow"><div><h3>Microneedling</h3><p>Feine Nadeln (0,5–2,5 mm je nach Hautzustand) regen Regeneration, Durchblutung und körpereigenes Kollagen an. Bei Falten, Narben, Dehnungsstreifen, Akne und großen Poren.</p><span class="meta">Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell</span></div><span class="price">ab 119 €</span><button class="pick" data-pick="Microneedling">Auswählen</button></li>
+            <li class="mrow"><div><h3>Skin Care</h3><p>Reinigung mit auf dein Hautbild abgestimmten Produkten: Feuchtigkeit bei trockener, Talgregulierung bei fettiger, schonende Tiefenreinigung bei akneanfälliger Haut.</p><span class="meta">Classic 99 € · Professional 129 € · Akne 139 €</span></div><span class="price">ab 99 €</span><button class="pick" data-pick="Skin Care">Auswählen</button></li>
           </ul>
         </div>
 
-        <!-- Haut -->
-        <div class="panel" role="tabpanel" id="p-skin" aria-labelledby="t-skin" hidden>
+        <!-- Brauen & Wimpern -->
+        <div class="panel" role="tabpanel" id="p-lashes" aria-labelledby="t-lashes" hidden>
           <ul class="menu-list">
-            <li class="mrow" data-preview="images/ds-v-line-vorher-nachher.jpg"><div><h3>DS V-Line Kollagen</h3><p>Natürliche Kollagenfäden straffen die Haut sanft und reduzieren Falten, tiefe Linien, Poren und Pigmentflecken, ohne chirurgischen Eingriff.</p></div><span class="price">245 €</span><button class="pick" data-pick="DS V-Line Kollagen">Auswählen</button></li>
-            <li class="mrow"><div><h3>Algae Peeling Gesicht</h3><p>Biologische Behandlung mit feinen Algenpartikeln. Unterstützt die natürliche Hauterneuerung, etwa bei unreiner Haut, Narben, großen Poren oder Pigmentflecken.</p></div><span class="price">99 €</span><button class="pick" data-pick="Algae Peeling">Auswählen</button></li>
-            <li class="mrow"><div><h3>Microneedling</h3><p>Mit individuell abgestimmten Seren gegen Narben, Pigmentflecken und unregelmäßige Hautstruktur.</p><span class="meta">Gesicht 119 € · Gesicht + Hals 139 € · Körper individuell</span></div><span class="price">ab 119 €</span><button class="pick" data-pick="Microneedling">Auswählen</button></li>
-            <li class="mrow"><div><h3>Skin Care</h3><p>Individuell nach Hauttyp: Feuchtigkeit bei trockener Haut, Regulierung bei fettiger Haut, schonende Tiefenreinigung bei Akne-Neigung.</p><span class="meta">Classic 99 € · Professional 129 € · Akne 139 €</span></div><span class="price">ab 99 €</span><button class="pick" data-pick="Skin Care">Auswählen</button></li>
+            <li class="mrow" data-preview="images/brauen-fadentechnik.jpg"><div><h3>Augenbrauenkorrektur mit Fadentechnik</h3><p>Vermessung mit dem Goldenen-Schnitt-Messgerät, Formung mit Fadentechnik passend zu deinen Gesichtszügen.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenkorrektur">Auswählen</button></li>
+            <li class="mrow"><div><h3>Augenbrauenlifting inkl. Färben</h3><p>Die Härchen werden verstärkt und formbar gemacht, die Form hält mehrere Wochen und lässt sich leicht stylen.</p></div><span class="price">Preis auf Anfrage</span><button class="pick" data-pick="Augenbrauenlifting inkl. Färben">Auswählen</button></li>
+            <li class="mrow"><div><h3>Wimpernlifting inkl. Färben</h3><p>Die eigenen Wimpern werden mit Silikonpads und Ellebana-Lotionen am Ansatz angehoben und dunkelbraun oder schwarz gefärbt. Schwung, Länge und Farbe ohne Mascara.</p><span class="meta">Hält 4–6 Wochen · 24 h danach kein Wasser, Dampf oder Öl</span></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting inkl. Färben">Auswählen</button></li>
           </ul>
         </div>
 
         <!-- Haar & Vitamin -->
         <div class="panel" role="tabpanel" id="p-hair" aria-labelledby="t-hair" hidden>
           <ul class="menu-list">
-            <li class="mrow"><div><h3>Vitaminbehandlung Kopfhaut</h3><p>Haarvitalisierung mit speziellen Seren und gezielten Anwendungstechniken, um geschwächte Bereiche zu stärken.</p></div><span class="price">199 €</span><button class="pick" data-pick="Vitaminbehandlung Kopfhaut">Auswählen</button></li>
+            <li class="mrow"><div><h3>Vitaminbehandlung Kopfhaut</h3><p>PhiHair-Serum mit Microneedling aktiviert die Haarfollikel, fördert das Haarwachstum und stärkt geschwächte Bereiche.</p></div><span class="price">199 €</span><button class="pick" data-pick="Vitaminbehandlung Kopfhaut">Auswählen</button></li>
             <li class="mrow"><div><h3>Vitaminbehandlung Bart</h3><p>Stärkt und revitalisiert lichte oder ausgefallene Stellen im Bart.</p></div><span class="price">139 €</span><button class="pick" data-pick="Vitaminbehandlung Bart">Auswählen</button></li>
             <li class="mrow"><div><h3>Vitaminbehandlung Augenbrauen</h3><p>Für geschwächte Brauen, die wieder kräftiger werden sollen.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung Augenbrauen">Auswählen</button></li>
             <li class="mrow"><div><h3>Einzelne Stellen</h3><p>Zum Beispiel Bart, Geheimratsecken oder Scheitel.</p></div><span class="price">99 €</span><button class="pick" data-pick="Vitaminbehandlung einzelne Stellen">Auswählen</button></li>
           </ul>
         </div>
 
-        <!-- Lashes -->
-        <div class="panel" role="tabpanel" id="p-lashes" aria-labelledby="t-lashes" hidden>
+        <!-- PhiRemoval -->
+        <div class="panel" role="tabpanel" id="p-removal" aria-labelledby="t-removal" hidden>
           <ul class="menu-list">
-            <li class="mrow"><div><h3>Wimpernlifting</h3><p>Schonende Methode zur dauerhaften Schwunggebung der natürlichen Wimpern, ohne künstliche Wimpernverlängerung.</p></div><span class="price">90 €</span><button class="pick" data-pick="Wimpernlifting">Auswählen</button></li>
+            <li class="mrow" data-preview="images/phiremoval-vorher-nachher.jpg"><div><h3>PhiRemoval Gesicht</h3><p>Ohne Lasertechnologie werden Farbpigmente präzise entfernt. Mit hautschonenden Produkten werden fehlerhafte Permanent Make-ups und Microblading entfernt oder korrigiert, mit individueller Beratung.</p><span class="meta">ohne Laser</span></div><span class="price">149 €</span><button class="pick" data-pick="PhiRemoval Gesicht">Auswählen</button></li>
+            <li class="mrow"><div><h3>PhiRemoval Körper</h3><p>Auch Tattoos können mit PhiRemoval entfernt oder korrigiert werden.</p><span class="meta">ohne Laser</span></div><span class="price">individuell</span><button class="pick" data-pick="PhiRemoval Körper / kleines Tattoo">Auswählen</button></li>
           </ul>
         </div>
       </div>
@@ -357,7 +346,7 @@ tailwind.config = {
         </blockquote>
 
         <ul class="principles mt-16">
-          <li class="rv"><span class="n">01</span><div><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line Kollagenfäden und Algae Peeling. Gearbeitet wird mit veganen PhiBrows Pigmenten und organischen Pigmenten für die Lippen.</p></div></li>
+          <li class="rv"><span class="n">01</span><div><h3>Qualität</h3><p>Zertifiziert als PhiBrows Artist sowie für DS V-Line und Algae Peeling. Nur Originalprodukte: Phi-Pigmente direkt über das offizielle Phi-System, DS V-Line nur nach Academy-Schulung erhältlich.</p></div></li>
           <li class="rv"><span class="n">02</span><div><h3>Hygiene</h3><p>Alle verwendeten Aufsätze sind steril und personengebunden.</p></div></li>
           <li class="rv"><span class="n">03</span><div><h3>Individuelle Beratung</h3><p>Jede Behandlung wird individuell auf deine Wünsche und Bedürfnisse abgestimmt. Brauen werden nach dem Goldenen Schnitt vermessen.</p></div></li>
           <li class="rv"><span class="n">04</span><div><h3>Natürliche Ergebnisse</h3><p>Die natürliche Schönheit unterstreichen, etwa mit dem natürlichen 3D-Effekt von PhiBrows.</p></div></li>
@@ -481,10 +470,12 @@ tailwind.config = {
     </div>
     <div class="lg:col-span-8">
       <details class="faq rv"><summary>Ist die Nachbehandlung im Preis enthalten?</summary><div class="faq-body"><p>Ja. Bei PhiBrows, Powder Brows, Lippen und allen Linern ist die Nachbehandlung nach 21 Tagen bereits enthalten.</p></div></details>
-      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, Permanent Make-up an den Lippen etwa 2 Jahre. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis.</p></div></details>
-      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows Microblading erzielt einen natürlichen 3D-Augenbraueneffekt, bei dem einzelne Härchen ergänzt werden. Powder Brows sind eine Pigmentierung der Augenbrauen. Was zu dir passt, klärt Meltem in der individuellen Beratung.</p></div></details>
+      <details class="faq rv"><summary>Wie lange hält das Ergebnis?</summary><div class="faq-body"><p>PhiBrows Microblading hält 2 bis 3 Jahre, je nach Hauttyp, Lebensstil und Pflege. Lippen etwa 2 Jahre, DS V-Line ca. 12 Monate, Wimpernlifting 4 bis 6 Wochen. Für die Auffrischung nach 12 Monaten gibt es eigene Preise, ab 18 Monaten gilt der Neupreis.</p></div></details>
+      <details class="faq rv"><summary>PhiBrows oder Powder Brows, was passt zu mir?</summary><div class="faq-body"><p>PhiBrows zeichnet einzelne Härchen für einen natürlichen Härchen-Effekt. Powder Brows setzen feine Schattierungen für einen Puder-Effekt mit Ombré-Verlauf und eignen sich besonders bei fettiger Haut oder Mischhaut. Was zu dir passt, klärt Meltem in der Beratung.</p></div></details>
       <details class="faq rv"><summary>Kann altes Permanent Make-up entfernt werden?</summary><div class="faq-body"><p>Ja. Mit PhiRemoval werden fehlerhafte Permanent Make-ups, Microblading oder Tattoos ohne Laser entfernt oder korrigiert. Für das Nacharbeiten von Fremdarbeiten gilt der Neupreis.</p></div></details>
-      <details class="faq rv"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Die verwendeten PhiBrows Pigmente verursachen keine Farbveränderung und sind vegan.</p></div></details>
+      <details class="faq rv"><summary>Verändert sich die Farbe der Brauen mit der Zeit?</summary><div class="faq-body"><p>Phi-Pigmente kombinieren organische und synthetische Komponenten: Die Farben werden gleichmäßig heller, ohne in Rot-, Blau- oder Grüntöne zu verblassen. Vegan und tierversuchsfrei.</p></div></details>
+      <details class="faq rv"><summary>Was muss ich nach dem Algenpeeling beachten?</summary><div class="faq-body"><p>Direkt danach fühlt sich die Haut wie nach einem Sonnenbrand an, nach 3 bis 7 Tagen schält sie sich. In den Wochen danach ist SPF 50 Pflicht. Nicht geeignet bei akuter Rosacea, offenen Wunden oder Couperose.</p></div></details>
+      <details class="faq rv"><summary>Was gilt nach dem Wimpernlifting?</summary><div class="faq-body"><p>24 Stunden kein Wasserkontakt, keine Dampfbäder und keine ölhaltigen Produkte im Augenbereich. Der Effekt hält 4 bis 6 Wochen.</p></div></details>
     </div>
   </div>
 </section>

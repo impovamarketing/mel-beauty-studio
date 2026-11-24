@@ -1,4 +1,4 @@
-/* Mel Beauty Studio · Scroll-Choreografie, Cursor, Magnet-Buttons, Karte
+/* Mel Beauty Studio · Scroll-Choreografie, Floating Preview, Karte
    Lenis (Smooth-Scroll) + GSAP ScrollTrigger. Alles ist progressiv:
    Ohne die Bibliotheken oder bei "Bewegung reduzieren" bleibt die Seite voll nutzbar. */
 (() => {
@@ -34,28 +34,30 @@
     if (lenis) { e.preventDefault(); lenis.scrollTo(t, { offset: -84, duration: 1.4 }); history.replaceState(null, '', id); }
   });
 
-  /* ---------- Signature-Showcase: Index aus Scrollfortschritt ---------- */
-  const showcase = $('#signature');
-  if (showcase) {
-    const slides = $$('.sc-slide', showcase), bar = $('.sc-bar i', showcase), count = $('.sc-count b', showcase);
-    let idx = 0;
-    const desk = matchMedia('(min-width: 1024px)');
-    const onScroll = () => {
-      if (!desk.matches) return;
-      const r = showcase.getBoundingClientRect();
-      const total = showcase.offsetHeight - innerHeight;
-      const p = Math.min(1, Math.max(0, -r.top / total));
-      bar.style.transform = `scaleX(${p})`;
-      const i = Math.min(slides.length - 1, Math.floor(p * slides.length * 0.999));
-      if (i !== idx) {
-        slides[idx].classList.remove('is-active'); slides[idx].classList.add('is-leaving');
-        const old = slides[idx]; setTimeout(() => old.classList.remove('is-leaving'), 1000);
-        slides[i].classList.add('is-active'); idx = i;
-        count.textContent = String(i + 1).padStart(2, '0');
-      }
+  /* ---------- Signature: Bild links wechselt, wenn ein Text die Bildmitte erreicht ---------- */
+  const sig = $('#signature');
+  if (sig) {
+    const frames = $$('.sig-x__frame', sig), items = $$('.sig-x__item', sig);
+    const count = $('.sig-x__count', sig), name = $('.sig-x__name', sig);
+    const show = i => {
+      frames.forEach((f, k) => f.classList.toggle('is-active', k === i));
+      items.forEach((it, k) => it.classList.toggle('is-active', k === i));
+      count.textContent = String(i + 1).padStart(2, '0');
+      name.textContent = $('.sig-x__title', items[i]).textContent;
     };
-    addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    // Aktiv ist der Eintrag, dessen Mitte der Bildschirmmitte am nächsten liegt (robust auch bei Sprüngen)
+    let cur = 0, ticking = false;
+    const pick = () => {
+      ticking = false;
+      const mid = innerHeight / 2;
+      let best = cur, bd = Infinity;
+      items.forEach((it, k) => { const r = it.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = k; } });
+      if (best !== cur) { cur = best; show(best); }
+    };
+    const onSigScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } };
+    addEventListener('scroll', onSigScroll, { passive: true });
+    if (lenis) lenis.on('scroll', onSigScroll);
+    pick();
   }
 
   if (hasGsap && !reduce) {
@@ -83,9 +85,11 @@
       });
     }
 
-    /* Hero: Inhalt gleitet beim Wegscrollen weich zurück */
-    const heroText = $('.hero .lg\\:col-span-6');
-    if (heroText) gsap.to(heroText, { yPercent: -5, opacity: .55, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    /* Hero: zwei Bilder bewegen sich sanft gegeneinander (Hauptbild -30px, Detail +20px) */
+    $$('[data-hero-parallax]').forEach(el => {
+      gsap.fromTo(el, { y: 0 }, { y: parseFloat(el.dataset.heroParallax), ease: 'none',
+        scrollTrigger: { trigger: '.hero-x', start: 'top top', end: 'bottom top', scrub: 1.2 } });
+    });
 
     /* Galerie-Bilder: leichte Parallaxe innerhalb der Rahmen */
     $$('.g-item img, .menu-img img').forEach(img => {
@@ -101,48 +105,7 @@
     const wm = $('.wordmark');
     if (wm) gsap.fromTo(wm, { yPercent: 40, opacity: .02 }, { yPercent: 0, opacity: .09, ease: 'none', scrollTrigger: { trigger: wm, start: 'top bottom', end: 'bottom bottom', scrub: true } });
 
-    /* Laufband: Tempo und Neigung folgen der Scroll-Geschwindigkeit */
-    const track = $('.marquee-track');
-    if (track) {
-      track.style.animation = 'none';
-      let x = 0, speed = 0.45;
-      const half = () => track.scrollWidth / 2;
-      gsap.ticker.add(() => {
-        const v = lenis ? Math.abs(lenis.velocity) : 0;
-        speed += ((0.45 + Math.min(v * 0.12, 1.8)) - speed) * 0.04;
-        x -= speed;
-        const w = half(); if (x <= -w) x += w;
-        track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
-      });
-    }
-
     addEventListener('load', () => ScrollTrigger.refresh());
-  }
-
-  /* ---------- Eigener Cursor ---------- */
-  if (fine && !reduce) {
-    const cur = $('.cursor'), ring = $('.cursor-ring'), dot = $('.cursor-dot'), label = $('.cursor-label');
-    document.documentElement.classList.add('has-cursor');
-    cur.classList.add('is-hidden'); // erst sichtbar, wenn die Maus sich bewegt
-    let mx = -100, my = -100, rx = mx, ry = my, first = true;
-    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (first) { rx = mx; ry = my; first = false; } cur.classList.remove('is-hidden'); }, { passive: true });
-    document.addEventListener('pointerleave', () => cur.classList.add('is-hidden'));
-    const tick = () => {
-      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-      dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
-      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-    document.addEventListener('pointerover', e => {
-      const media = e.target.closest('.g-item, .sc-img, .menu-visual, .bridge-img, .hero-visual, .studio-ambient');
-      const link = e.target.closest('a, button, [role="tab"], summary, input, .leaflet-marker-icon');
-      cur.classList.toggle('is-media', !!media && !link);
-      cur.classList.toggle('is-link', !!link);
-      label.textContent = media ? (media.classList.contains('g-item') ? 'Ziehen' : 'Ansehen') : '';
-      const onPine = e.target.closest('.section-pine');
-      ring.style.borderColor = ''; if (onPine && !media) ring.style.borderColor = 'rgba(200,170,110,.9)';
-    });
   }
 
   /* ---------- Floating Image Reveal: Foto schwebt träge neben der Maus ---------- */
@@ -166,24 +129,6 @@
       requestAnimationFrame(tick);
     };
     tick();
-  }
-
-  /* ---------- Magnetische Buttons ---------- */
-  if (fine && !reduce) {
-    $$('.btn, .gal-btn, .c-launch, .brand-mark').forEach(el => {
-      el.setAttribute('data-magnetic', '');
-      const strength = el.classList.contains('btn') ? 0.16 : 0.22;
-      el.addEventListener('pointermove', e => {
-        const r = el.getBoundingClientRect();
-        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-        el.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
-        el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
-      });
-      el.addEventListener('pointerleave', () => {
-        el.style.transition = 'transform 1s cubic-bezier(.16,1,.3,1)';
-        el.style.transform = '';
-      });
-    });
   }
 
   /* ---------- Interaktive Karte (lädt erst nach Klick, DSGVO) ---------- */
